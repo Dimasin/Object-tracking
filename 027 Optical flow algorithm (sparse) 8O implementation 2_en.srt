@@ -1,0 +1,664 @@
+1
+00:00:00,460 --> 00:00:07,660
+Hello and welcome to this lecture, where we are going to finish the implementation of the optical flow
+
+2
+00:00:07,670 --> 00:00:09,160
+spa's algorithm.
+
+3
+00:00:09,400 --> 00:00:19,300
+Just a reminder that last lecture we defined the parameters we are using parameters sheet Tomasi and
+
+4
+00:00:19,300 --> 00:00:22,240
+then we are sending the parameters.
+
+5
+00:00:22,570 --> 00:00:30,250
+Should this function, good features should track and we are also sending the first frame of the video.
+
+6
+00:00:30,700 --> 00:00:37,600
+The algorithm will detect 38 corners are thirty eight points.
+
+7
+00:00:37,930 --> 00:00:44,170
+We can see here the position of the points, the X and Y axis.
+
+8
+00:00:44,560 --> 00:00:53,980
+The tracking will start by these points here, where we are going to go through each one of the frames
+
+9
+00:00:53,980 --> 00:00:54,880
+of the video.
+
+10
+00:00:55,270 --> 00:00:58,060
+Let's implement the while loop.
+
+11
+00:00:58,810 --> 00:00:59,560
+OK.
+
+12
+00:00:59,890 --> 00:01:06,820
+And frame cap that reads We are reading each frame of the video.
+
+13
+00:01:07,480 --> 00:01:12,010
+Now we need to convert the frame to grayscale.
+
+14
+00:01:12,310 --> 00:01:19,590
+Let's create the new variable frame rate, spiritual severity, koala.
+
+15
+00:01:20,230 --> 00:01:31,070
+Let's send the original frame in the RGV format and let's convert koala BGR to sugary.
+
+16
+00:01:31,450 --> 00:01:37,270
+This is the same code we implemented here, and we also saw the results.
+
+17
+00:01:37,600 --> 00:01:46,630
+Now I will create three new variables new edges start those and errors.
+
+18
+00:01:47,110 --> 00:01:49,940
+They will be equal to see visual.
+
+19
+00:01:50,260 --> 00:01:57,520
+Now we call the optical flow algorithm, we can use the function calc.
+
+20
+00:01:57,960 --> 00:02:09,280
+OK, goal flow b, why are Al K, which means the k l the methods they cannot.
+
+21
+00:02:09,280 --> 00:02:11,140
+Lucas and Tomasetti.
+
+22
+00:02:11,800 --> 00:02:17,800
+That's mathematical calculations that will use the concepts of pyramids.
+
+23
+00:02:18,190 --> 00:02:27,130
+So it's important to emphasize that in the first part of the algorithm, we only get the coroners,
+
+24
+00:02:27,130 --> 00:02:36,250
+the initial coroners, and now we are using these methods in order to reduce this size of the image
+
+25
+00:02:36,460 --> 00:02:38,980
+using the concept of parameters.
+
+26
+00:02:39,310 --> 00:02:45,490
+And these parts of the algorithm that will track the objects.
+
+27
+00:02:45,790 --> 00:02:46,960
+Just a reminder.
+
+28
+00:02:47,380 --> 00:02:57,580
+We can assume that this part here is the current frame and the right bards is the next frame of the
+
+29
+00:02:57,580 --> 00:02:58,180
+video.
+
+30
+00:02:58,900 --> 00:03:03,370
+Blathers L K means Lucas can eight.
+
+31
+00:03:03,670 --> 00:03:06,640
+And now we need to specify some parameters.
+
+32
+00:03:06,970 --> 00:03:10,690
+The first one is frame grey units.
+
+33
+00:03:11,020 --> 00:03:13,210
+The first frame of the video.
+
+34
+00:03:13,480 --> 00:03:21,280
+Just a reminder that we are extracting the initial edges from this frame here.
+
+35
+00:03:21,760 --> 00:03:31,640
+Then the X parameter is frame grey, the current frame, so the calculations can be done using both
+
+36
+00:03:31,640 --> 00:03:34,900
+four frames, the current and the initial.
+
+37
+00:03:35,350 --> 00:03:42,130
+We are simulating these calculations between the images here, the pyramids.
+
+38
+00:03:42,580 --> 00:03:49,930
+We also need to sand the edges that were found in the first frame of the video.
+
+39
+00:03:50,620 --> 00:03:54,730
+Lorne is a parameter related to the mask.
+
+40
+00:03:54,730 --> 00:03:56,650
+We are not going to use it.
+
+41
+00:03:56,920 --> 00:04:08,050
+And finally, let's sand here parameter Lucas cannot this variable we defined here with this size of
+
+42
+00:04:08,050 --> 00:04:16,959
+the window and also with the Level R, the number of layers in the pyramids, we can open this single
+
+43
+00:04:16,959 --> 00:04:24,070
+tracking file just a reminder that we first initialize the algorithm.
+
+44
+00:04:24,520 --> 00:04:33,790
+And then after each one of the frames, we get a new balding box calling the update function.
+
+45
+00:04:34,240 --> 00:04:36,670
+This part is quite similar.
+
+46
+00:04:36,940 --> 00:04:47,460
+First, we get the initial edges and this function will perform the calculations in order to track our
+
+47
+00:04:47,470 --> 00:04:55,870
+full update to the points, they can look here that we are sending the initial edges that were found
+
+48
+00:04:55,870 --> 00:04:59,410
+in the first frame of the video and then.
+
+49
+00:04:59,960 --> 00:05:09,470
+This variable new edge will get to the next position of the objects are the next position of the edges.
+
+50
+00:05:10,160 --> 00:05:13,550
+In short, we are updating the positions.
+
+51
+00:05:13,910 --> 00:05:22,250
+This variable will control if we can keep track the object, it will return one.
+
+52
+00:05:22,610 --> 00:05:32,300
+If the algorithm can continue tracking the object and zero indicate that the algorithm cannot track
+
+53
+00:05:32,300 --> 00:05:38,000
+the object anymore, and we can also see some error messages.
+
+54
+00:05:38,240 --> 00:05:40,850
+We are not going to use this variable.
+
+55
+00:05:41,250 --> 00:05:52,850
+Let's create the news variable, which will be equal to new edges, the new X and Y position of each
+
+56
+00:05:52,850 --> 00:06:00,920
+one of the corners, and we need to get the ones with state those equals one.
+
+57
+00:06:01,340 --> 00:06:05,030
+So it means we can keep tracking the edge.
+
+58
+00:06:05,570 --> 00:06:11,780
+Let's create the old variable, which will be equal to X.
+
+59
+00:06:12,560 --> 00:06:15,710
+Also, that those equals one.
+
+60
+00:06:16,280 --> 00:06:21,440
+Both variables are used to simulate this part here.
+
+61
+00:06:21,830 --> 00:06:26,750
+We can consider that old is this variable.
+
+62
+00:06:27,410 --> 00:06:34,480
+The previous position off the edge and new is this part here?
+
+63
+00:06:34,820 --> 00:06:37,640
+The next position of the edge.
+
+64
+00:06:38,060 --> 00:06:49,670
+So then we can apply the optical flow calculations in order to find you and the values that will indicate
+
+65
+00:06:49,880 --> 00:06:56,480
+the next direction of the coroner or the next direction of the object.
+
+66
+00:06:57,020 --> 00:07:07,520
+As there are 38 points considering this frame, we need to go through each one of this points to visualize
+
+67
+00:07:07,520 --> 00:07:17,660
+their results because these while loop is going through each one of the frames and we are tracking 38
+
+68
+00:07:17,660 --> 00:07:22,760
+objects are 38 coroners in each one of the frames.
+
+69
+00:07:23,210 --> 00:07:33,200
+So we need to implement a model loop here for a new and old show variables.
+
+70
+00:07:33,220 --> 00:07:42,560
+I'm creating now in enumerate and now we need to go through Neo's and all variable.
+
+71
+00:07:42,920 --> 00:07:49,130
+Each one of the thirty eight values show each one of these variables here.
+
+72
+00:07:49,430 --> 00:07:59,090
+As we are accessing two variables in the far loop, we need to add this code here Zip Nils and Oates
+
+73
+00:07:59,390 --> 00:08:06,080
+so we can get the values of both variables at this same far loop.
+
+74
+00:08:06,560 --> 00:08:08,360
+Let's get to the points.
+
+75
+00:08:08,900 --> 00:08:13,220
+A B equals new dot ratio.
+
+76
+00:08:13,670 --> 00:08:19,100
+This code is used to convert a matrix into a vector.
+
+77
+00:08:19,610 --> 00:08:29,810
+Let's Grade C and the points holds the travel variable A and B where we start.
+
+78
+00:08:29,960 --> 00:08:36,320
+The new value are the new position of the coroner, on the other hand.
+
+79
+00:08:36,559 --> 00:08:43,490
+C and D variables, we start the previous position of the coroner.
+
+80
+00:08:44,240 --> 00:08:52,370
+Let's create another variable mask CV tube line mask.
+
+81
+00:08:52,910 --> 00:09:02,690
+Let's send here a and B the new position C and D the previous position.
+
+82
+00:09:02,990 --> 00:09:13,580
+Let's sexists collars to position, i.e. when we use enumerate function, we are going to copy to the
+
+83
+00:09:13,610 --> 00:09:14,930
+AI variable.
+
+84
+00:09:15,440 --> 00:09:18,530
+The current is it show off the far loop.
+
+85
+00:09:18,860 --> 00:09:28,130
+For example, in the first time we run this far loop variable, I will be equal to zero, then it will
+
+86
+00:09:28,130 --> 00:09:36,920
+be equal to one, two, three and so on, and we are going to use this variable to access this list
+
+87
+00:09:36,920 --> 00:09:38,120
+of colors.
+
+88
+00:09:38,630 --> 00:09:47,240
+Just a reminder that we are initializing at random collars in order to print each one of the gardeners
+
+89
+00:09:47,240 --> 00:09:49,220
+with a different color.
+
+90
+00:09:49,460 --> 00:09:58,890
+And in this variable mask, we just needs to convert to the list for months and this size of delight
+
+91
+00:09:59,240 --> 00:09:59,440
+in.
+
+92
+00:09:59,580 --> 00:10:06,930
+Some minutes, we're going to see the results of this function, but in short, it will draw a line
+
+93
+00:10:07,170 --> 00:10:16,020
+to follow the object similar to this one here so we can see where the object is moving.
+
+94
+00:10:16,710 --> 00:10:20,310
+Let's access the frame servitude.
+
+95
+00:10:20,760 --> 00:10:30,530
+But let's draw a circle in each one of the points frame position A and B.
+
+96
+00:10:30,930 --> 00:10:35,010
+Five Is this size colors.
+
+97
+00:10:36,380 --> 00:10:46,910
+Position I will list and the thickness of the circle minus one, after processing the points and drawing
+
+98
+00:10:46,910 --> 00:10:52,010
+the results in the video, I will create a new variable.
+
+99
+00:10:52,020 --> 00:11:01,100
+You might see richer dots at Frame and Musk and then sift through.
+
+100
+00:11:01,490 --> 00:11:05,660
+I am sure the title of the window.
+
+101
+00:11:05,930 --> 00:11:08,720
+Optical flow spa's.
+
+102
+00:11:09,020 --> 00:11:13,520
+And let's put here I am the new variable.
+
+103
+00:11:13,820 --> 00:11:23,690
+This is an open civil codes to keep the results of both variables in the same window, so we are adding
+
+104
+00:11:23,690 --> 00:11:26,180
+them instead of using.
+
+105
+00:11:26,510 --> 00:11:32,960
+Sure, I am sure we can odds both windows to show both results.
+
+106
+00:11:32,960 --> 00:11:34,910
+The line and this circle.
+
+107
+00:11:35,510 --> 00:11:43,190
+If spiritual weight Q one equals 13.
+
+108
+00:11:43,550 --> 00:11:50,860
+It means the +3 button in the keyboards, then we will break the equation.
+
+109
+00:11:51,440 --> 00:12:00,110
+And finally frame grey units equals frame grey dots copy.
+
+110
+00:12:00,410 --> 00:12:09,050
+This is a very important codes because at the first is inclusion, we are using the first frame of the
+
+111
+00:12:09,050 --> 00:12:12,140
+video to initialize the algorithm.
+
+112
+00:12:12,410 --> 00:12:21,500
+However, when we keep processing the video, we need to compare the previous frame with the next frame.
+
+113
+00:12:22,040 --> 00:12:24,950
+So we need to keep updating.
+
+114
+00:12:24,950 --> 00:12:27,830
+This variable at the first is a commercial.
+
+115
+00:12:28,220 --> 00:12:36,980
+We will get to hear the first frame of the video, but when we go through to the second, to the third
+
+116
+00:12:36,980 --> 00:12:44,660
+to define our frame of the video, we needs to update using the frame gray.
+
+117
+00:12:45,020 --> 00:12:48,560
+So in this section is crucial of the far loop.
+
+118
+00:12:48,980 --> 00:12:58,310
+The frame gray needs will be equal to the previous frame, and we will compare it with the current frame
+
+119
+00:12:58,310 --> 00:13:03,080
+of the video, always making this spider image calculation.
+
+120
+00:13:03,560 --> 00:13:07,670
+The previous and the current, the previous and the current.
+
+121
+00:13:08,300 --> 00:13:18,710
+And finally, we also need to update Edge is variable because take a look here that we have the initial
+
+122
+00:13:18,710 --> 00:13:26,270
+position off the corners and we need to update according to the new position.
+
+123
+00:13:26,540 --> 00:13:30,890
+Similar should this concept here, the frame gray in it.
+
+124
+00:13:31,280 --> 00:13:35,040
+So now we can just spot here miles.
+
+125
+00:13:35,450 --> 00:13:45,020
+And in order to have in the correct formats, let's type reshape minus one, one and two just two boards
+
+126
+00:13:45,020 --> 00:13:46,880
+in the correct format.
+
+127
+00:13:47,120 --> 00:13:50,990
+Choose Sans should the optical flow function here.
+
+128
+00:13:51,560 --> 00:14:03,380
+And after the while loop switcher destroy all windows and cap really is to release memory.
+
+129
+00:14:03,920 --> 00:14:14,120
+Now let's run the code and perform the first test, and we can see one year or a year in the line function
+
+130
+00:14:14,510 --> 00:14:19,730
+and it happens on the line and also in this circle function.
+
+131
+00:14:20,150 --> 00:14:28,190
+Because this A, B, C and D are floats and we need to code words to integers.
+
+132
+00:14:28,430 --> 00:14:45,470
+So we just need to type in A and B and C and D and here and A and ends B.
+
+133
+00:14:46,010 --> 00:14:48,860
+Now we can run the codes again.
+
+134
+00:14:49,220 --> 00:14:54,290
+We can open the window and we can see our results.
+
+135
+00:14:54,590 --> 00:15:00,620
+We can take a look at a lot of corners that were detected.
+
+136
+00:15:00,980 --> 00:15:08,900
+Some of them are not moving like these ones in the car and in some parts of the grass here.
+
+137
+00:15:10,030 --> 00:15:18,250
+And there is no problem about it, because as we discussed before, the goal of this implementation
+
+138
+00:15:18,490 --> 00:15:27,610
+is to detect the 38 coroners in the first frame of the video and then we can track them.
+
+139
+00:15:28,090 --> 00:15:37,270
+We could see that some of the points were related to people moving so we could draw that line tracking
+
+140
+00:15:37,300 --> 00:15:44,970
+all the movement of the person during the entire video and when the processing of the video.
+
+141
+00:15:44,980 --> 00:15:54,850
+And you may see one ear horror here at the console and it is happening in this line here when we are
+
+142
+00:15:54,850 --> 00:15:58,630
+trying to convert the frame to greyscale.
+
+143
+00:15:59,050 --> 00:16:03,490
+And it happens because it's missing an important code here.
+
+144
+00:16:03,820 --> 00:16:13,120
+If not, OK, if we are not able to read the frame, then we can just break this.
+
+145
+00:16:13,120 --> 00:16:21,760
+While loop through is stop is a good thing, we can try to run this code again just to make sure that
+
+146
+00:16:21,760 --> 00:16:25,510
+this error is not being returned anymore.
+
+147
+00:16:28,600 --> 00:16:37,690
+After processing the frames, the Ihor is not appearing, so now our code is OK and we can take a look
+
+148
+00:16:37,990 --> 00:16:40,000
+at this part here.
+
+149
+00:16:40,270 --> 00:16:50,170
+Just a reminder that we are in the frame and also the mask instead of showing I am the new variable.
+
+150
+00:16:50,470 --> 00:16:54,880
+We can just show the original frame.
+
+151
+00:16:55,360 --> 00:17:03,220
+Let's run the codes again, and we can see only the coroners this year course.
+
+152
+00:17:04,900 --> 00:17:08,569
+It is related to this implementation.
+
+153
+00:17:08,589 --> 00:17:18,310
+Here we are detecting the points are the gardeners and we are drawing this circle together with the
+
+154
+00:17:18,310 --> 00:17:19,089
+object.
+
+155
+00:17:19,540 --> 00:17:23,319
+We can also take a look at the mask.
+
+156
+00:17:23,619 --> 00:17:33,950
+Just a reminder that this variable is composed of only zeros which are related to the black caller.
+
+157
+00:17:34,450 --> 00:17:41,440
+Let's run the code again, and we can see a very interesting visualization.
+
+158
+00:17:41,770 --> 00:17:50,560
+We can see the lines according to the movement of the objects and see these other points here with no
+
+159
+00:17:50,560 --> 00:17:51,370
+movement.
+
+160
+00:17:51,790 --> 00:17:54,280
+And you combine both of them.
+
+161
+00:17:54,490 --> 00:17:56,290
+We can use the image.
+
+162
+00:17:57,370 --> 00:18:06,670
+Run this code again and we can see the corners and also the lines, according to the movement of the
+
+163
+00:18:06,670 --> 00:18:07,480
+objects.
+
+164
+00:18:07,840 --> 00:18:11,020
+And that's all for this first implementation.
+
+165
+00:18:11,290 --> 00:18:20,020
+And in the next lecture, we are going to select the object that one should track instead of generating
+
+166
+00:18:20,020 --> 00:18:23,980
+the edges, according should the algorithm see you there.
+

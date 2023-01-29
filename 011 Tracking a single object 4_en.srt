@@ -1,0 +1,272 @@
+1
+00:00:00,180 --> 00:00:07,860
+Hello and welcome to this lecture, where we are going to perform tests using all algorithms and compare
+
+2
+00:00:07,860 --> 00:00:08,610
+to results.
+
+3
+00:00:08,820 --> 00:00:16,079
+First, let's test the boosting algorithms as you learn in the lectures.
+
+4
+00:00:16,320 --> 00:00:19,140
+This is one of the simplest algorithms.
+
+5
+00:00:19,410 --> 00:00:21,960
+So the results are not so good.
+
+6
+00:00:22,530 --> 00:00:28,800
+Let's select the object we want should track breasts and there.
+
+7
+00:00:29,870 --> 00:00:38,180
+We can see that after only some seconds, the balding box is outside the objects.
+
+8
+00:00:38,510 --> 00:00:41,270
+In other words, we have that problem.
+
+9
+00:00:41,570 --> 00:00:48,770
+That's the algorithm loses the object, so it has its good results in this video.
+
+10
+00:00:49,370 --> 00:00:58,070
+Let's move on to the next algorithm, which is MDL, the one we tested last lecture.
+
+11
+00:00:58,610 --> 00:01:09,320
+Let's select your runner press and there we can see that it is bad there then boasting it can drag the
+
+12
+00:01:09,320 --> 00:01:10,100
+object.
+
+13
+00:01:10,400 --> 00:01:19,160
+But there is a problem, as we saw last lecture that after some frames, it loses the objects and it's
+
+14
+00:01:19,160 --> 00:01:20,930
+since it is tracking.
+
+15
+00:01:20,930 --> 00:01:31,250
+That's either runner and lots, the one which selects Let's try c f no to run this code.
+
+16
+00:01:32,210 --> 00:01:36,410
+Let's select the objects press.
+
+17
+00:01:36,410 --> 00:01:44,960
+And there we can see that it is a very fast algorithm according to what you learn in the two lectures,
+
+18
+00:01:45,260 --> 00:01:52,640
+and it has good results badder than boasting and mew in this type of video.
+
+19
+00:01:53,330 --> 00:02:06,470
+Let's move on to the next one, which is state run this code select the object press and there you can
+
+20
+00:02:06,470 --> 00:02:09,139
+see this message tracking failure.
+
+21
+00:02:10,639 --> 00:02:19,160
+And the algorithm couldn't drag the object, it lose the object at the beginning, and you can see here
+
+22
+00:02:19,180 --> 00:02:21,320
+some other building blocks.
+
+23
+00:02:21,950 --> 00:02:29,860
+The algorithm has into good results and we can take a look at the of the ear that's massaged.
+
+24
+00:02:29,900 --> 00:02:37,640
+Tracking failure is shown when the algorithm who then generates the building blocks.
+
+25
+00:02:38,000 --> 00:02:49,040
+You could see that after some time, some other building blocks are generated at the video, which indicates
+
+26
+00:02:49,460 --> 00:02:56,060
+that the building blocks was updated but not in the correct location.
+
+27
+00:02:56,870 --> 00:03:04,580
+In this execution, here we can see that the algorithm wasn't able to generate any building blocks,
+
+28
+00:03:05,090 --> 00:03:10,190
+so it has terrible results considering this case is 30.
+
+29
+00:03:10,640 --> 00:03:19,610
+The interesting points about knowing the basic intuition about these algorithms is that you can know
+
+30
+00:03:19,610 --> 00:03:22,880
+better the way each one behave.
+
+31
+00:03:23,240 --> 00:03:31,820
+So you'll need to look past them all in order to choose the best one according to your type of application.
+
+32
+00:03:32,180 --> 00:03:40,580
+Maybe in this scenario, the L.D has terrible results, but in this scenario that you are working,
+
+33
+00:03:40,790 --> 00:03:43,430
+it may be the best results.
+
+34
+00:03:43,640 --> 00:03:46,850
+So it's a matter of testing the algorithms.
+
+35
+00:03:47,570 --> 00:03:52,760
+Now let's move on to the next one, which is median flow.
+
+36
+00:03:54,890 --> 00:03:57,440
+Let's create the building blocks.
+
+37
+00:03:57,620 --> 00:03:58,480
+Press and.
+
+38
+00:03:59,210 --> 00:04:08,780
+We can see that it has in good results again tracking failure and some other bounding boxes were generated
+
+39
+00:04:09,230 --> 00:04:11,090
+outside the objects.
+
+40
+00:04:12,050 --> 00:04:21,230
+Let's try to define and order building blocks a smaller building blocks a year press and there.
+
+41
+00:04:22,680 --> 00:04:26,370
+No improvements in the results using this algorithm.
+
+42
+00:04:26,670 --> 00:04:29,610
+You can see that it is a fast algorithm.
+
+43
+00:04:30,060 --> 00:04:41,040
+Now let's move on to the next one, which is the muse algorithm selects the runner press and third.
+
+44
+00:04:42,310 --> 00:04:48,190
+We couldn't even generate the building blocks in the first frames of the video.
+
+45
+00:04:48,490 --> 00:04:51,310
+We got the message tracking failure.
+
+46
+00:04:51,940 --> 00:04:54,160
+Let's try another test.
+
+47
+00:04:54,580 --> 00:05:01,300
+For example, selecting a smaller building box presenter.
+
+48
+00:05:02,460 --> 00:05:12,690
+We can see that the body box was generated, but this video is too fast for this algorithm, so we want
+
+49
+00:05:12,690 --> 00:05:14,490
+to get good results.
+
+50
+00:05:14,820 --> 00:05:25,170
+And finally, let's perform the test using the best algorithm of all these ones here the c s r d.
+
+51
+00:05:26,580 --> 00:05:29,910
+Let's select the runner press.
+
+52
+00:05:29,910 --> 00:05:39,930
+And there you can see that it is a lower algorithm if compares to the others, but we can see that it
+
+53
+00:05:39,930 --> 00:05:44,100
+can track the drug runner until the end of the video.
+
+54
+00:05:45,580 --> 00:05:53,890
+Let's change again, should the milk algorithm and the farm at the last test.
+
+55
+00:05:54,490 --> 00:05:59,830
+I will try to track only the heads of this person here.
+
+56
+00:06:00,130 --> 00:06:03,170
+Press and there we cannot track.
+
+57
+00:06:03,220 --> 00:06:07,870
+The algorithm wasn't able and we can see the message tracking failure.
+
+58
+00:06:08,440 --> 00:06:09,700
+Let's change again.
+
+59
+00:06:10,450 --> 00:06:12,060
+See as our team.
+
+60
+00:06:13,060 --> 00:06:15,970
+Let's select the hands.
+
+61
+00:06:16,780 --> 00:06:23,020
+And in this part two here, even when the heads were very close.
+
+62
+00:06:23,410 --> 00:06:31,300
+The algorithm could correctly track this heads here, so it has very good results.
+
+63
+00:06:31,840 --> 00:06:40,270
+And again, when you are developing your own application, I encourage you to test all the algorithms
+
+64
+00:06:40,540 --> 00:06:48,340
+so you can choose the best one according to the type of application you are developing, and they encourage
+
+65
+00:06:48,340 --> 00:06:55,060
+you to download author videos and try to pass these algorithms.
+
+66
+00:06:55,360 --> 00:07:06,040
+And the next lecture, we will implement mode tracking, so we'll be able to select more than one object
+
+67
+00:07:06,040 --> 00:07:08,020
+should track in this same video.
+
+68
+00:07:08,440 --> 00:07:09,130
+See you there!
+

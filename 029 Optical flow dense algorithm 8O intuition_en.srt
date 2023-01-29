@@ -1,0 +1,128 @@
+1
+00:00:00,330 --> 00:00:07,950
+Hello and welcome to this lecture, where you are going to learn the basic intuition about another type
+
+2
+00:00:07,950 --> 00:00:14,280
+of the optical flow algorithm, which is the dance, as you can read, the here.
+
+3
+00:00:14,580 --> 00:00:19,500
+The one you learned before was the optical flow sparse.
+
+4
+00:00:19,920 --> 00:00:27,960
+All mathematical concepts and calculations, especially the concept of pyramids, are the same.
+
+5
+00:00:27,990 --> 00:00:31,140
+And we will only see what is different.
+
+6
+00:00:31,740 --> 00:00:41,970
+The main difference is that sparse optical flow detects the coroner's only in the first frame, while
+
+7
+00:00:41,970 --> 00:00:44,700
+dance uses the full image.
+
+8
+00:00:45,090 --> 00:00:54,630
+Therefore, it is is a lower birth generally gives bad results in shards in this bar's algorithm.
+
+9
+00:00:54,870 --> 00:00:59,130
+The coroners are detected only in the initial frame.
+
+10
+00:00:59,550 --> 00:01:08,550
+And these same iguanas are used during the entire is it crucial, while in the dance algorithm, the
+
+11
+00:01:08,550 --> 00:01:12,150
+coroners are detected frame by frame.
+
+12
+00:01:12,780 --> 00:01:21,450
+There are several ways to implement this algorithm, and the one that's OpenSea uses is the fender back
+
+13
+00:01:21,450 --> 00:01:28,860
+methods, which uses a linear algebra concept called polynomial expansion.
+
+14
+00:01:29,100 --> 00:01:37,230
+We will see more detail about this name here in the implementations to understand the differences between
+
+15
+00:01:37,230 --> 00:01:40,510
+the two techniques spires and dance.
+
+16
+00:01:40,530 --> 00:01:51,480
+We can look at this image on the left is espoirs, and on your right is dance as we can see and implement
+
+17
+00:01:51,480 --> 00:01:59,550
+it before spa's gets a few pixels that represent the edges and the corners of the image.
+
+18
+00:02:00,000 --> 00:02:10,050
+And then it is possible to draw a line that indicates the path of the object, which is nothing more
+
+19
+00:02:10,050 --> 00:02:19,260
+than tracking something that is that's generally the object is not selected on the order of hands.
+
+20
+00:02:19,530 --> 00:02:30,630
+The dance algorithm lets you select the entire object, as you can see here is possible to see the shape
+
+21
+00:02:30,690 --> 00:02:31,110
+of the.
+
+22
+00:02:32,460 --> 00:02:34,050
+Earlier, I command the.
+
+23
+00:02:34,050 --> 00:02:41,060
+It's that the quality could be bad there, and we can see that this pass cannot drag.
+
+24
+00:02:41,070 --> 00:02:43,710
+Could this yellow car here?
+
+25
+00:02:44,130 --> 00:02:53,550
+Whereas the dance algorithm can, as you can see here, where I am pointing the mouse Big Color is more
+
+26
+00:02:53,550 --> 00:02:57,570
+intense for objects close to the camera.
+
+27
+00:02:57,810 --> 00:03:07,140
+For example, for this car here and less in bands for objects fired from the camera here on the bridge.
+
+28
+00:03:07,710 --> 00:03:13,020
+If the object is not moving, it is not detected.
+
+29
+00:03:13,440 --> 00:03:21,060
+This bar's algorithm is tracking here the edge of the roads on the order of hands.
+
+30
+00:03:21,490 --> 00:03:28,740
+Here, the image is black, indicating that the edge of the road will not be tracked.
+
+31
+00:03:29,280 --> 00:03:33,870
+And that's all for the basic differences between the algorithms.
+
+32
+00:03:34,140 --> 00:03:40,050
+In the next lecture, we are going to implemented using open SIFI sealed air.
+

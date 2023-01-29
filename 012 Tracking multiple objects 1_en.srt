@@ -1,0 +1,176 @@
+1
+00:00:00,580 --> 00:00:08,050
+Hello and welcome to this lecture, where we are going to implement multiple tracking, if you remember
+
+2
+00:00:08,290 --> 00:00:18,700
+last lectures, we implemented this single tracking that the goal is to select only one object.
+
+3
+00:00:19,060 --> 00:00:27,460
+And in this implementation, we will allow the user to select as many objects he or she wants.
+
+4
+00:00:28,360 --> 00:00:41,170
+We can press ESC to quit this window and we'll create a new file new by won't file multiple tracking
+
+5
+00:00:41,590 --> 00:00:49,720
+and I will copy this code of the last example based it here.
+
+6
+00:00:50,020 --> 00:00:56,380
+And in this lecture will implement some improvements in this part, the EHR.
+
+7
+00:00:56,620 --> 00:01:04,090
+Remember that we need to put the year the number to get the name of the algorithm.
+
+8
+00:01:04,420 --> 00:01:07,570
+We will create a new function to be easier.
+
+9
+00:01:07,810 --> 00:01:12,000
+So the codes will be more organized, less great.
+
+10
+00:01:12,010 --> 00:01:22,870
+The function grades tracker by name it will receive as a parameter detractor type.
+
+11
+00:01:23,470 --> 00:01:32,560
+Let's implement and if statement if tracker type, which is this parameter, here we will sand's the
+
+12
+00:01:32,560 --> 00:01:42,040
+name of the algorithm and we will return the object if it is equal, should tracker types.
+
+13
+00:01:42,310 --> 00:01:47,690
+Now we are accessing this list here in position zero.
+
+14
+00:01:48,200 --> 00:02:03,070
+Then let's create the variable tracker switcher dots legacy dots tracker boasting create the same code
+
+15
+00:02:03,070 --> 00:02:09,160
+we had before Alief tracker type equals.
+
+16
+00:02:09,160 --> 00:02:21,690
+Let's access the list in position one, which means an AI algorithm Dan tracker will be equal to see
+
+17
+00:02:21,700 --> 00:02:27,860
+virtual legacy tracker meal create.
+
+18
+00:02:28,450 --> 00:02:38,410
+I have already typed all this code we can see here the definition of the key CRF DL, the median flow
+
+19
+00:02:38,410 --> 00:02:47,890
+Morse and C s d, and if we sends an invalid name, we can implement this.
+
+20
+00:02:47,890 --> 00:02:52,870
+Our statement tracker will be equal to none.
+
+21
+00:02:53,200 --> 00:02:58,480
+And let's Brian's a message invalid name.
+
+22
+00:02:58,810 --> 00:03:04,060
+And let's also bring the available list of trackers.
+
+23
+00:03:04,690 --> 00:03:16,720
+Let's type here available trackers, and let's go through each one of the trackers D and director types.
+
+24
+00:03:17,020 --> 00:03:24,400
+We are going through this list here to show the name of the available algorithms to the user.
+
+25
+00:03:24,640 --> 00:03:28,900
+I will brents the which is the name of the tracker.
+
+26
+00:03:29,260 --> 00:03:38,980
+This far loop is going through each one of the elements of the list and it is copy each one of the names
+
+27
+00:03:38,980 --> 00:03:40,180
+should the variable.
+
+28
+00:03:40,810 --> 00:03:42,310
+Then we print it.
+
+29
+00:03:42,730 --> 00:03:47,860
+And finally, let's return the object returns tracker.
+
+30
+00:03:48,160 --> 00:03:50,530
+Let's perform some tests.
+
+31
+00:03:51,310 --> 00:03:55,270
+We brands create tracker by name.
+
+32
+00:03:55,720 --> 00:03:59,260
+Let's send the here see s our theme.
+
+33
+00:03:59,830 --> 00:04:01,780
+We can run this code.
+
+34
+00:04:02,830 --> 00:04:06,460
+We can see that the object was returned.
+
+35
+00:04:06,820 --> 00:04:12,490
+So it means that this function is returning the tracker correctly.
+
+36
+00:04:12,820 --> 00:04:15,850
+I will copy and paste this code.
+
+37
+00:04:16,149 --> 00:04:25,930
+And if we type an invalid name here, for example, see as our date or we'll just put this in commands,
+
+38
+00:04:26,770 --> 00:04:28,060
+run this code.
+
+39
+00:04:28,390 --> 00:04:37,290
+See here the message invalid the name and then we can see the available trackers boosting nil, key
+
+40
+00:04:37,300 --> 00:04:39,030
+CRF and so on.
+
+41
+00:04:39,310 --> 00:04:48,640
+And at the end, none is returns because we are associating the tracker with an invalid object.
+
+42
+00:04:48,940 --> 00:04:57,370
+And this is the first part, just an improvement on the code we implemented before the next lecture.
+
+43
+00:04:57,380 --> 00:04:59,890
+We are going to continue the implementation.
+
+44
+00:05:00,310 --> 00:05:00,970
+See you there.
+

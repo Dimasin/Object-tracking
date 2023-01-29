@@ -1,0 +1,480 @@
+1
+00:00:00,180 --> 00:00:06,570
+Hello and welcome to this lecture, where we are going to finish the implementation of the mean shift
+
+2
+00:00:06,570 --> 00:00:13,770
+algorithm, as you could see, this is a quite more complex algorithm if we compare to the others.
+
+3
+00:00:14,010 --> 00:00:23,010
+We need to perform a lot of processing scenes, selecting the building blocks, converting the image
+
+4
+00:00:23,010 --> 00:00:30,900
+from RGV to age ASCII and also generate and realizing the histogram.
+
+5
+00:00:31,170 --> 00:00:40,290
+Just a reminder that the histogram will be used to perform the comparison between the frames, so the
+
+6
+00:00:40,290 --> 00:00:43,830
+algorithm will be able to track the object.
+
+7
+00:00:44,070 --> 00:00:48,810
+Now we need to define another variable parameters.
+
+8
+00:00:49,140 --> 00:00:56,120
+As the name suggests, this variable will star the parameters of the ME shift outwards.
+
+9
+00:00:56,910 --> 00:01:00,690
+And we will define parameters see ritual.
+
+10
+00:01:01,050 --> 00:01:06,960
+The first one is the term criteria EPS.
+
+11
+00:01:07,710 --> 00:01:14,860
+Then we can type this bar to the correct area counts.
+
+12
+00:01:15,300 --> 00:01:19,620
+Now we need to define the values for each one of them.
+
+13
+00:01:20,070 --> 00:01:27,870
+So our first one will be then we will copy number down to the first parameter.
+
+14
+00:01:28,290 --> 00:01:31,560
+And the second parameter will be one.
+
+15
+00:01:32,010 --> 00:01:40,970
+This value will be copied should these or other parameter, and we got this value from the documentation
+
+16
+00:01:41,010 --> 00:01:45,060
+of or basically we are using the default values.
+
+17
+00:01:45,630 --> 00:01:52,530
+We start from this point a year until year, adds should this central point.
+
+18
+00:01:54,240 --> 00:02:04,500
+The parameters simulate this flow until we get the object we want to track their height or devalue more
+
+19
+00:02:04,500 --> 00:02:10,080
+accurate to the algorithm is, however, the higher the value.
+
+20
+00:02:10,440 --> 00:02:18,990
+This lowered the algorithm is so if you don't have good results with the algorithm, you can try to
+
+21
+00:02:18,990 --> 00:02:21,000
+increase this value.
+
+22
+00:02:21,270 --> 00:02:25,170
+So the tendency is that the results will be better.
+
+23
+00:02:25,950 --> 00:02:35,880
+And regarding this second parameter, it indicates how sensible the algorithm is regarding changes in
+
+24
+00:02:35,880 --> 00:02:36,750
+the object.
+
+25
+00:02:37,080 --> 00:02:46,680
+For example, if in the first frame the object is close to the camera and in the next frame, the object
+
+26
+00:02:46,680 --> 00:02:48,810
+is fired from the camera.
+
+27
+00:02:49,080 --> 00:02:57,540
+This parameter will control the movements the object can make during the execution of the algorithm.
+
+28
+00:02:57,870 --> 00:03:01,380
+If you specify a big number here.
+
+29
+00:03:01,740 --> 00:03:09,070
+The algorithm won't be able to detect the changes in the object and similar to it.
+
+30
+00:03:09,450 --> 00:03:16,800
+Yes, you may try some values according to the type of video you are working with.
+
+31
+00:03:17,220 --> 00:03:23,970
+Now, let's implement the while loop travel through each one of the frames of the web.
+
+32
+00:03:24,920 --> 00:03:27,220
+We will create the variable.
+
+33
+00:03:27,300 --> 00:03:35,580
+OK and frame cap that reads We are reading the next frame of the web.
+
+34
+00:03:36,150 --> 00:03:47,820
+Similar to what we implemented using videos, if OK equals true, if we can access the next frame of
+
+35
+00:03:47,820 --> 00:03:53,280
+the video, then we will perform all the steps of the algorithm.
+
+36
+00:03:53,880 --> 00:04:02,190
+The first one we need to convert the frame that is coming from the web come from our view.
+
+37
+00:04:02,230 --> 00:04:12,830
+Be sure HSV spiritual severity, color frame see each quarter.
+
+38
+00:04:13,380 --> 00:04:16,769
+Be our true age as V.
+
+39
+00:04:17,130 --> 00:04:25,520
+This is the first step because we need to put the current frame with the same four months off.
+
+40
+00:04:25,530 --> 00:04:26,700
+All right.
+
+41
+00:04:27,000 --> 00:04:35,850
+Just a reminder that we first select the object, then we converts should these crawl space.
+
+42
+00:04:36,360 --> 00:04:44,490
+So we need to keep this same format and we'll create another variable the C ritual.
+
+43
+00:04:44,790 --> 00:04:48,210
+And let's call an open C v function.
+
+44
+00:04:48,660 --> 00:04:50,580
+Calc back.
+
+45
+00:04:51,670 --> 00:04:59,560
+Garage yet, and I will stand to hear age as it is the current frame.
+
+46
+00:05:00,010 --> 00:05:02,830
+We are going to use only one channel.
+
+47
+00:05:03,280 --> 00:05:05,700
+Now we will stand here.
+
+48
+00:05:06,110 --> 00:05:17,090
+Roy Hurst, it is this variable here which called daisy formation about the histogram of the object,
+
+49
+00:05:17,140 --> 00:05:18,400
+which one should track.
+
+50
+00:05:18,820 --> 00:05:26,620
+So we are comparing the current frame with the object want should track.
+
+51
+00:05:27,310 --> 00:05:29,180
+It is this part.
+
+52
+00:05:29,200 --> 00:05:39,550
+Here we are comparing the original histogram of the object we are tracking with the current frame of
+
+53
+00:05:39,550 --> 00:05:40,390
+the video.
+
+54
+00:05:40,690 --> 00:05:50,800
+In short, this function will calculate the PDF or, in other words, the probability density function.
+
+55
+00:05:51,280 --> 00:06:00,100
+And now we need to specify the order parameters the interval zero to one hundred and eighty.
+
+56
+00:06:00,460 --> 00:06:04,660
+And the last parameter is this k of the image.
+
+57
+00:06:04,960 --> 00:06:06,790
+We will put one here.
+
+58
+00:06:07,000 --> 00:06:10,900
+So we will keep this same scale of the image.
+
+59
+00:06:11,170 --> 00:06:15,100
+We are not going to perform changes on the original image.
+
+60
+00:06:15,550 --> 00:06:23,470
+And in case you want to know more detail about these open funsho, you can follow this link.
+
+61
+00:06:24,210 --> 00:06:31,060
+Now we are going to call the mini shift where Adam will recreate OK.
+
+62
+00:06:31,120 --> 00:06:41,050
+Variable and also the track window, which will be equal to see which means shift.
+
+63
+00:06:41,470 --> 00:06:44,360
+And we are going to send here the.
+
+64
+00:06:45,610 --> 00:06:53,700
+The calculation that is called bearing the histogram of the object with the current frame.
+
+65
+00:06:54,190 --> 00:07:05,350
+And then we need to specify either X, Y, W and H, which is the position of the object.
+
+66
+00:07:05,710 --> 00:07:14,320
+We can take a look at these variables that were defined the year, which are equal to the boarding box.
+
+67
+00:07:14,770 --> 00:07:18,910
+So we are sending the position of the object.
+
+68
+00:07:19,450 --> 00:07:29,030
+And finally, the last parameter is this variable we define see here with the values for the HEEPS and
+
+69
+00:07:29,030 --> 00:07:30,700
+decoupled parameters.
+
+70
+00:07:31,630 --> 00:07:36,280
+This code is quite similar to this one here.
+
+71
+00:07:36,700 --> 00:07:46,510
+Tracker dots update where we are updating the position of the objects in the webcam and this is a key
+
+72
+00:07:46,510 --> 00:07:56,050
+variable will bear was if the algorithm was able to update the position of the building blocks.
+
+73
+00:07:56,710 --> 00:08:07,240
+Now we will recreate the variables X, Y W and H equals drag window.
+
+74
+00:08:07,450 --> 00:08:11,080
+We are updating the position of the object.
+
+75
+00:08:11,530 --> 00:08:22,330
+Now we can draw a rectangle switcher that rectangle frame, which is the image that is coming from the
+
+76
+00:08:22,330 --> 00:08:37,539
+webcam x y the initial position x plus w y plus h the color of the ball inbox zero, two, five, five
+
+77
+00:08:37,539 --> 00:08:42,039
+and zero and this size of the building blocks equals two.
+
+78
+00:08:42,460 --> 00:08:48,220
+Now we can draw the image I am show less Typekit here.
+
+79
+00:08:48,640 --> 00:09:04,600
+The name of the window means shift tracking the frame if see which way key equals 13, which means the
+
+80
+00:09:04,600 --> 00:09:09,430
+task key on the keyboard, then we break.
+
+81
+00:09:09,430 --> 00:09:15,010
+The is crucial and we have implemented these if you're at the top.
+
+82
+00:09:15,280 --> 00:09:22,990
+If we can continue reading the frames, then we can execute the mean shift algorithm.
+
+83
+00:09:23,350 --> 00:09:28,100
+Otherwise, if there is errors while you reading the frames.
+
+84
+00:09:28,420 --> 00:09:31,630
+We can just finish the execution of the Y.
+
+85
+00:09:31,660 --> 00:09:45,040
+Look at the and see the chalk destroy all windows and also tap dot release to release the memory.
+
+86
+00:09:45,760 --> 00:09:48,640
+Finally, let's perform the test.
+
+87
+00:09:49,150 --> 00:09:50,350
+I will run this.
+
+88
+00:09:50,660 --> 00:09:55,460
+But the first step is just select the building blocks.
+
+89
+00:09:55,880 --> 00:10:00,170
+I will select this is my one brass and third.
+
+90
+00:10:00,710 --> 00:10:05,060
+And now we can see that the algorithm is already working.
+
+91
+00:10:05,390 --> 00:10:15,260
+I can move the pan and the algorithm is dragging the pan using means shift even when the ban is in front
+
+92
+00:10:15,260 --> 00:10:16,430
+of my face.
+
+93
+00:10:16,970 --> 00:10:25,370
+The algorithm is still tracking the pan so we can see that we have good results that are two problems
+
+94
+00:10:25,370 --> 00:10:26,570
+with this algorithm.
+
+95
+00:10:26,930 --> 00:10:35,510
+The first one, if I move the band very quick, you can see that the algorithm cannot track kids anymore.
+
+96
+00:10:35,870 --> 00:10:43,370
+And if I move the band again near debugging blocks, we can the new tracking the object.
+
+97
+00:10:43,790 --> 00:10:52,910
+And the other problem is that if I put the band near the camera, we can see that the algorithm has
+
+98
+00:10:52,940 --> 00:10:53,900
+good results.
+
+99
+00:10:54,290 --> 00:11:00,710
+But the size of the building blocks is exactly the same as the initial position.
+
+100
+00:11:01,160 --> 00:11:06,830
+On the other hand, when they boards the band far from the camera.
+
+101
+00:11:07,190 --> 00:11:15,260
+We can see that the building blocks keeps the same size and we can implement an additional code.
+
+102
+00:11:15,680 --> 00:11:16,980
+Let's Typekit here.
+
+103
+00:11:17,240 --> 00:11:17,640
+See?
+
+104
+00:11:17,890 --> 00:11:27,070
+Sure, I am sure I will go to hear the DSD, which is the result of the probability being set differential.
+
+105
+00:11:27,560 --> 00:11:30,560
+And let's Typekit here DSD.
+
+106
+00:11:31,340 --> 00:11:34,070
+Let's run the algorithm again.
+
+107
+00:11:34,910 --> 00:11:44,990
+Let's select the building blocks grass and there, and we can see this order screen here, which is
+
+108
+00:11:44,990 --> 00:11:47,420
+the probability density function.
+
+109
+00:11:48,080 --> 00:11:56,960
+See that when I move the band, we keep the aspect of the object, which is the probability density
+
+110
+00:11:56,960 --> 00:12:05,300
+function, and we can visualize this type of results because the algorithm is based on Calder's.
+
+111
+00:12:05,600 --> 00:12:13,100
+See that when they boards the fan in front of my face, we can clearly see the band.
+
+112
+00:12:13,460 --> 00:12:21,890
+And even when they boards the band in the background of the video, it is possible to track and you
+
+113
+00:12:21,890 --> 00:12:27,590
+see the difference between the object and the other parts of the image.
+
+114
+00:12:28,040 --> 00:12:37,430
+We know that the band is yellow and my face has a different color, so we can see this contrast with
+
+115
+00:12:37,430 --> 00:12:40,820
+my face and the object one should track.
+
+116
+00:12:41,090 --> 00:12:45,230
+This is another kind of visualization for this algorithm.
+
+117
+00:12:45,770 --> 00:12:49,100
+Each tries to simulate this part here.
+
+118
+00:12:49,400 --> 00:12:57,860
+When we are calculating the density of the data points and the next lecture, you are going to learn
+
+119
+00:12:57,890 --> 00:13:04,430
+another algorithm that will increase or decrease the size of the balloting box.
+
+120
+00:13:04,730 --> 00:13:08,540
+According should the positioning of the object see you there.
+

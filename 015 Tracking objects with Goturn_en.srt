@@ -1,0 +1,288 @@
+1
+00:00:00,180 --> 00:00:07,500
+Hello and welcome to this lecture, where we are going to implement the equal third algorithm using
+
+2
+00:00:07,500 --> 00:00:10,410
+open CV in less lectures.
+
+3
+00:00:10,710 --> 00:00:18,060
+We can see that we implement it all or there's algorithms and it's missing third.
+
+4
+00:00:18,180 --> 00:00:25,680
+And the way we implement in a different file, as you can see here, because there is a small difference
+
+5
+00:00:25,680 --> 00:00:26,970
+on the implementation.
+
+6
+00:00:27,120 --> 00:00:35,250
+As you learned in the intuition lectures, this algorithm uses convolutional neural networks to perform
+
+7
+00:00:35,250 --> 00:00:35,880
+tracking.
+
+8
+00:00:36,210 --> 00:00:43,380
+So we need to load some additional files and we'll click here based.
+
+9
+00:00:43,830 --> 00:00:45,180
+See, that's true.
+
+10
+00:00:45,690 --> 00:00:48,180
+Files will be copied here.
+
+11
+00:00:48,370 --> 00:00:56,790
+Go Third Dot Pro to the X and go third Dot Fair Model.
+
+12
+00:00:56,880 --> 00:01:00,600
+You can get both files in the course materials.
+
+13
+00:01:01,110 --> 00:01:10,200
+Now we are going to implement an if statement just to make sure these files are in this same folder
+
+14
+00:01:10,200 --> 00:01:12,360
+as the source code here.
+
+15
+00:01:13,020 --> 00:01:18,630
+If not all s got fast is file.
+
+16
+00:01:19,020 --> 00:01:22,790
+Now we can by the name of the file go.
+
+17
+00:01:22,800 --> 00:01:31,770
+Those dots got Sam Wardle and in case you don't know, Gotham model is a deep learning framework.
+
+18
+00:01:32,070 --> 00:01:37,260
+So the neural network was strains using these framework.
+
+19
+00:01:37,560 --> 00:01:44,740
+This file contains the weights of the neural network, and these are their file here.
+
+20
+00:01:44,760 --> 00:01:46,020
+We can open it.
+
+21
+00:01:46,260 --> 00:01:50,250
+It has the data about the neural network.
+
+22
+00:01:50,460 --> 00:01:54,450
+For example, we can see here the convolutional layers.
+
+23
+00:01:54,900 --> 00:02:02,820
+Don't worry about understanding the structure of the neural network because this is not the goal of
+
+24
+00:02:02,820 --> 00:02:03,450
+the course.
+
+25
+00:02:03,810 --> 00:02:15,210
+You just need to load both files in order to work with this algorithm and all s there is file.
+
+26
+00:02:15,450 --> 00:02:21,270
+This function is used to check if the file exists in the folder.
+
+27
+00:02:21,600 --> 00:02:26,370
+Now let's type go through to the X state.
+
+28
+00:02:26,490 --> 00:02:31,770
+If we can't loads both files, let's bring the message.
+
+29
+00:02:32,470 --> 00:02:43,620
+Error loading the network files and then we can just type C's exits to enter up the execution.
+
+30
+00:02:44,220 --> 00:02:46,680
+We can run this file.
+
+31
+00:02:46,950 --> 00:02:55,890
+No error was returned because both of them are here in this same folder as this service code.
+
+32
+00:02:56,310 --> 00:02:57,390
+We can't write.
+
+33
+00:02:57,450 --> 00:02:59,360
+Should change the name here.
+
+34
+00:03:00,030 --> 00:03:01,530
+Run this code again.
+
+35
+00:03:01,830 --> 00:03:07,140
+Now we get the error message error loading the network files.
+
+36
+00:03:08,070 --> 00:03:12,750
+Now let's create the tracker, which will be equal.
+
+37
+00:03:12,810 --> 00:03:20,490
+True spiritual legacy the same code we implement as before Tracker Go.
+
+38
+00:03:20,520 --> 00:03:22,390
+Third, create.
+
+39
+00:03:22,800 --> 00:03:24,690
+Now we can run this code.
+
+40
+00:03:25,020 --> 00:03:34,830
+See that one error was returns because for the user specific algorithm, we don't need to use the legacy
+
+41
+00:03:34,830 --> 00:03:35,610
+package.
+
+42
+00:03:35,940 --> 00:03:40,480
+We can just keep C ritual tracker third.
+
+43
+00:03:40,500 --> 00:03:41,190
+Great.
+
+44
+00:03:41,520 --> 00:03:42,990
+Let's run it again.
+
+45
+00:03:43,410 --> 00:03:46,380
+See, that's no error was returned.
+
+46
+00:03:46,530 --> 00:03:52,320
+And from now, we can use exactly the same code we implemented before.
+
+47
+00:03:52,590 --> 00:04:00,450
+The only difference between this algorithm and the others is that you need both files here, and we
+
+48
+00:04:00,450 --> 00:04:03,270
+will just paste this code here.
+
+49
+00:04:03,600 --> 00:04:06,300
+It is this same we implement as before.
+
+50
+00:04:06,720 --> 00:04:13,020
+First, we load the video, then we get the first frame.
+
+51
+00:04:13,200 --> 00:04:16,200
+We have the definition of that right.
+
+52
+00:04:16,500 --> 00:04:23,220
+Dredging of interest are, in other words, the object that we want should track.
+
+53
+00:04:23,370 --> 00:04:32,790
+We initialize the algorithm, sending the first frame and also the building blocks of the first position
+
+54
+00:04:32,790 --> 00:04:33,900
+of the object.
+
+55
+00:04:34,500 --> 00:04:43,260
+Here we have the definition of the random caller and inside the while loop, we have this same code
+
+56
+00:04:43,260 --> 00:04:47,550
+as before we load the next frame of the video.
+
+57
+00:04:48,000 --> 00:04:55,660
+If we cannot load the next frame so we break, this is a crucial of the way you look.
+
+58
+00:04:55,740 --> 00:04:59,760
+We update the building blocks, if we can.
+
+59
+00:05:00,110 --> 00:05:04,490
+They did then we just draw that rectangle.
+
+60
+00:05:04,850 --> 00:05:09,320
+If we cannot update, we have the tracking failure message.
+
+61
+00:05:09,590 --> 00:05:16,250
+We put the text with the name of the algorithm in the top part of the video.
+
+62
+00:05:16,460 --> 00:05:19,700
+And finally, we just showed the results.
+
+63
+00:05:20,150 --> 00:05:24,560
+This code is exactly the same for the other algorithms.
+
+64
+00:05:24,980 --> 00:05:31,640
+Now let's run the algorithm, select the object one should track.
+
+65
+00:05:32,030 --> 00:05:42,070
+And as you can see, we don't have good results using go turn with open Siri because as you learn in
+
+66
+00:05:42,080 --> 00:05:50,330
+the intuition lectures, you need to be sure about the objects that this algorithm was trained as a
+
+67
+00:05:50,330 --> 00:05:56,480
+wave because as you learned, it was trained using off-line learning.
+
+68
+00:05:56,630 --> 00:06:06,710
+So datasets with thousands of videos was used to train the algorithm, so you need to make sure that
+
+69
+00:06:06,710 --> 00:06:11,580
+the objects you want should track are in these datasets.
+
+70
+00:06:11,600 --> 00:06:13,850
+That's the algorithm was trained.
+
+71
+00:06:14,160 --> 00:06:21,960
+Otherwise, you want to get good results, and in the next lecture, we will continue the implementations.
+
+72
+00:06:22,310 --> 00:06:23,030
+See you there.
+

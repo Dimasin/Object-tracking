@@ -1,0 +1,568 @@
+1
+00:00:00,830 --> 00:00:07,550
+Hello and welcome to this lecture, where we are going to continue the implementation of the May shift
+
+2
+00:00:07,550 --> 00:00:08,870
+tracking algorithm.
+
+3
+00:00:09,500 --> 00:00:12,740
+Just to recap, we can run this code.
+
+4
+00:00:15,070 --> 00:00:24,040
+Then we can get the building blocks, for example, we can select the pen press and there and we can
+
+5
+00:00:24,040 --> 00:00:28,780
+see here that Roy Director Dhiraj of interest.
+
+6
+00:00:29,020 --> 00:00:35,140
+This is the object we once should track, which is the track window.
+
+7
+00:00:35,470 --> 00:00:41,650
+And now we need to perform some brass see on this Roy image.
+
+8
+00:00:42,200 --> 00:00:45,790
+We'll put these two lines in commands.
+
+9
+00:00:46,150 --> 00:00:51,610
+And as you know, this image is in the RGV for months.
+
+10
+00:00:51,940 --> 00:00:57,400
+Of course, in open CV, the order of the channels are different.
+
+11
+00:00:57,640 --> 00:01:06,520
+So we have beat our image and we need to convert these our r.b.g.
+
+12
+00:01:06,520 --> 00:01:12,790
+Our image Chuan Lauder for months, which is the H s v.
+
+13
+00:01:13,240 --> 00:01:19,060
+It is another caller representation or another caller space.
+
+14
+00:01:19,630 --> 00:01:28,420
+And if you want to know more details about the caller ID spaces, you can follow these first link here,
+
+15
+00:01:28,990 --> 00:01:33,370
+where you can find more information about caller spaces.
+
+16
+00:01:33,580 --> 00:01:42,640
+For example, they are used according to the available light in the environment, the way the objects
+
+17
+00:01:42,640 --> 00:01:52,120
+in this scene that reflect light, the way the light reacts with an animal's eyes and the way received
+
+18
+00:01:52,130 --> 00:01:53,830
+light is processed.
+
+19
+00:01:54,280 --> 00:02:03,340
+Different color spaces are used, according should these four features here, and we can take a look
+
+20
+00:02:03,670 --> 00:02:14,100
+at the art be quality space, which is the one used in computers and it is considered the default color
+
+21
+00:02:14,110 --> 00:02:14,860
+space.
+
+22
+00:02:15,310 --> 00:02:22,270
+And we can take a look at the age s v color space and it stands off.
+
+23
+00:02:22,270 --> 00:02:26,740
+Have the rads, green and blue channel.
+
+24
+00:02:27,130 --> 00:02:29,290
+We have the rule.
+
+25
+00:02:29,620 --> 00:02:36,850
+This saturation and the value as the mean shift algorithm is based on all laws.
+
+26
+00:02:37,180 --> 00:02:48,580
+We need to convert the image from the our g b format should the H s V formats, because this is how
+
+27
+00:02:48,580 --> 00:02:59,770
+mean shift algorithm was implemented so we can create a new variable age s hit ROI equals spiritual
+
+28
+00:03:00,250 --> 00:03:01,240
+celebrity.
+
+29
+00:03:02,860 --> 00:03:06,640
+Let's send here the right or the object.
+
+30
+00:03:06,750 --> 00:03:14,350
+One should drag city to caller Kuala BGR chew h.
+
+31
+00:03:14,350 --> 00:03:23,380
+S V, and just to compare the results of each one of the corollaries spaces, we can show the window
+
+32
+00:03:23,770 --> 00:03:24,330
+civic.
+
+33
+00:03:24,340 --> 00:03:33,750
+Sure, i m show let's type here, right h s v h s here, right?
+
+34
+00:03:34,330 --> 00:03:40,690
+See feature, but wait here, let's run this code again.
+
+35
+00:03:40,900 --> 00:03:46,990
+And so it will be easier to see the difference between the actual color spaces.
+
+36
+00:03:48,830 --> 00:03:57,930
+We can select the right again, let's press and there and now we can see the difference between the
+
+37
+00:03:57,930 --> 00:04:04,420
+original one and the color changed from our GP to HSV.
+
+38
+00:04:05,060 --> 00:04:07,640
+We can delete this comment here.
+
+39
+00:04:07,940 --> 00:04:09,290
+Let's run again.
+
+40
+00:04:11,030 --> 00:04:14,940
+Let's select the part of the ban again.
+
+41
+00:04:14,960 --> 00:04:16,070
+Press enter.
+
+42
+00:04:16,490 --> 00:04:19,850
+Now we can see both spaces.
+
+43
+00:04:20,209 --> 00:04:27,350
+The original one, the IGB and the same image converted to HSV.
+
+44
+00:04:27,980 --> 00:04:37,070
+We can put this line in the comments and this is the first pre-processing step we need to convert the
+
+45
+00:04:37,070 --> 00:04:41,060
+object from our GP to HSV.
+
+46
+00:04:41,630 --> 00:04:52,040
+Then we will need to perform these calculations here to approximate the number of big cells should these
+
+47
+00:04:52,040 --> 00:04:53,180
+areas are.
+
+48
+00:04:53,210 --> 00:04:55,850
+Should these bars, for example?
+
+49
+00:04:56,090 --> 00:05:02,990
+This is the biggest one because there are more big cells in this window here.
+
+50
+00:05:03,500 --> 00:05:11,120
+This is this sac big guests, because that our last big cells than this one here.
+
+51
+00:05:11,300 --> 00:05:21,740
+And then we need to approximate these bars should then next frame of the video in order to keep tracking
+
+52
+00:05:21,740 --> 00:05:22,640
+the object.
+
+53
+00:05:22,760 --> 00:05:28,850
+We need to compare the previous frame with the next frame.
+
+54
+00:05:29,360 --> 00:05:38,070
+And the next step now is to generate these bars and the bars are called histogram.
+
+55
+00:05:38,480 --> 00:05:42,440
+And you can follow this link to know more details.
+
+56
+00:05:43,040 --> 00:05:46,010
+We can take a look at the theory here.
+
+57
+00:05:46,550 --> 00:05:56,090
+The Instagram is a graph are blots, which gives you an overall idea about the things that the distribution
+
+58
+00:05:56,120 --> 00:05:57,200
+of an image.
+
+59
+00:05:57,650 --> 00:06:04,220
+For example, we are going to count the number of big cells, according to the.
+
+60
+00:06:05,060 --> 00:06:09,800
+For example, see, that's in this part of the image.
+
+61
+00:06:10,100 --> 00:06:20,810
+We can see the brown color and the number of brown big cells are higher than the number of these color
+
+62
+00:06:20,810 --> 00:06:22,680
+here near this see.
+
+63
+00:06:23,180 --> 00:06:30,570
+So the bar regarding the brown color is bigger than the bar.
+
+64
+00:06:30,710 --> 00:06:39,890
+Regarding these other color, because the number of brown pigs cells are greater than the number of
+
+65
+00:06:39,890 --> 00:06:41,570
+these white pig.
+
+66
+00:06:41,570 --> 00:06:49,730
+So here and we can also take a look at this point here, which is a different color.
+
+67
+00:06:50,120 --> 00:06:57,230
+But as this small thing is far from the camera, the color is quite a difference.
+
+68
+00:06:57,590 --> 00:07:05,960
+And then the number of big cells belonging to this squalor is is smaller than the number of big cells
+
+69
+00:07:05,960 --> 00:07:09,020
+belonging to this or other brown color.
+
+70
+00:07:09,290 --> 00:07:18,560
+So basically, the histogram will give us the number of peak cells belonging to each one of the different
+
+71
+00:07:18,560 --> 00:07:20,300
+colors of the image.
+
+72
+00:07:21,050 --> 00:07:23,100
+Going back to these is light.
+
+73
+00:07:23,120 --> 00:07:29,510
+Here we can consider these points here as the brown color.
+
+74
+00:07:29,780 --> 00:07:34,960
+These are other points here as these are either called or here.
+
+75
+00:07:35,300 --> 00:07:41,240
+And finally, decide they're part two here as these white collar.
+
+76
+00:07:41,510 --> 00:07:50,810
+So basically, in order to perform the calculations, the makeshift algorithm will use the histogram
+
+77
+00:07:51,080 --> 00:07:56,480
+with the number of pixels off each one of the colors of the image.
+
+78
+00:07:56,750 --> 00:08:06,200
+So then we can compare these histograms with the histograms of the next frame of the video.
+
+79
+00:08:06,410 --> 00:08:16,550
+If the algorithm can find similarities between both histograms, it means that it can keep tracking
+
+80
+00:08:16,550 --> 00:08:17,540
+the object.
+
+81
+00:08:17,900 --> 00:08:26,120
+This is how Ming Shift finds similarity between the courants and the max frame of the video.
+
+82
+00:08:26,360 --> 00:08:29,060
+It will compare the histograms.
+
+83
+00:08:29,450 --> 00:08:38,390
+Here, you can find the open civil codes to get the histogram of the image, and now we are going to
+
+84
+00:08:38,390 --> 00:08:39,470
+implement it.
+
+85
+00:08:39,740 --> 00:08:50,330
+Let's go back to the bicarb project and we'll create another variable right highest civic hue dots,
+
+86
+00:08:50,480 --> 00:08:57,020
+calc history and the first parameter is h se v at right.
+
+87
+00:08:57,290 --> 00:09:04,520
+We are going to get the histogram regarding the right converted to H.
+
+88
+00:09:04,520 --> 00:09:06,800
+S V Colors space.
+
+89
+00:09:07,610 --> 00:09:10,460
+The next parameter is the number of.
+
+90
+00:09:10,630 --> 00:09:14,530
+Channels, we are going to use only one channel.
+
+91
+00:09:14,920 --> 00:09:21,700
+If you want to know more details about the parameters, you can check this link here.
+
+92
+00:09:22,000 --> 00:09:29,410
+For example, if the input image is in grayscale, the value is zero.
+
+93
+00:09:29,710 --> 00:09:32,860
+So we are going to get the histogram.
+
+94
+00:09:32,860 --> 00:09:43,060
+Considering our grayscale image, then the X parameter is the mask image and we need you sat as no one
+
+95
+00:09:43,480 --> 00:09:47,230
+to find the histogram of full image.
+
+96
+00:09:47,440 --> 00:09:53,020
+And as we need to get the histogram of the ROI, we need you.
+
+97
+00:09:53,650 --> 00:09:54,210
+None.
+
+98
+00:09:54,720 --> 00:09:57,400
+Here we would use this barometer.
+
+99
+00:09:57,640 --> 00:10:07,450
+If we want to find the histogram of a particular region of the image, then the X parameter is the least
+
+100
+00:10:07,450 --> 00:10:08,260
+size.
+
+101
+00:10:08,650 --> 00:10:18,460
+These represent the beam counts, which is the number of bars that will be generated or the number of
+
+102
+00:10:18,460 --> 00:10:19,450
+ether votes.
+
+103
+00:10:19,630 --> 00:10:28,720
+For example, in this image, there are about 20 bars, so that barometer would be equal to 20.
+
+104
+00:10:28,960 --> 00:10:38,560
+We can type one hundred and eighty, which is the number of bars that will be generated or the number
+
+105
+00:10:38,590 --> 00:10:44,740
+of colour intervals, and in the documentation ofmy shift algorithm.
+
+106
+00:10:45,010 --> 00:10:51,970
+It is recommended to use this value in the last parameter, our order ranges.
+
+107
+00:10:52,090 --> 00:11:01,780
+For example, the default value from zero to 200 and 55, which is the IGB interval.
+
+108
+00:11:01,930 --> 00:11:11,620
+And as we are working with age s v, the range will be from zero to one hundred and eighty.
+
+109
+00:11:12,100 --> 00:11:20,710
+So now we have the histogram of the array and we can visualize a graph like this.
+
+110
+00:11:20,710 --> 00:11:28,930
+One here should show the number of pixels according to each one of the callers should do that.
+
+111
+00:11:29,110 --> 00:11:31,780
+We are going to use another library.
+
+112
+00:11:32,380 --> 00:11:34,230
+I will click here and there.
+
+113
+00:11:34,390 --> 00:11:44,170
+Now let's install maths blots live, which is the default library to generate graphs in Python.
+
+114
+00:11:44,680 --> 00:11:49,150
+We can see that the installation was done successfully.
+
+115
+00:11:49,630 --> 00:12:01,630
+Now we can import this library import Matt blot lib by brought s BLT, and we can use Matt Blot Lib
+
+116
+00:12:01,630 --> 00:12:03,730
+to generate the histogram.
+
+117
+00:12:04,240 --> 00:12:10,720
+Lets type he's ROI and I will define the same parameters.
+
+118
+00:12:11,320 --> 00:12:18,640
+Then we can show the graph switcher weight gain zero.
+
+119
+00:12:19,120 --> 00:12:21,340
+Let's run this code.
+
+120
+00:12:21,940 --> 00:12:33,250
+And when it was returned here, because these right variable is an image, so it is in the matrix formats
+
+121
+00:12:33,520 --> 00:12:41,470
+and we need to convert enough vector formats only one dimension to generate the histogram.
+
+122
+00:12:42,310 --> 00:12:44,860
+Let's try to run this code again.
+
+123
+00:12:46,150 --> 00:12:51,970
+The first step is just select the right press and through.
+
+124
+00:12:53,260 --> 00:13:01,060
+And we can see the result here, which is quite similar to that one in open civil documentation.
+
+125
+00:13:01,300 --> 00:13:07,540
+We can see here the total amount of big cells regarding each one of the callers.
+
+126
+00:13:08,590 --> 00:13:21,010
+Most of the values are in the range from 75 to 175, which are related to the yellow collar, according
+
+127
+00:13:21,010 --> 00:13:21,850
+to the ban.
+
+128
+00:13:22,370 --> 00:13:30,410
+In short, these are the most frequent callers and take a look here that we are generating.
+
+129
+00:13:30,750 --> 00:13:38,560
+The histogram using the original image so it is easier to see the results.
+
+130
+00:13:39,190 --> 00:13:42,700
+Now we can put these codes in comments.
+
+131
+00:13:43,570 --> 00:13:46,990
+We are not going to visualize that this graph anymore.
+
+132
+00:13:47,440 --> 00:13:53,050
+It was used just to see the results and the last step of this lecturer.
+
+133
+00:13:53,410 --> 00:13:56,200
+We will recreate high.
+
+134
+00:13:56,440 --> 00:14:10,900
+His equal spiritual dots normalize as we know the values are in the range from zero to 255.
+
+135
+00:14:11,110 --> 00:14:16,450
+And we need to convert them into range from zero to one.
+
+136
+00:14:16,960 --> 00:14:20,410
+So it will be faster to process is the algorithm.
+
+137
+00:14:20,680 --> 00:14:23,560
+We are going to normalize the image.
+
+138
+00:14:23,950 --> 00:14:35,770
+We are going to stand here the high wrist again, the right history, the original interval zero, two
+
+139
+00:14:35,770 --> 00:14:42,880
+hundred and fifty five spiritual ma'am mean max.
+
+140
+00:14:43,270 --> 00:14:52,330
+This option will convert the values of the pixels in the range from zero to one, and then the next
+
+141
+00:14:52,330 --> 00:14:57,730
+and last lecture we are going to finally visualize the results.
+
+142
+00:14:58,210 --> 00:14:58,930
+See you there!
+

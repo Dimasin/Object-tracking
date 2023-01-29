@@ -1,0 +1,420 @@
+1
+00:00:00,330 --> 00:00:06,860
+Hello and welcome to this lecture, where you were going to learn the basic intuition about another
+
+2
+00:00:06,870 --> 00:00:15,090
+algorithm, which is optical flow, which considers the direction and speeds off peak cells.
+
+3
+00:00:15,920 --> 00:00:24,450
+It is similar to the motion model you learn in the first lectures that indicate where the object will
+
+4
+00:00:24,450 --> 00:00:26,130
+be in the next frame.
+
+5
+00:00:26,490 --> 00:00:31,880
+It considers location blue's speed and previous frames.
+
+6
+00:00:32,369 --> 00:00:41,760
+For example, the farther the car is from the camera, the smaller the movement of the pixels is because
+
+7
+00:00:41,760 --> 00:00:46,800
+as the image is smaller, there are less pixels in the image.
+
+8
+00:00:47,220 --> 00:00:56,580
+If the car is here at the ends of the image where I am pointing the mouse, its size will be much smaller
+
+9
+00:00:56,880 --> 00:01:00,750
+and the amount of pixels will also be smaller.
+
+10
+00:01:01,140 --> 00:01:08,310
+In other words, when the size of the car is smaller, that are fewer pixels to track.
+
+11
+00:01:08,760 --> 00:01:17,940
+On the other hand, when the car is closer to the camera, the object is bigger and there are more big
+
+12
+00:01:17,940 --> 00:01:23,550
+sales to be tracked, so the movements of the big cells will be greater.
+
+13
+00:01:23,880 --> 00:01:33,360
+In short, the closer the object is from the camera, the greater is the variation of the pixels like
+
+14
+00:01:33,360 --> 00:01:35,340
+the mean shift algorithm.
+
+15
+00:01:35,700 --> 00:01:41,370
+Optical flow also uses HSV color representation.
+
+16
+00:01:41,400 --> 00:01:51,220
+As you can see in this image, leather age, which means you is used to indicate the direction of the
+
+17
+00:01:51,220 --> 00:01:53,700
+pixels where they are moving.
+
+18
+00:01:54,090 --> 00:01:59,070
+These aero can point to the right, left or now.
+
+19
+00:01:59,590 --> 00:02:08,250
+While the -- ladder, the saturation is used to indicate the speeds of the pixels.
+
+20
+00:02:08,669 --> 00:02:15,750
+If the object is moving slowly, the saturation will be low from frame to frame.
+
+21
+00:02:16,230 --> 00:02:24,180
+On the other hand, if the object is moving quickly, the saturation will be high between frames.
+
+22
+00:02:24,750 --> 00:02:32,190
+Finally, leather year, the value indicates the intensity of the colors.
+
+23
+00:02:32,610 --> 00:02:41,040
+The closer the object is to the camera, the greater things that the of the colors, the farther away
+
+24
+00:02:41,040 --> 00:02:46,200
+the object is from the camera, the less intense the colors are.
+
+25
+00:02:46,800 --> 00:02:49,080
+We can see the definitions here.
+
+26
+00:02:49,500 --> 00:02:59,190
+Age is used to indicate the direction of the big cells where each pixel is moving and saturation leather
+
+27
+00:02:59,190 --> 00:03:03,960
+s is used to indicate this feeds off the pixels.
+
+28
+00:03:04,950 --> 00:03:09,060
+Now we will take a look at the optical flow algorithm.
+
+29
+00:03:09,390 --> 00:03:18,420
+Considering the sparse version, there are two versions of this algorithm sparse and dense, and in
+
+30
+00:03:18,420 --> 00:03:25,590
+this lecture, we will focus only on the sparse version of the optical flow algorithm.
+
+31
+00:03:26,100 --> 00:03:32,310
+Looking at this animation is easier to understand how the algorithm works.
+
+32
+00:03:32,790 --> 00:03:37,860
+The more movements in the image, they bigger the arrows.
+
+33
+00:03:38,190 --> 00:03:40,650
+They are closer to the camera.
+
+34
+00:03:40,860 --> 00:03:45,660
+On the other hand, delays movements in the image.
+
+35
+00:03:46,080 --> 00:03:50,340
+This smaller drops, they are farther from the camera.
+
+36
+00:03:50,670 --> 00:04:00,810
+We can see this car here further away with a small arrow, and these are their car close to the camera
+
+37
+00:04:01,110 --> 00:04:03,060
+with a large arrow.
+
+38
+00:04:03,390 --> 00:04:09,150
+We can see the same pattern here on the poles and on their roads.
+
+39
+00:04:09,570 --> 00:04:15,150
+For example, this small here and big here on the roads.
+
+40
+00:04:15,720 --> 00:04:21,570
+In short, the closer to the camera, the more motion will be detected.
+
+41
+00:04:22,079 --> 00:04:32,910
+To calculate how much the pixels are moving, we can use this equation at time, be the current frame
+
+42
+00:04:33,450 --> 00:04:35,010
+and adds time.
+
+43
+00:04:35,100 --> 00:04:37,980
+The plus one the next frame.
+
+44
+00:04:38,460 --> 00:04:42,630
+This calculation is related to the pixel intensity.
+
+45
+00:04:42,990 --> 00:04:47,190
+The Z channel of the HSV representation.
+
+46
+00:04:47,520 --> 00:04:56,790
+And here we can see that's the big slow is moving to the left and with the intensity decreasing these
+
+47
+00:04:56,790 --> 00:04:59,880
+peaks, so is more intense than.
+
+48
+00:05:00,090 --> 00:05:08,010
+These two big cells here now where we will see some mathematical calculations that are used in this
+
+49
+00:05:08,010 --> 00:05:14,310
+algorithm, it is important to understand because we are going to use them in the implementation.
+
+50
+00:05:14,850 --> 00:05:24,210
+Initially, the algorithm detects corners and edges to get their mind the orientation of the vectors
+
+51
+00:05:24,660 --> 00:05:29,340
+using an algorithm called Harris Gardner detector.
+
+52
+00:05:29,880 --> 00:05:39,060
+It is important to emphasize that in this is that the algorithm will select only some corners of the
+
+53
+00:05:39,060 --> 00:05:42,480
+image and not the complete object.
+
+54
+00:05:42,540 --> 00:05:47,970
+For example, see, that's in this car where I am pointing the mouse.
+
+55
+00:05:48,450 --> 00:05:55,830
+There is only one arrow and lots of bounding box around the entire object.
+
+56
+00:05:56,190 --> 00:06:01,260
+The algorithm will choose a corner of this image to track.
+
+57
+00:06:01,650 --> 00:06:11,130
+The image will not be processed big, so by Pixel, the algorithm will select only one corner of the
+
+58
+00:06:11,130 --> 00:06:11,910
+object.
+
+59
+00:06:12,600 --> 00:06:24,180
+Here you can see the equation considering X and Y axis of the image, and also that you and the parameters
+
+60
+00:06:24,180 --> 00:06:25,380
+of the H.
+
+61
+00:06:25,380 --> 00:06:27,000
+S V matrix.
+
+62
+00:06:27,690 --> 00:06:38,010
+These parameters indicate the movements of the big cells and leather I indicates the peak so intensity.
+
+63
+00:06:38,460 --> 00:06:48,120
+The purpose of the algorithm is to find values for you and Z to know the direction of the arrow.
+
+64
+00:06:48,660 --> 00:06:57,810
+The Arrows Considering this image, then we have the calculation of the matrix determinant, which is
+
+65
+00:06:57,810 --> 00:06:59,520
+an algebra concept.
+
+66
+00:06:59,880 --> 00:07:10,650
+According to these order equation, these words that's here and then we get the results in ladder art.
+
+67
+00:07:11,250 --> 00:07:18,900
+So the first step of the algorithm is to find the initial corners to start tracking.
+
+68
+00:07:19,350 --> 00:07:29,310
+This symbol here indicate the highest value, and this other one indicates this section's highest value.
+
+69
+00:07:29,670 --> 00:07:34,260
+And don't worry about understanding these complex calculations.
+
+70
+00:07:34,620 --> 00:07:41,730
+The idea is just to see the basic equations should be easier to understand the implementations.
+
+71
+00:07:42,420 --> 00:07:52,080
+Researchers Sheet and Stormzy modified the original equation and created a simplified version.
+
+72
+00:07:52,320 --> 00:08:01,800
+According to these other equation, here, instead of using the Matrix, they use the calculation of
+
+73
+00:08:01,800 --> 00:08:08,640
+the minimum between the highest value and this second highest value.
+
+74
+00:08:09,030 --> 00:08:17,970
+Just a reminder that this calculation will predict if a peak so is that corner or edge of an object?
+
+75
+00:08:18,420 --> 00:08:25,260
+This calculation is performed for all peak cells, and the computational cost is high.
+
+76
+00:08:25,620 --> 00:08:32,549
+So all pensively uses the concept of pyramids called K L.
+
+77
+00:08:32,580 --> 00:08:34,890
+The methods cannot.
+
+78
+00:08:34,890 --> 00:08:44,159
+Lucas and Tomasi, the name of the researchers, which are three different methods, combines and it
+
+79
+00:08:44,190 --> 00:08:48,750
+will analyze the smaller images of this same frame.
+
+80
+00:08:49,140 --> 00:08:53,370
+It is easier to understand by looking at this image.
+
+81
+00:08:54,030 --> 00:08:57,780
+This bottom part is the whole image.
+
+82
+00:08:58,260 --> 00:09:10,260
+Each layer square is up big, so we can count them one two three four five six seven eight and one two
+
+83
+00:09:10,320 --> 00:09:20,310
+three four five six six rows and eight Carlos multiplying both values six times eight.
+
+84
+00:09:20,520 --> 00:09:27,090
+Their result is for the eight pixels, and we can take a look at this part.
+
+85
+00:09:27,150 --> 00:09:37,320
+Here we have one short three four and one two three four times three equals 12.
+
+86
+00:09:37,650 --> 00:09:50,700
+So from Florida, eight big cells, the image has been reduced to only 12 pixels and then from 12 pixels.
+
+87
+00:09:50,700 --> 00:09:55,020
+The image has been reduced to only four pixels.
+
+88
+00:09:55,440 --> 00:09:59,670
+And finally, for all four big cells, the image.
+
+89
+00:09:59,840 --> 00:10:03,590
+She has been reduced to only one peak, so.
+
+90
+00:10:03,920 --> 00:10:08,840
+So the image is smaller and the calculation will be faster.
+
+91
+00:10:09,230 --> 00:10:13,710
+On the left, we have the image and style there.
+
+92
+00:10:14,060 --> 00:10:21,620
+And on the right, we have the image at times b plus one because rents.
+
+93
+00:10:21,890 --> 00:10:32,750
+And then next frame of the video after the image size is reduced, the optical flow is calculated from
+
+94
+00:10:32,750 --> 00:10:34,040
+top to bottom.
+
+95
+00:10:34,370 --> 00:10:45,140
+As you can see the arrows and the goal is to find values for you and envy that will indicate the direction
+
+96
+00:10:45,140 --> 00:10:48,890
+of the arrows or the direction of the object.
+
+97
+00:10:49,280 --> 00:10:58,940
+In short, for the image, dimensions are reduced and then their frames are going backwards using the
+
+98
+00:10:58,970 --> 00:11:01,610
+reversed versions of the images.
+
+99
+00:11:02,120 --> 00:11:05,600
+The process is starts at I three.
+
+100
+00:11:06,020 --> 00:11:08,240
+I show I one.
+
+101
+00:11:08,600 --> 00:11:15,110
+And finally I zero, which is the number of layers to process the image.
+
+102
+00:11:15,680 --> 00:11:18,290
+That's all for the basic intuition.
+
+103
+00:11:18,500 --> 00:11:26,360
+In the next lecture we will implement, it's using open Sivy and then it will be easier to understand
+
+104
+00:11:26,360 --> 00:11:28,250
+some of these concepts.
+
+105
+00:11:28,610 --> 00:11:29,300
+See you there!
+

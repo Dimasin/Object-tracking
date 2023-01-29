@@ -1,0 +1,320 @@
+1
+00:00:00,120 --> 00:00:07,260
+Hello and welcome to this lecture, where we are going to finish the implementation of multiple tracking.
+
+2
+00:00:07,650 --> 00:00:16,590
+Just a reminder that in the last lecture, we Glickman man did this while loop in order to select the
+
+3
+00:00:16,590 --> 00:00:27,030
+objects that one should track, we will have, as a result, a list of several bounding boxes with the
+
+4
+00:00:27,030 --> 00:00:28,740
+corresponding colors.
+
+5
+00:00:29,430 --> 00:00:37,290
+Now we will create the tracker type variable, which will be the name of the algorithm.
+
+6
+00:00:37,740 --> 00:00:41,750
+Let's perform this test with CSIRO.
+
+7
+00:00:41,750 --> 00:00:50,880
+The algorithm, which is one with bad results, and we will create another variable MO team director
+
+8
+00:00:51,540 --> 00:01:03,570
+equals C ritual and there is this order glass from open circuit, which is mo the track to create.
+
+9
+00:01:03,900 --> 00:01:05,770
+We can take a look here.
+
+10
+00:01:05,790 --> 00:01:11,520
+That's before we were creating each one of the algorithms.
+
+11
+00:01:11,910 --> 00:01:19,770
+And now, as we can have more than one tracker, we can use MO detractor to create.
+
+12
+00:01:20,370 --> 00:01:28,950
+Now we need to go through the building blocks for big blocks in big boxes.
+
+13
+00:01:29,280 --> 00:01:39,540
+We are going through this list of these selected objects and we need to add detractors, Mo Detractor
+
+14
+00:01:39,960 --> 00:01:41,130
+Dots adds.
+
+15
+00:01:42,390 --> 00:01:49,080
+And let's call our function grades tracker by name and let's send here.
+
+16
+00:01:49,170 --> 00:01:55,200
+Tracker type, which in this example is the C SRT algorithm.
+
+17
+00:01:55,590 --> 00:02:05,670
+Let's suppose we select three objects to track each one off than will be tracked using this same algorithm.
+
+18
+00:02:06,180 --> 00:02:14,010
+And if you want, you can sends different algorithms and lots this same as we are implementing here.
+
+19
+00:02:14,430 --> 00:02:25,380
+We also needs to send the Here diff frame, which is the first frame of the video in order to initialize
+
+20
+00:02:25,380 --> 00:02:26,610
+the algorithms.
+
+21
+00:02:27,030 --> 00:02:30,870
+And also, we will Sand's here, the building blocks.
+
+22
+00:02:31,200 --> 00:02:37,770
+We are going through each one of the objects and adding them should demo the tracker.
+
+23
+00:02:38,070 --> 00:02:50,010
+Now we can go through each one of the frames of the video while the video is open when we have the next
+
+24
+00:02:50,010 --> 00:02:53,880
+frame of the video, which is a cute Discord's.
+
+25
+00:02:54,420 --> 00:02:58,470
+Let's create the variables OK, key and frame.
+
+26
+00:02:58,860 --> 00:03:08,910
+Just a reminder again, that this variable here is the first frame of the video that is used only to
+
+27
+00:03:08,910 --> 00:03:16,260
+select the position of the objects that one should track and decide the variable here.
+
+28
+00:03:16,620 --> 00:03:20,910
+We will receive each one of the next frames.
+
+29
+00:03:21,360 --> 00:03:22,650
+Let's Typekit here.
+
+30
+00:03:23,100 --> 00:03:35,940
+VIDEO Dots grids, if not, OK, if it wasn't possible to redo the next frame, we can break this loop.
+
+31
+00:03:36,270 --> 00:03:37,530
+Let's recreate.
+
+32
+00:03:37,830 --> 00:03:38,610
+OK.
+
+33
+00:03:38,910 --> 00:03:40,530
+And boxes.
+
+34
+00:03:41,130 --> 00:03:45,810
+Let's go mo detractor dots update.
+
+35
+00:03:45,990 --> 00:03:48,180
+And let's send the here to frame.
+
+36
+00:03:48,600 --> 00:03:51,510
+This is exactly the same we had before.
+
+37
+00:03:51,900 --> 00:04:01,860
+First, we need to initialize the algorithm with the initial positions of the object, and then we just
+
+38
+00:04:01,860 --> 00:04:05,550
+update, according should the next frames.
+
+39
+00:04:06,150 --> 00:04:19,260
+Let's create a for loop for AI and new box to variables AI and grading now in enumerate boxes.
+
+40
+00:04:19,860 --> 00:04:29,790
+This for a loop is going through each one of the boxes because if we select three objects to track,
+
+41
+00:04:30,090 --> 00:04:34,350
+we will have three boarding boxes as a result.
+
+42
+00:04:34,740 --> 00:04:44,820
+And now we need to go through each one of these update its bounding boxes in order to draw the rectangle,
+
+43
+00:04:45,030 --> 00:04:50,970
+and the enumerate function is used to give indexes for the boxes.
+
+44
+00:04:51,210 --> 00:04:55,500
+For example, in the first is a crucial of the for a loop.
+
+45
+00:04:55,770 --> 00:04:59,880
+We will get the here, the first building blocks and the.
+
+46
+00:05:00,000 --> 00:05:07,980
+Has index zero, then we will have this second bounding box with index one.
+
+47
+00:05:08,400 --> 00:05:19,260
+This third balding box with index chew, will we use the eye variable to axis this order variable here
+
+48
+00:05:19,500 --> 00:05:23,430
+to get the colors of each balding box?
+
+49
+00:05:23,820 --> 00:05:33,720
+Now we can create x y w h equals the same code we have implemented before.
+
+50
+00:05:34,110 --> 00:05:43,530
+We are going through each one of the bounding boxes and loads, each one of the values in each one of
+
+51
+00:05:43,530 --> 00:05:48,900
+these variables here for V in new box.
+
+52
+00:05:49,350 --> 00:05:54,810
+Now we can draw a rectangle signature rectangle.
+
+53
+00:05:55,380 --> 00:05:57,780
+The first parameter is the frame.
+
+54
+00:05:58,590 --> 00:06:08,970
+The initial position of the building blocks, the final position X plus w y plus h.
+
+55
+00:06:09,390 --> 00:06:16,030
+And now we are going to use the colors variable and we will sans variable.
+
+56
+00:06:16,050 --> 00:06:26,220
+I hear the last barometer is the size of the balding box, which will be equal to two after the last
+
+57
+00:06:26,220 --> 00:06:28,230
+part signature.
+
+58
+00:06:29,250 --> 00:06:32,370
+I am show less Typekit here.
+
+59
+00:06:32,760 --> 00:06:50,880
+The title of the window motif tracker the frame and if ritual weight key one in zero x f f equals twenty
+
+60
+00:06:50,880 --> 00:06:54,690
+seven, which is the ASC key.
+
+61
+00:06:55,050 --> 00:07:00,720
+So when you press this key in your keyboard, the Z usual will be interrupts.
+
+62
+00:07:01,050 --> 00:07:02,850
+We just break the look.
+
+63
+00:07:03,090 --> 00:07:07,020
+Now let's run this gold and perform the tests.
+
+64
+00:07:08,130 --> 00:07:17,650
+I will select the first runner press and there now we can see this message here, presenting either
+
+65
+00:07:17,650 --> 00:07:20,250
+a key to select the next object.
+
+66
+00:07:20,370 --> 00:07:22,470
+You can press any other key.
+
+67
+00:07:22,470 --> 00:07:32,970
+For example, Ladder B, I will select desired runner press and there then we can select another one,
+
+68
+00:07:33,240 --> 00:07:39,450
+presenting any other key, and then we'll select the last one here.
+
+69
+00:07:40,200 --> 00:07:41,400
+Press enter.
+
+70
+00:07:41,850 --> 00:07:47,040
+And now we can rescue weights and start tracking.
+
+71
+00:07:47,370 --> 00:07:56,160
+We can see that's when it was returns module Civic, which has no attributes mode detractor creates
+
+72
+00:07:56,670 --> 00:08:02,760
+because we need to access this other package called legacy.
+
+73
+00:08:03,360 --> 00:08:17,130
+Let's run again and I will select the runners this séquence one and the third one presenter and Q.
+
+74
+00:08:17,580 --> 00:08:23,430
+And finally, we can see the results using C as our the algorithm.
+
+75
+00:08:23,730 --> 00:08:27,690
+We can see that's the algorithm is performing well.
+
+76
+00:08:28,200 --> 00:08:33,000
+It's possible to track the three objects at the same time.
+
+77
+00:08:33,390 --> 00:08:36,390
+Let's wait until the end of the race.
+
+78
+00:08:42,000 --> 00:08:49,830
+As you can see, it is quite is low because we are executing the algorithms using three objects.
+
+79
+00:08:50,220 --> 00:08:55,860
+And this is how you can perform multiple tracking using open Siri.
+
+80
+00:08:56,640 --> 00:08:58,500
+See you in the next lecture.
+

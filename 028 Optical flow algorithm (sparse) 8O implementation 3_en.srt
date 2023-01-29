@@ -1,0 +1,368 @@
+1
+00:00:00,270 --> 00:00:08,100
+Hello and welcome to this lecture that we are going to implement another example using optical flow
+
+2
+00:00:08,119 --> 00:00:11,400
+spurs in the last implementation.
+
+3
+00:00:11,760 --> 00:00:21,120
+We just initialize the algorithm with the partners that were detected in the first frame of the video.
+
+4
+00:00:21,390 --> 00:00:25,830
+And now the goal is to select the initial coroner.
+
+5
+00:00:26,130 --> 00:00:35,350
+So we will be able to select the object we want to track and we will implement it using the web cam.
+
+6
+00:00:35,370 --> 00:00:43,760
+We already have these optical flows bars to file already implemented with these initial codes.
+
+7
+00:00:44,190 --> 00:00:54,750
+We are implanting open SIFI melt by connecting to the web cam, and then we are reading the first frame
+
+8
+00:00:54,750 --> 00:00:59,070
+of the video and converting it to Grayscale.
+
+9
+00:00:59,520 --> 00:01:07,370
+Also, our defining the parameters regarding Lucas cannot just to recap this to first.
+
+10
+00:01:07,650 --> 00:01:17,490
+I mean, there's the wing size means the big cells of the pyramids and max level means that the pyramid
+
+11
+00:01:17,520 --> 00:01:25,680
+has four layers and we are using the same parameters as before eps and count.
+
+12
+00:01:26,130 --> 00:01:29,070
+Now we will define a new function.
+
+13
+00:01:29,490 --> 00:01:35,490
+So we will be able to select a point when the web is open.
+
+14
+00:01:36,000 --> 00:01:39,400
+Let's great select point.
+
+15
+00:01:39,780 --> 00:01:50,680
+It will receive as a parameter the event X and Y coordinates flags and also firearms.
+
+16
+00:01:50,970 --> 00:01:55,770
+And this is an open civil function that we are going to execute.
+
+17
+00:01:56,310 --> 00:02:02,640
+Let's define some global variables so they can be axis three.
+
+18
+00:02:02,820 --> 00:02:06,180
+All these crucial of the program points.
+
+19
+00:02:06,750 --> 00:02:12,270
+Select this point and also all these points.
+
+20
+00:02:12,810 --> 00:02:28,260
+If the event equals servitude and we can type here events l button down, it means that we are clicking
+
+21
+00:02:28,260 --> 00:02:30,780
+the left button of the mouse.
+
+22
+00:02:31,020 --> 00:02:37,290
+It is a kind of a trigger when we press the left button off the mouse.
+
+23
+00:02:37,680 --> 00:02:47,430
+The code that we are going to implement now will be executed, which will be equal to X and Y.
+
+24
+00:02:47,660 --> 00:02:54,720
+It means the coordinates on the screen that are coming from these parameters here.
+
+25
+00:02:55,050 --> 00:03:03,540
+When we click in my specific position of the window, the coordinates will be copied to this variable
+
+26
+00:03:03,540 --> 00:03:03,990
+here.
+
+27
+00:03:04,410 --> 00:03:09,450
+So this selected point will be equal to withdraw.
+
+28
+00:03:09,960 --> 00:03:15,280
+So it means that points are accordingly to was selected.
+
+29
+00:03:16,080 --> 00:03:28,740
+Let's access all these points variable and be array LES converts to these formats x y and this type
+
+30
+00:03:29,190 --> 00:03:32,610
+will be equal to flows through.
+
+31
+00:03:33,180 --> 00:03:39,570
+In short, we will keep the current point and also the previous point.
+
+32
+00:03:39,990 --> 00:03:43,440
+This is the only limitation regarding this function.
+
+33
+00:03:43,710 --> 00:03:47,820
+And now we need to associate associated with the window.
+
+34
+00:03:48,360 --> 00:03:49,800
+Let's Typekit here.
+
+35
+00:03:50,070 --> 00:03:58,170
+See your main window and the name of the window that we are going to create will be frames.
+
+36
+00:03:59,250 --> 00:04:11,970
+Signature sets mouse all back, and let's Typekit here fray the name off the window and select wines.
+
+37
+00:04:12,060 --> 00:04:13,910
+The name of the function.
+
+38
+00:04:14,220 --> 00:04:25,170
+So we are associating this function should these local frame, every time we create a window with this
+
+39
+00:04:25,170 --> 00:04:31,800
+name, it will be possible to execute this function to get to the point.
+
+40
+00:04:31,950 --> 00:04:36,900
+According to the left, the bottle now evens on the mouse.
+
+41
+00:04:37,380 --> 00:04:43,890
+Now when we create this select, this quite variable equals false.
+
+42
+00:04:43,890 --> 00:04:47,330
+It demands that no wine twice selected.
+
+43
+00:04:47,880 --> 00:04:56,520
+See that this variable has this same name as defined here, so it means that we are accessing this same
+
+44
+00:04:56,520 --> 00:04:57,240
+variable.
+
+45
+00:04:57,490 --> 00:05:00,630
+SEALs it is a global variable.
+
+46
+00:05:01,150 --> 00:05:10,770
+Let's create the white variable with this same name and an empty variable at the beginning, and old
+
+47
+00:05:11,430 --> 00:05:17,850
+wines will be equal to empty array empty points.
+
+48
+00:05:17,970 --> 00:05:26,160
+We are just initializing this variable and we are going to change the values when we run this function.
+
+49
+00:05:26,520 --> 00:05:33,450
+Let's create the mask variable and be zeros like frames.
+
+50
+00:05:33,840 --> 00:05:37,050
+This same variable we had defined earlier.
+
+51
+00:05:37,290 --> 00:05:45,830
+Now we'll just base that code because it is quite similar to the one we implement before they can look
+
+52
+00:05:45,840 --> 00:05:49,590
+here that we are going through each one of the frames.
+
+53
+00:05:50,010 --> 00:05:51,690
+We are really in the frame.
+
+54
+00:05:51,930 --> 00:05:56,280
+If we can't redo the next frame, we're interrupted.
+
+55
+00:05:56,280 --> 00:06:05,190
+The equation converts to grayscale and the only difference is that we are checking the value of this
+
+56
+00:06:05,190 --> 00:06:09,450
+variable here that is initialized with force.
+
+57
+00:06:09,720 --> 00:06:16,260
+And when we click with the left, but off the mouse, the value changes through.
+
+58
+00:06:16,560 --> 00:06:24,390
+So it demands that apply to was selected and if applied, why select selected BAM?
+
+59
+00:06:24,390 --> 00:06:26,430
+We run all the code.
+
+60
+00:06:26,430 --> 00:06:31,170
+We implement it before we draw a circle on the point.
+
+61
+00:06:31,500 --> 00:06:33,290
+We get the new blinds.
+
+62
+00:06:33,630 --> 00:06:37,830
+This code is updating the location of the point.
+
+63
+00:06:38,220 --> 00:06:41,700
+We send the Here DeLuca's can aid parameters.
+
+64
+00:06:42,000 --> 00:06:47,070
+We make a copy of the frame star or the old point.
+
+65
+00:06:47,400 --> 00:06:54,780
+Here we get the clearance and the next location we create the mask, the frame.
+
+66
+00:06:54,990 --> 00:06:58,050
+And here we are, adding the frame and the mask.
+
+67
+00:06:58,380 --> 00:07:00,480
+The same code we have before.
+
+68
+00:07:00,750 --> 00:07:07,840
+Here we have another difference ID number twenty seven means the ASCII.
+
+69
+00:07:08,100 --> 00:07:12,630
+So when we press asked this quotient, we'll be interrupted.
+
+70
+00:07:13,380 --> 00:07:15,660
+Let's run this code.
+
+71
+00:07:16,050 --> 00:07:18,120
+We can't see one, eight or so.
+
+72
+00:07:18,300 --> 00:07:26,280
+It sure has no attributes the main window because we need to change here to name the window.
+
+73
+00:07:26,670 --> 00:07:32,370
+And also, let's change here, callback with lower case ladder.
+
+74
+00:07:33,390 --> 00:07:35,220
+Now we can run this code.
+
+75
+00:07:36,510 --> 00:07:43,020
+Let's open the window to test the algorithm where we use the ban again.
+
+76
+00:07:43,440 --> 00:07:47,640
+Then you can click with the left button of the mouse.
+
+77
+00:07:48,180 --> 00:07:55,530
+Take a look that applying to was generated, and now we can start tracking the object.
+
+78
+00:07:55,890 --> 00:08:04,680
+The interesting point is that this line is generated according to the movement of the band when they
+
+79
+00:08:04,680 --> 00:08:07,470
+put the ban in front of my face.
+
+80
+00:08:07,860 --> 00:08:16,560
+The algorithm continued tracking, and if you click again with the left button, a new light will be
+
+81
+00:08:16,560 --> 00:08:21,270
+generated so you can track the new object.
+
+82
+00:08:21,660 --> 00:08:28,740
+And here we are showing AMG, which is the combination of the frame and the mask.
+
+83
+00:08:29,250 --> 00:08:33,809
+We can command to these codes to show only the mask.
+
+84
+00:08:34,200 --> 00:08:38,549
+Let's run the code again that are truly in those.
+
+85
+00:08:39,150 --> 00:08:43,350
+Let's select the point and drag the object.
+
+86
+00:08:43,710 --> 00:08:45,120
+We can see here.
+
+87
+00:08:46,950 --> 00:08:53,130
+Only the lines that are generating according to the movements of the band.
+
+88
+00:08:53,460 --> 00:09:00,000
+So it is an interesting view to see the roots, that's the object is going.
+
+89
+00:09:02,410 --> 00:09:08,110
+And that's all for this lecture about optical flow spires in the next one.
+
+90
+00:09:08,380 --> 00:09:16,390
+You are going to learn the basic intuition and mainly the differences between optical flow is sparse
+
+91
+00:09:16,390 --> 00:09:22,750
+and optical flow dense, and right after we are going to move back to the implementations.
+
+92
+00:09:23,140 --> 00:09:23,860
+See you there.
+

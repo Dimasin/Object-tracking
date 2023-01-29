@@ -1,0 +1,384 @@
+1
+00:00:00,240 --> 00:00:07,680
+Hello and welcome to this lecture, where you are going to learn the basic intuition about far more
+
+2
+00:00:07,680 --> 00:00:09,180
+tricky algorithms.
+
+3
+00:00:09,720 --> 00:00:19,320
+The first is medial flow, which is not suitable for fast moving objects or objects.
+
+4
+00:00:19,320 --> 00:00:22,350
+That's changed their appearance quickly.
+
+5
+00:00:22,530 --> 00:00:31,890
+For example, if in one frame the object is far from the camera and in the next frame, the object is
+
+6
+00:00:31,910 --> 00:00:33,810
+too close to the camera.
+
+7
+00:00:34,290 --> 00:00:44,730
+The main concept of the algorithm is that it tracks the object in four words and backwards directions,
+
+8
+00:00:45,060 --> 00:00:49,980
+and measures the differences between these two trajectories.
+
+9
+00:00:50,310 --> 00:01:01,530
+For example, in this image, we have the previous frame and the posterior frame to know the next location
+
+10
+00:01:01,530 --> 00:01:03,000
+the object will be.
+
+11
+00:01:03,360 --> 00:01:12,960
+The algorithm calculates the difference between them, so we know if the object is following the trajectory
+
+12
+00:01:12,960 --> 00:01:17,520
+correctly, the algorithm is not suitable for objects.
+
+13
+00:01:17,520 --> 00:01:26,340
+That's changing appearance, according to this definition here, because of this calculation of similarity
+
+14
+00:01:26,340 --> 00:01:27,480
+between frames.
+
+15
+00:01:27,780 --> 00:01:37,800
+If here where I am pointing the mouse, the runner changes its trajectory upwards towards the grass.
+
+16
+00:01:38,040 --> 00:01:46,590
+The differences between the trajectories will be too large, and it will not be possible to continue
+
+17
+00:01:46,590 --> 00:01:49,770
+tracking based on this calculation.
+
+18
+00:01:49,950 --> 00:01:58,110
+It is possible to predict tracking failures or when the object leaves its position.
+
+19
+00:01:58,440 --> 00:02:08,910
+In this example, you can identify if a runner is going out of his or her lane and is invading someone
+
+20
+00:02:08,910 --> 00:02:09,930
+else's lane.
+
+21
+00:02:10,259 --> 00:02:14,190
+This image shows how the algorithm works.
+
+22
+00:02:14,520 --> 00:02:19,560
+We have the previous frame, the minus one.
+
+23
+00:02:19,980 --> 00:02:28,890
+The current frame leathered the here and the arrows indicate the direction of the next movement.
+
+24
+00:02:29,160 --> 00:02:37,890
+This other image shows the calculation of the median, which is a statistical concept to calculate the
+
+25
+00:02:37,890 --> 00:02:40,200
+differences between frames.
+
+26
+00:02:40,650 --> 00:02:48,090
+If the difference of the media is this small, the object is heading in the same direction.
+
+27
+00:02:48,450 --> 00:02:56,460
+On the other hand, if the difference of the medium is big, the object has changed direction.
+
+28
+00:02:56,940 --> 00:03:05,490
+This is why this algorithm is called medium flow because we are calculating the direction of median
+
+29
+00:03:05,490 --> 00:03:06,270
+values.
+
+30
+00:03:06,750 --> 00:03:12,630
+The next algorithm is the L.D Key Learning Detection.
+
+31
+00:03:12,930 --> 00:03:22,170
+This diagram shows the structure of the algorithm, which is composed of three parts drag key learning
+
+32
+00:03:22,170 --> 00:03:25,290
+and detection, according to its name.
+
+33
+00:03:25,650 --> 00:03:34,950
+The first step is to start tracking the object, and while the object is being tracked, the data is
+
+34
+00:03:34,950 --> 00:03:40,560
+Sand's should the learning process, so it adapts to tracking.
+
+35
+00:03:41,050 --> 00:03:50,430
+While the algorithm is learning, it is online learning the object detection process is improved and
+
+36
+00:03:50,430 --> 00:03:55,230
+the detection data is sent back to the learning process.
+
+37
+00:03:55,710 --> 00:04:06,030
+When tracking fails, the algorithm tries to learn from its errors and sans the data should try to detect
+
+38
+00:04:06,030 --> 00:04:07,590
+the objects again.
+
+39
+00:04:08,010 --> 00:04:16,170
+We are not going to see mathematical details as the goal of the course is just to show a general overview
+
+40
+00:04:16,170 --> 00:04:17,550
+of the algorithms.
+
+41
+00:04:18,209 --> 00:04:29,220
+The next algorithm is most minimal output sum of squared error, which is one of the fastest but not
+
+42
+00:04:29,220 --> 00:04:30,300
+so accurate.
+
+43
+00:04:30,630 --> 00:04:37,950
+It's a good option if you need tracking speeds and don't care so much about quality.
+
+44
+00:04:38,310 --> 00:04:43,140
+The algorithm is robust to lightning variations.
+
+45
+00:04:43,410 --> 00:04:52,920
+For example, if the light is on in the first frames and the light is off in the others, it's robust
+
+46
+00:04:52,920 --> 00:04:54,150
+to scale.
+
+47
+00:04:54,390 --> 00:04:59,400
+If the object is near or far from the camera, it is.
+
+48
+00:04:59,530 --> 00:05:08,010
+Also robust to pose, for example, in the first frame, the person is facing the camera and in the
+
+49
+00:05:08,010 --> 00:05:17,280
+next frames, the person has his or her back to the camera, or when the person puts their hands in
+
+50
+00:05:17,280 --> 00:05:23,460
+front of the face in order to identify this changes in the environment.
+
+51
+00:05:23,730 --> 00:05:30,270
+The algorithm uses a mathematical concept called correlation filters.
+
+52
+00:05:30,630 --> 00:05:34,230
+This image shows how the algorithm works.
+
+53
+00:05:34,560 --> 00:05:42,270
+In the first frame of the video, you select the face or the object you once should track.
+
+54
+00:05:42,600 --> 00:05:45,450
+It is the initialization phase.
+
+55
+00:05:45,840 --> 00:05:51,720
+See that the image is quite dark and in the next frame.
+
+56
+00:05:52,020 --> 00:05:59,190
+When we increase the light, the algorithm continues tracking the person's face frame.
+
+57
+00:05:59,220 --> 00:06:04,200
+One hundred and fifty and frame two hundred and fifty.
+
+58
+00:06:04,620 --> 00:06:09,570
+These Reds point indicates the center of the detection.
+
+59
+00:06:09,870 --> 00:06:13,020
+And here we can see more information.
+
+60
+00:06:13,620 --> 00:06:22,800
+We have the inputs, which is the object, the application of the correlation filter and the outputs
+
+61
+00:06:22,800 --> 00:06:26,970
+with the result of the object that was tracked.
+
+62
+00:06:27,300 --> 00:06:31,470
+We can see only this centre point here and here.
+
+63
+00:06:31,800 --> 00:06:41,880
+Finally, the last algorithm is golden, which means generic objects tracking using regression networks,
+
+64
+00:06:42,180 --> 00:06:45,930
+which was strange using off-line learning.
+
+65
+00:06:46,320 --> 00:06:49,590
+This is the only algorithm with this feature.
+
+66
+00:06:49,710 --> 00:06:58,410
+We have seen so far, so it was strange using datasets composed of thousands of videos.
+
+67
+00:06:58,770 --> 00:07:08,040
+It is based on deep learning and convolutional neural networks, which is a type of neural network widely
+
+68
+00:07:08,040 --> 00:07:10,500
+used for image classification.
+
+69
+00:07:11,010 --> 00:07:18,730
+Here we can see the architecture of the algorithm, which starts by the definition of the object you
+
+70
+00:07:18,750 --> 00:07:19,860
+once should track.
+
+71
+00:07:20,220 --> 00:07:30,870
+As we can see here, this image is sans show five convolutional layers and three fully connected layers
+
+72
+00:07:31,200 --> 00:07:36,720
+so that we get a prediction of the object's location.
+
+73
+00:07:37,170 --> 00:07:45,900
+The neural network returns a balding box, as you can see here, with the position of where the object
+
+74
+00:07:45,900 --> 00:07:47,640
+is in the next frame.
+
+75
+00:07:48,330 --> 00:07:56,010
+Don't worry about understand the neural networks because as I mentioned before, the goal of the class
+
+76
+00:07:56,010 --> 00:08:03,420
+is just to show you the basics of each algorithm and you can access the additional materials if you
+
+77
+00:08:03,420 --> 00:08:04,430
+want to know more.
+
+78
+00:08:04,770 --> 00:08:13,800
+Wolters doesn't have very good results because we need to track objects like the ones the algorithm
+
+79
+00:08:13,800 --> 00:08:14,910
+was trained.
+
+80
+00:08:15,360 --> 00:08:23,850
+For example, it will not be able to track fingers because it has trained with the hands images.
+
+81
+00:08:24,180 --> 00:08:28,880
+So before using it, you'll need to check the objects.
+
+82
+00:08:28,890 --> 00:08:32,039
+That's the algorithm has been trained on.
+
+83
+00:08:32,460 --> 00:08:40,710
+Of course, you'll need to perform some tests to see if the algorithm will perform goods in your application.
+
+84
+00:08:41,100 --> 00:08:49,980
+Finally, we have a summary of some of the algorithms C s r d has the best performance.
+
+85
+00:08:50,230 --> 00:08:53,200
+Birds is this lowest case.
+
+86
+00:08:53,230 --> 00:08:57,570
+CRF is not very good regarding quality.
+
+87
+00:08:57,810 --> 00:09:01,710
+However, it is a very fast algorithm.
+
+88
+00:09:02,130 --> 00:09:06,720
+On the other hand, Mus is the fastest of all.
+
+89
+00:09:07,140 --> 00:09:14,940
+It is important to note these features of the algorithms for you to choose the best one according to
+
+90
+00:09:14,940 --> 00:09:17,910
+the type of application you are developing.
+
+91
+00:09:18,390 --> 00:09:24,930
+There are some applications where you need a lot of precision and the speed is not.
+
+92
+00:09:24,930 --> 00:09:26,580
+So that's important.
+
+93
+00:09:26,910 --> 00:09:29,850
+So you can use C s r d.
+
+94
+00:09:30,300 --> 00:09:38,550
+There are also some applications where the quality is not as important as this builds, so you can use
+
+95
+00:09:39,000 --> 00:09:42,540
+case the f r moves in the next lecture.
+
+96
+00:09:42,750 --> 00:09:46,380
+We are going to start with implementations, so there.
+

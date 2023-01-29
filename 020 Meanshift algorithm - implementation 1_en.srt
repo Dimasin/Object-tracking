@@ -1,0 +1,360 @@
+1
+00:00:00,390 --> 00:00:06,960
+Hello and welcome to this lecture, where we are going to start the implementation of the mean shift
+
+2
+00:00:06,960 --> 00:00:07,710
+algorithm.
+
+3
+00:00:07,860 --> 00:00:10,620
+We are back to the bike sharing project.
+
+4
+00:00:10,950 --> 00:00:14,730
+Let's create a new bike file.
+
+5
+00:00:15,060 --> 00:00:19,650
+The name of this file will be mission shift.
+
+6
+00:00:20,190 --> 00:00:28,050
+Let's see boards the libraries in Part C ritual and the we will install another library.
+
+7
+00:00:28,530 --> 00:00:34,710
+We can click here and there are, you know, and let's type be installed.
+
+8
+00:00:35,160 --> 00:00:38,490
+I am or those breaths.
+
+9
+00:00:38,490 --> 00:00:40,680
+And there we can see here.
+
+10
+00:00:40,680 --> 00:00:44,250
+That's the installation was successfully done.
+
+11
+00:00:44,640 --> 00:00:48,990
+And this is a library to work with videos in Python.
+
+12
+00:00:49,260 --> 00:00:51,840
+We will use it in some sections.
+
+13
+00:00:52,200 --> 00:01:05,459
+Now we can import a class from this new library from I am would use that video import video stream in
+
+14
+00:01:05,459 --> 00:01:06,780
+this case study.
+
+15
+00:01:06,870 --> 00:01:14,100
+We are not going to load a video from this folder here, as we did before.
+
+16
+00:01:14,310 --> 00:01:17,790
+We will load the videos from the web cam.
+
+17
+00:01:18,120 --> 00:01:27,950
+Now we can create the capture variable video history in this new class that we have just part.
+
+18
+00:01:27,960 --> 00:01:37,350
+It's the first parameter is this service which will be equal to zero, which means the web can in case
+
+19
+00:01:37,350 --> 00:01:41,730
+you have more cameras installed on your computer.
+
+20
+00:01:42,030 --> 00:01:50,730
+The webcam will be camera zero and the other cameras will be camera one, camera two, camera three
+
+21
+00:01:50,730 --> 00:01:51,690
+and so one.
+
+22
+00:01:52,140 --> 00:01:57,780
+And now we are going to start capturing the images from the webcam.
+
+23
+00:01:57,990 --> 00:02:02,370
+How will we import and larger library here in time?
+
+24
+00:02:02,850 --> 00:02:04,430
+And let's type here?
+
+25
+00:02:05,040 --> 00:02:18,030
+I thought this is a Leap One, which means that we are going to wait one seconds before we start capturing
+
+26
+00:02:18,030 --> 00:02:20,190
+the images from the webcam.
+
+27
+00:02:20,550 --> 00:02:29,070
+And we need these quotes because when we are capturing videos from the webcam, it needs some seconds
+
+28
+00:02:29,070 --> 00:02:32,250
+in order to adapt to the environment.
+
+29
+00:02:32,640 --> 00:02:39,240
+For example, maybe you have already seen that when you turn on the webcam.
+
+30
+00:02:39,450 --> 00:02:45,420
+It takes one or two seconds to adapt to the light conditions.
+
+31
+00:02:45,660 --> 00:02:54,960
+For example, even if you were in a light environment when you open the webcam in the first Milicic
+
+32
+00:02:54,960 --> 00:03:02,760
+once the image will be quite dark because the webcam is adapting to the environment.
+
+33
+00:03:03,120 --> 00:03:11,280
+So we are going to use these codes to wait one sec once to give time.
+
+34
+00:03:11,400 --> 00:03:20,010
+Should the webcam adapts, should the lightning conditions and we are going to select the object was
+
+35
+00:03:20,010 --> 00:03:23,070
+should track after this process.
+
+36
+00:03:23,400 --> 00:03:32,310
+In short, we are giving one seconds to the webcam, adapts to the light and in conditions of the environment.
+
+37
+00:03:32,880 --> 00:03:40,960
+Now we can recreate the cap variable civic through video capture.
+
+38
+00:03:41,460 --> 00:03:48,600
+Again, we will put zero, which means that we are getting the images from the webcam.
+
+39
+00:03:48,930 --> 00:03:58,350
+If you remember the order lecturers here, we typed the path of the video, so the code is the same.
+
+40
+00:03:58,680 --> 00:04:03,960
+Three video files are to get the video from the webcam.
+
+41
+00:04:04,510 --> 00:04:10,760
+I will create new variables or OK and frame equals.
+
+42
+00:04:11,100 --> 00:04:12,870
+Yep, that reads.
+
+43
+00:04:13,140 --> 00:04:20,820
+To get the first frame of the video are the first frame when the webcam is initialized.
+
+44
+00:04:21,149 --> 00:04:24,150
+Just a reminder that this variable.
+
+45
+00:04:24,180 --> 00:04:29,940
+OK will tell was if the connection was made successfully.
+
+46
+00:04:30,270 --> 00:04:36,740
+We can just prints OK just to see if we can get the images from the webcam.
+
+47
+00:04:37,170 --> 00:04:38,880
+Let's run this code.
+
+48
+00:04:39,180 --> 00:04:41,880
+We can see this message here.
+
+49
+00:04:42,120 --> 00:04:53,160
+It means we could get the video from the webcam now will create the beatbox variable civic through dots.
+
+50
+00:04:53,460 --> 00:04:55,200
+Select Right.
+
+51
+00:04:55,440 --> 00:04:59,400
+We are going to select the object from the webcam.
+
+52
+00:05:00,000 --> 00:05:06,440
+Will put the heater the first frame of the video after selecting the building blocks.
+
+53
+00:05:06,800 --> 00:05:16,210
+Let's create x y width and the hive variables equals B box.
+
+54
+00:05:16,610 --> 00:05:25,670
+We can create another variable and we call it as tracking window, which is the object which one should
+
+55
+00:05:25,670 --> 00:05:31,150
+track, and it will be equal to each one of these variables here.
+
+56
+00:05:31,730 --> 00:05:37,820
+Let's sprints the track window just to see the results.
+
+57
+00:05:38,420 --> 00:05:40,670
+Now we can run this code.
+
+58
+00:05:41,330 --> 00:05:44,300
+We can see the first frame of the video.
+
+59
+00:05:44,750 --> 00:05:50,660
+I am holding up ban and the goal will be to track this span.
+
+60
+00:05:51,140 --> 00:05:57,500
+We can select a small bounding box here just with this part.
+
+61
+00:05:57,740 --> 00:06:06,580
+And after pressing space or enter, we can see that we have the same messages as before we get.
+
+62
+00:06:06,590 --> 00:06:13,430
+As a result, the building blocks of the initial object that we want should track.
+
+63
+00:06:13,880 --> 00:06:24,200
+We can see here Position X, Position Y and this size of the building blocks just that small part of
+
+64
+00:06:24,200 --> 00:06:24,830
+the BAM.
+
+65
+00:06:25,310 --> 00:06:34,340
+Now we need to create a new image which will be equal to all these part of the image.
+
+66
+00:06:34,670 --> 00:06:43,160
+Only the objects are the part of the band I selected before the object one should track.
+
+67
+00:06:43,820 --> 00:06:54,740
+So we can create a new variable called ROI, which means region of interest and we can access our frame.
+
+68
+00:06:55,220 --> 00:06:58,880
+This is the initial frame that was rad.
+
+69
+00:06:58,880 --> 00:07:07,190
+The here and now we can type the following codes Y and feel y plus h.
+
+70
+00:07:07,460 --> 00:07:10,460
+This is the initial position of the image.
+
+71
+00:07:11,090 --> 00:07:15,080
+X x plus w.
+
+72
+00:07:15,440 --> 00:07:24,720
+We are using these two variables here to get the initial points of the building blocks, and these are
+
+73
+00:07:24,740 --> 00:07:31,100
+their points here which are related to this size of the object we select.
+
+74
+00:07:31,100 --> 00:07:35,530
+This sugar adds only that's part of the image.
+
+75
+00:07:36,200 --> 00:07:45,620
+We can visualize the results, see which I am sure the title of the window, right?
+
+76
+00:07:45,920 --> 00:07:52,370
+And let's put here the new variable and see which to weight.
+
+77
+00:07:52,370 --> 00:07:53,820
+Kim No.
+
+78
+00:07:53,900 --> 00:07:54,650
+Zero.
+
+79
+00:07:54,950 --> 00:08:00,200
+The window will be opened until we press a key on the keyboard.
+
+80
+00:08:00,620 --> 00:08:03,320
+Now, let's run this code again.
+
+81
+00:08:04,790 --> 00:08:09,950
+I will select the building blocks a small one here.
+
+82
+00:08:10,460 --> 00:08:11,750
+Press enter.
+
+83
+00:08:13,160 --> 00:08:24,170
+And we can see this order window here with just off this part of the image that I have just selected.
+
+84
+00:08:24,200 --> 00:08:34,280
+We first need to get to this initial part in order to sans should the algorithm, so it will track only
+
+85
+00:08:34,280 --> 00:08:36,230
+this part of the ban.
+
+86
+00:08:36,890 --> 00:08:44,340
+And this is the first part of the implementation where we give time to the webcam to adapt.
+
+87
+00:08:44,360 --> 00:08:53,000
+Should the lightning conditions with select, the object we want should drag using select drive from
+
+88
+00:08:53,000 --> 00:09:00,080
+open sivy and then we get only the part of the image that we should track.
+
+89
+00:09:00,380 --> 00:09:04,220
+And in the next lecture, we will continue the implementation.
+
+90
+00:09:04,580 --> 00:09:05,300
+See you there!
+

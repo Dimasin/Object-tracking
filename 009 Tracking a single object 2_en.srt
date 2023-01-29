@@ -1,0 +1,528 @@
+1
+00:00:00,180 --> 00:00:07,070
+Hello and welcome to this lecture, where we are going to continue the implementation of single track.
+
+2
+00:00:07,800 --> 00:00:16,770
+Just a reminder that the last lecture we implemented these codes to select the algorithm was for use.
+
+3
+00:00:17,010 --> 00:00:25,140
+And in this lecture, we are going to read the video that we are going to use as example, and then
+
+4
+00:00:25,140 --> 00:00:29,220
+we will select the object that one should track.
+
+5
+00:00:29,640 --> 00:00:35,370
+I will create a new folder here, new directory.
+
+6
+00:00:35,850 --> 00:00:46,260
+I will call the name of the folder will be videos, and you can access the class materials and copy
+
+7
+00:00:46,260 --> 00:00:51,840
+and paste this file race thoughts and be far less.
+
+8
+00:00:51,840 --> 00:00:55,950
+Click OK here inside this folder.
+
+9
+00:00:56,130 --> 00:01:01,410
+We will start all the videos that we are going to use in this class.
+
+10
+00:01:02,040 --> 00:01:03,840
+You can see the video here.
+
+11
+00:01:04,170 --> 00:01:12,300
+The goal well is to select the objects are the runners, and then we are going to track the runners
+
+12
+00:01:12,300 --> 00:01:15,240
+until the ends of the lanes.
+
+13
+00:01:21,120 --> 00:01:30,810
+And the first step is to load the video and we'll create a new variable video service to thoughts he
+
+14
+00:01:30,930 --> 00:01:32,130
+will capture.
+
+15
+00:01:32,430 --> 00:01:36,780
+This is an open CGI glass shoot load videos.
+
+16
+00:01:37,140 --> 00:01:42,510
+And now we just need to specify the barf videos.
+
+17
+00:01:42,930 --> 00:01:51,180
+It is the name of the folder with the capital raise lots and effort.
+
+18
+00:01:51,630 --> 00:01:55,870
+Now we can just check if the video was correct.
+
+19
+00:01:55,960 --> 00:02:02,790
+It Loaded's if not video is called bents.
+
+20
+00:02:03,390 --> 00:02:15,600
+If it wasn't possible to load the video, then we can brands an error message for a simple error while
+
+21
+00:02:16,170 --> 00:02:18,540
+loading their video.
+
+22
+00:02:18,870 --> 00:02:27,480
+And then we can just type cease but exits to finish the execution of this quote.
+
+23
+00:02:27,900 --> 00:02:32,250
+Cease is busy boards that we made in the last lecture.
+
+24
+00:02:32,430 --> 00:02:36,760
+We can just run this code to perform the first test.
+
+25
+00:02:37,140 --> 00:02:40,080
+We can see here the name of the trackers.
+
+26
+00:02:40,890 --> 00:02:45,110
+We can also puts this to Brent's comments.
+
+27
+00:02:45,660 --> 00:02:55,950
+For example, if we change the name here to an invalid name, see that we have this message error while
+
+28
+00:02:56,070 --> 00:02:57,390
+loading the video.
+
+29
+00:02:57,810 --> 00:03:04,770
+If this message is not shows, it means that the video was correctly loaded.
+
+30
+00:03:05,250 --> 00:03:11,590
+Now we need to get the first frame of the video to select the object.
+
+31
+00:03:11,640 --> 00:03:15,480
+One should track and we'll create two new variables.
+
+32
+00:03:16,140 --> 00:03:16,860
+OK.
+
+33
+00:03:17,130 --> 00:03:18,120
+And frame.
+
+34
+00:03:18,540 --> 00:03:25,950
+The key variable will indicate if we could load the first frame of the video.
+
+35
+00:03:26,190 --> 00:03:33,420
+On the other hand, the frame variable will start the first frame of the video.
+
+36
+00:03:33,900 --> 00:03:40,800
+Now we can type video that reads it will read the first frame.
+
+37
+00:03:41,250 --> 00:03:47,070
+We can also type here, if not, OK.
+
+38
+00:03:47,490 --> 00:03:57,330
+If we could then load the first frame of the video we can breathe again and error message error while
+
+39
+00:03:57,450 --> 00:03:59,580
+loading the frame.
+
+40
+00:04:00,330 --> 00:04:05,130
+And then we can just type CS dot exits.
+
+41
+00:04:05,490 --> 00:04:08,010
+We can bring into this variable here.
+
+42
+00:04:08,130 --> 00:04:18,420
+OK, it will return through our foes through if we could get to the first frame and false if there is
+
+43
+00:04:18,420 --> 00:04:21,209
+one error while loading the frame.
+
+44
+00:04:21,420 --> 00:04:22,980
+Let's run this code.
+
+45
+00:04:23,370 --> 00:04:32,040
+See, that's true was returned here, so it means that we would load the first frame of the video.
+
+46
+00:04:32,790 --> 00:04:40,560
+Now we will find another variable beat box, which means bounding box.
+
+47
+00:04:40,980 --> 00:04:51,000
+This variable will start the positions of the object in the first frame and choose select the objects
+
+48
+00:04:51,300 --> 00:05:04,080
+and open C v function, which is select right, and we will send here the first frame ROI means region
+
+49
+00:05:04,110 --> 00:05:06,210
+of interest.
+
+50
+00:05:06,720 --> 00:05:09,210
+Now we can run this code again.
+
+51
+00:05:09,570 --> 00:05:17,310
+See, that's a new window was opened here with the first frame of the video.
+
+52
+00:05:17,430 --> 00:05:21,780
+The first position and we can see some messages here.
+
+53
+00:05:22,410 --> 00:05:28,740
+Select array and then bra's space are in there, but you can.
+
+54
+00:05:28,820 --> 00:05:38,580
+So this selection by pressing see button if you want to count so we can just type lathers, see, we
+
+55
+00:05:38,580 --> 00:05:41,490
+can see that the process was finished.
+
+56
+00:05:42,180 --> 00:05:44,340
+Let's run this code again.
+
+57
+00:05:45,330 --> 00:05:49,140
+Now we can select the object.
+
+58
+00:05:49,230 --> 00:05:58,980
+For example, we can just draw the balding box in order to select the object one should track in the
+
+59
+00:05:58,980 --> 00:05:59,940
+first frame.
+
+60
+00:06:00,210 --> 00:06:08,640
+This is very important when working with tracking algorithms that when you have a video first you need
+
+61
+00:06:08,640 --> 00:06:11,790
+to select the object in the first frame.
+
+62
+00:06:12,420 --> 00:06:20,430
+If you click outside the building blocks, you can select and other objects and you.
+
+63
+00:06:20,730 --> 00:06:30,630
+Fear this selection we can grass space are in there, for example, how will grass in my keyboard's
+
+64
+00:06:30,990 --> 00:06:35,250
+space see that the process has finished?
+
+65
+00:06:35,670 --> 00:06:40,530
+Because actually this code is only selecting the object.
+
+66
+00:06:40,710 --> 00:06:49,320
+We are not tracking the objects yet, and we can also prints this variable bee box.
+
+67
+00:06:49,800 --> 00:06:51,210
+Let's run again.
+
+68
+00:06:51,780 --> 00:07:00,660
+Now we'll select the runner press and through see here that some positions were returned.
+
+69
+00:07:01,350 --> 00:07:04,560
+The first is the x axis.
+
+70
+00:07:04,950 --> 00:07:07,770
+This once the y axis.
+
+71
+00:07:08,130 --> 00:07:11,670
+It means the coordinates of the balding box.
+
+72
+00:07:12,060 --> 00:07:16,170
+And here we have this size of the balding box.
+
+73
+00:07:16,770 --> 00:07:19,290
+Let's run this code again.
+
+74
+00:07:19,800 --> 00:07:29,550
+For example, if I click in this part here at the beginning of the image, let's select this region
+
+75
+00:07:29,550 --> 00:07:30,060
+here.
+
+76
+00:07:30,390 --> 00:07:31,490
+Press Enter.
+
+77
+00:07:31,890 --> 00:07:33,930
+See, that was usual.
+
+78
+00:07:34,110 --> 00:07:41,430
+X is big cell number four, and position way is peak cell number three.
+
+79
+00:07:41,730 --> 00:07:51,170
+It's at the beginning of the image and see here that these order values are lower than the other ones
+
+80
+00:07:51,510 --> 00:07:54,990
+because we have a smaller building blocks.
+
+81
+00:07:56,010 --> 00:08:02,610
+Let's run this code again and select almost the whole we might.
+
+82
+00:08:02,730 --> 00:08:06,690
+Here we have this big building blocks.
+
+83
+00:08:07,260 --> 00:08:12,000
+They can look at the positions x and y axis.
+
+84
+00:08:12,270 --> 00:08:17,910
+And this is this size of the building blocks, the width and the hiph.
+
+85
+00:08:18,360 --> 00:08:25,820
+So E shortens this variable here where we start the position of the object.
+
+86
+00:08:25,970 --> 00:08:27,240
+Once should track.
+
+87
+00:08:27,510 --> 00:08:32,100
+Now we can recreate the OK variable.
+
+88
+00:08:32,549 --> 00:08:40,169
+Let's go detractor dots in it and we will send here the frame.
+
+89
+00:08:40,440 --> 00:08:46,860
+This is the first frame of the video and also the beep box variable.
+
+90
+00:08:47,190 --> 00:08:50,820
+Now we are initializing the algorithm.
+
+91
+00:08:51,210 --> 00:08:52,430
+Take a look here.
+
+92
+00:08:52,440 --> 00:08:59,790
+That's the tracker that we are going to use is number six, which is C s r d.
+
+93
+00:09:00,030 --> 00:09:04,370
+We can change to boasting which was the first one.
+
+94
+00:09:04,380 --> 00:09:06,170
+You will learn the initial.
+
+95
+00:09:06,600 --> 00:09:11,180
+So now we will create a boost, the objects.
+
+96
+00:09:11,520 --> 00:09:15,630
+We will use this algorithm to track the objects.
+
+97
+00:09:16,140 --> 00:09:25,560
+So in this part, the here we are, initializing the boost the algorithm and we need to send the first
+
+98
+00:09:25,560 --> 00:09:31,410
+frame and also the position of the object we once should track.
+
+99
+00:09:31,950 --> 00:09:35,730
+We can prints, OK, here, let's run.
+
+100
+00:09:35,730 --> 00:09:40,440
+This code selects the runner breasts.
+
+101
+00:09:40,440 --> 00:09:48,450
+And third, we have here the information about the building blocks, and this message through indicates
+
+102
+00:09:48,450 --> 00:09:52,740
+that the tracker was successfully initialized.
+
+103
+00:09:53,160 --> 00:10:03,360
+Finally, we will define and order variable colors equals let's call the function we last as before
+
+104
+00:10:04,380 --> 00:10:04,950
+ends.
+
+105
+00:10:05,370 --> 00:10:13,230
+We will generate random numbers between zero and two hundred and fifty five.
+
+106
+00:10:13,680 --> 00:10:18,660
+Rann's ends zero, two hundred and fifty five.
+
+107
+00:10:19,140 --> 00:10:25,890
+And finally, Rann's ends zero two hundred and fifty five.
+
+108
+00:10:26,340 --> 00:10:29,430
+Let's sprints this new variable koala's.
+
+109
+00:10:31,050 --> 00:10:32,760
+Run this code again.
+
+110
+00:10:33,090 --> 00:10:35,100
+We need to select.
+
+111
+00:10:36,730 --> 00:10:47,020
+The objects see here that we have these values, which will be used to define the color of the building
+
+112
+00:10:47,020 --> 00:10:57,670
+blocks as we are using a random function every time we run, this code will have a different result.
+
+113
+00:10:58,090 --> 00:11:02,170
+See that these values are different from the others.
+
+114
+00:11:02,620 --> 00:11:12,910
+And we are defining three values because the pixels of the images are composed of three channels one
+
+115
+00:11:12,910 --> 00:11:22,090
+channel for the color reds, one channel for technology and one channel for the color bee.
+
+116
+00:11:22,390 --> 00:11:27,200
+This is the R.G. be for months just to better understand.
+
+117
+00:11:27,520 --> 00:11:33,400
+We can use these three values in this RGV calculator.
+
+118
+00:11:33,670 --> 00:11:37,090
+For example, we can type seven.
+
+119
+00:11:37,150 --> 00:11:48,040
+Then the first number that was generated in January, our one hundred and five in Channel G and one
+
+120
+00:11:48,040 --> 00:11:57,610
+hundred and sixty five in Channel B, we can see this color here that was randomly generated.
+
+121
+00:11:58,180 --> 00:12:05,370
+This is the RG before months, however, open civvy works in the formats.
+
+122
+00:12:05,380 --> 00:12:09,290
+BGR the first channel is blue.
+
+123
+00:12:09,640 --> 00:12:14,650
+This section is G and the third channel is our.
+
+124
+00:12:15,040 --> 00:12:19,400
+So to get the call or that two will be generated.
+
+125
+00:12:19,450 --> 00:12:25,540
+Considering these numbers, we need to change the order of the values.
+
+126
+00:12:25,900 --> 00:12:37,990
+For example, R is one hundred and sixty five G is one hundred and five, and B is seventeen.
+
+127
+00:12:38,680 --> 00:12:49,060
+We have these squalor here, so these numbers will create a brown bounding box and we are going to define
+
+128
+00:12:49,130 --> 00:12:58,150
+these random colors because in next lectures, we are going to implement Moki tracking so we can track
+
+129
+00:12:58,150 --> 00:13:05,590
+more than one object in a single video, and each one of them will have a different color.
+
+130
+00:13:05,950 --> 00:13:13,030
+And in the next lecture, we are going to finish this single tracking implementation and we will also
+
+131
+00:13:13,030 --> 00:13:14,120
+see the results.
+
+132
+00:13:14,530 --> 00:13:15,190
+See you there.
+

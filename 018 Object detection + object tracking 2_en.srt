@@ -1,0 +1,612 @@
+1
+00:00:00,180 --> 00:00:07,800
+Hello and welcome to this lecture, where we are going to finish the combination of a detection algorithm
+
+2
+00:00:08,010 --> 00:00:10,230
+with a tracking algorithm.
+
+3
+00:00:10,650 --> 00:00:18,510
+Just a reminder that last lecture we implemented mandates this function that we will reads the first
+
+4
+00:00:18,510 --> 00:00:27,120
+frame of the video and then we will get to the balding box of a person when we call this function.
+
+5
+00:00:27,390 --> 00:00:36,060
+We copy to this variable the return of the function with the position of the body box.
+
+6
+00:00:36,480 --> 00:00:45,840
+And now we are going to go through each one of the frames of the videos in order to run this tracking
+
+7
+00:00:45,870 --> 00:00:46,620
+algorithm.
+
+8
+00:00:47,220 --> 00:00:58,090
+The code will be quite similar to the one we implemented before, while drew lock and frame video Dot
+
+9
+00:00:58,110 --> 00:01:02,490
+reads Create the next frame of the video.
+
+10
+00:01:02,790 --> 00:01:13,860
+If not, OK, then we finish the execution of the while loop if there is no frame treats when we reach
+
+11
+00:01:13,860 --> 00:01:15,690
+the ends of the video.
+
+12
+00:01:16,380 --> 00:01:18,200
+Now that's great again.
+
+13
+00:01:18,240 --> 00:01:29,610
+The OK variable and the balding box equals Dracula dots update and let's sans didn't next frame.
+
+14
+00:01:30,000 --> 00:01:40,080
+We can see here that we defined detractor the C s R D algorithm, and in this line of code, we are
+
+15
+00:01:40,080 --> 00:01:44,640
+updating the location r the position of the body box.
+
+16
+00:01:44,940 --> 00:01:55,680
+Just a reminder that we are using these function together to the object instead of using this select
+
+17
+00:01:55,680 --> 00:01:56,790
+right function.
+
+18
+00:01:57,360 --> 00:02:07,140
+The algorithm itself will select the object to track if OK, if we would update the building blocks,
+
+19
+00:02:07,620 --> 00:02:16,950
+let's create X and Y variable w h equals int z.
+
+20
+00:02:17,610 --> 00:02:25,440
+Let's go through each one of the values of the building blocks for a V in B box.
+
+21
+00:02:26,040 --> 00:02:41,500
+Now we can draw direct dango signature rectangle frame position X and Y X Plus W Y plus h.
+
+22
+00:02:41,880 --> 00:02:44,730
+Let's put to hear the callers.
+
+23
+00:02:45,000 --> 00:02:48,180
+What we need is to define this variable.
+
+24
+00:02:48,610 --> 00:02:51,510
+We will use random crawlers.
+
+25
+00:02:51,900 --> 00:02:55,200
+Let's just paste this code here.
+
+26
+00:02:55,470 --> 00:03:05,130
+We can put this building blocks in commands, and we also needs to initialize the tracker tracker dots
+
+27
+00:03:05,130 --> 00:03:05,760
+in it.
+
+28
+00:03:06,120 --> 00:03:15,300
+Let's sans the first frame and also the building blocks the initial position that will be got from these
+
+29
+00:03:15,300 --> 00:03:17,370
+function detect to here.
+
+30
+00:03:17,790 --> 00:03:28,710
+If we are not able to track the objects we can grants that messaging, tracking failure and we are going
+
+31
+00:03:28,710 --> 00:03:33,030
+to treat Blue Man some additional codes in this part here.
+
+32
+00:03:33,420 --> 00:03:41,490
+But first, let's just try how the tracking is working, so it sure I am.
+
+33
+00:03:41,670 --> 00:03:47,940
+So let's put here the name of the window tracking and frame.
+
+34
+00:03:48,270 --> 00:04:00,990
+Let's create the key variable to weight key parameter when the window waits for a special key.
+
+35
+00:04:01,410 --> 00:04:15,030
+And then if key equals twenty seven, which means they ask key, then we just break it while loop to
+
+36
+00:04:15,030 --> 00:04:16,350
+close the window.
+
+37
+00:04:16,620 --> 00:04:18,779
+Here we just delete this symbol.
+
+38
+00:04:19,680 --> 00:04:21,730
+We can run this code.
+
+39
+00:04:22,230 --> 00:04:31,920
+There is one error object has no attribute ins because here it's missing leather eye tracker dots in
+
+40
+00:04:31,920 --> 00:04:32,310
+it.
+
+41
+00:04:32,700 --> 00:04:35,130
+Let's perform the first test.
+
+42
+00:04:35,700 --> 00:04:37,260
+Run this code.
+
+43
+00:04:37,530 --> 00:04:39,150
+Let's open the window.
+
+44
+00:04:39,450 --> 00:04:43,980
+See that the rock was detected by the cascade.
+
+45
+00:04:44,340 --> 00:04:46,890
+You can see that it is open.
+
+46
+00:04:46,900 --> 00:04:48,870
+They think the building blocks.
+
+47
+00:04:49,200 --> 00:04:53,400
+It means that tracking is working correctly.
+
+48
+00:04:53,730 --> 00:04:59,370
+However, as this rock is not moving, we cannot see the.
+
+49
+00:04:59,840 --> 00:05:09,740
+AIDS and we can make some improvements to not detect this rock as it were up first, so we can set up
+
+50
+00:05:09,740 --> 00:05:12,590
+parameters to detect smoke the scale.
+
+51
+00:05:13,640 --> 00:05:20,150
+Let's Typekit here means size, which is the mean size of the object.
+
+52
+00:05:20,510 --> 00:05:24,020
+Let's type here 60 by 60.
+
+53
+00:05:24,320 --> 00:05:33,590
+This is the minimal size of an object should be detected as this size of the rock is lower than this
+
+54
+00:05:33,590 --> 00:05:38,180
+value than we will detect another object.
+
+55
+00:05:38,540 --> 00:05:41,210
+Let's run the detector again.
+
+56
+00:05:41,300 --> 00:05:43,040
+We can take a look at that, too.
+
+57
+00:05:43,040 --> 00:05:52,640
+Now we can detect the person, but after some time we can see that we lose the building blocks.
+
+58
+00:05:52,850 --> 00:06:01,760
+And when it to happen, we will run the detection algorithm again to choose another person in order
+
+59
+00:06:01,760 --> 00:06:03,650
+to continue tracking.
+
+60
+00:06:04,040 --> 00:06:14,430
+We will implement this part in this house estate demand if it is not okay to continue tracking the object.
+
+61
+00:06:14,750 --> 00:06:24,350
+We will send this message tracking failure and then the other message we will execute the higher cascades
+
+62
+00:06:25,190 --> 00:06:35,480
+detector and now we will recreate the building blocks, just calling our detect function.
+
+63
+00:06:35,720 --> 00:06:37,910
+We will call this function.
+
+64
+00:06:38,150 --> 00:06:47,570
+It will reads the next frame of the video and we will return to the position of the full body of a person
+
+65
+00:06:47,780 --> 00:06:51,860
+in order to restart the detector.
+
+66
+00:06:52,340 --> 00:07:01,740
+Now we can recreate our director, director Sylvia Chu, Butt's legacy tracker.
+
+67
+00:07:02,430 --> 00:07:05,030
+I will choose another one, for example.
+
+68
+00:07:05,300 --> 00:07:07,670
+Tracker was great.
+
+69
+00:07:07,910 --> 00:07:14,150
+You could also use C s r d r any one you want in this code.
+
+70
+00:07:14,180 --> 00:07:14,750
+We are.
+
+71
+00:07:14,810 --> 00:07:15,320
+Is it?
+
+72
+00:07:15,320 --> 00:07:20,240
+You would think short tracking algorithms at the beginning of this is crucial.
+
+73
+00:07:20,480 --> 00:07:29,930
+We are using C s r d, and when we have a tracking failure, we will use the most algorithm and then
+
+74
+00:07:30,050 --> 00:07:37,760
+we need to initialize tracker dots in its frame and B box.
+
+75
+00:07:38,000 --> 00:07:48,170
+We are initializing the tracking algorithm again, according to the new building blocks, before executing
+
+76
+00:07:48,170 --> 00:07:49,790
+the first test.
+
+77
+00:07:50,360 --> 00:07:58,580
+Let's remove this common to here just to show the first object that was detected.
+
+78
+00:07:59,210 --> 00:08:09,590
+Run detection tracking and here we can take a look at the first objects in the first frame of the video,
+
+79
+00:08:10,010 --> 00:08:14,990
+and then we can see that the algorithm started tracking.
+
+80
+00:08:15,350 --> 00:08:19,730
+But see, that's it's a has lose the object.
+
+81
+00:08:20,090 --> 00:08:28,580
+But we don't have here that failure message because the bounding box is being generated.
+
+82
+00:08:28,850 --> 00:08:31,490
+Of course, it is not correct.
+
+83
+00:08:31,700 --> 00:08:42,500
+It is not tracking any objects, but we are not executing this part of the code here, and it happens
+
+84
+00:08:42,799 --> 00:08:46,190
+because of the size of the building blocks.
+
+85
+00:08:46,640 --> 00:08:48,620
+As we can see here again.
+
+86
+00:08:50,080 --> 00:08:57,640
+The building blocks is very big and the person is not so big as the building blocks.
+
+87
+00:08:57,790 --> 00:09:03,310
+We can also take a look at our fast detection file.
+
+88
+00:09:03,880 --> 00:09:10,900
+Let's run it and we can see that the building blocks are also big.
+
+89
+00:09:11,020 --> 00:09:15,550
+It means that we are sending to the tracking algorithm.
+
+90
+00:09:16,000 --> 00:09:19,990
+All this information about the backgrounds.
+
+91
+00:09:20,350 --> 00:09:28,750
+So the tracking algorithm will have some difficulties in tracking the objects since the building blocks
+
+92
+00:09:28,750 --> 00:09:34,140
+is too big and it is a problem of these file here.
+
+93
+00:09:34,480 --> 00:09:43,600
+The full body x m l so it is not so accurate to detect the full body of people.
+
+94
+00:09:43,750 --> 00:09:51,910
+It would be bad there if the building blocks was smaller around the object and not so big.
+
+95
+00:09:51,910 --> 00:10:00,460
+With this, information about the background and the tracking algorithms will use the information about
+
+96
+00:10:00,460 --> 00:10:03,550
+the background to track the objects.
+
+97
+00:10:04,270 --> 00:10:06,970
+Let's run this code again.
+
+98
+00:10:07,450 --> 00:10:16,660
+We can see here the size of the building blocks, see that we have this background information here
+
+99
+00:10:17,080 --> 00:10:26,320
+that it is part of the object, as we can see here, because the bounding box is considering the big
+
+100
+00:10:26,320 --> 00:10:32,230
+skills about the person and also the pixels about the background.
+
+101
+00:10:32,650 --> 00:10:38,320
+So it would be bad if we had a more accurate cascade.
+
+102
+00:10:38,320 --> 00:10:43,270
+It should detect full body of people to solve this problem.
+
+103
+00:10:43,570 --> 00:10:53,410
+We can implemented this code in a different way instead of using the detect function in the first frame.
+
+104
+00:10:53,830 --> 00:10:55,660
+We can use differential.
+
+105
+00:10:55,750 --> 00:11:07,780
+We were using before switcher, but select right and let's send differing inputs desired through line
+
+106
+00:11:08,080 --> 00:11:08,830
+commands.
+
+107
+00:11:09,400 --> 00:11:19,060
+Now we will be able to see this message and now we'll put all this part commands just to see if we will
+
+108
+00:11:19,060 --> 00:11:22,150
+get this tracking failure message.
+
+109
+00:11:22,720 --> 00:11:25,120
+Let's run this code again.
+
+110
+00:11:25,960 --> 00:11:36,820
+Now we need to select the object one should track before we had a big building blocks and now we can
+
+111
+00:11:36,820 --> 00:11:41,860
+create a building blocks according to the size of the person.
+
+112
+00:11:42,340 --> 00:11:43,870
+Less press enter.
+
+113
+00:11:44,230 --> 00:11:45,160
+See here.
+
+114
+00:11:45,160 --> 00:11:53,340
+That's the tracking has already started, and let's wait until we see the mass such tracking failure.
+
+115
+00:11:55,280 --> 00:11:59,240
+See, that's the algorithm, lose the object.
+
+116
+00:11:59,600 --> 00:12:07,730
+Now we have this message, Trekkie failure and the tracking algorithm is not being executed anymore
+
+117
+00:12:08,060 --> 00:12:13,810
+because there was this failure and we could then update the building blocks.
+
+118
+00:12:14,150 --> 00:12:22,400
+So now we can run this code in order to call the function, should detect the object.
+
+119
+00:12:22,850 --> 00:12:24,980
+Let's remove the comments.
+
+120
+00:12:25,490 --> 00:12:28,070
+Let's run the codes again.
+
+121
+00:12:29,060 --> 00:12:35,300
+The first step is to select the object we want should track.
+
+122
+00:12:35,810 --> 00:12:37,100
+Let's run it.
+
+123
+00:12:38,360 --> 00:12:40,730
+And here we can see the video.
+
+124
+00:12:41,150 --> 00:12:46,040
+So the algorithm is called the new tracking the objects.
+
+125
+00:12:46,190 --> 00:12:50,360
+And see here that only one it was returns.
+
+126
+00:12:50,510 --> 00:12:54,110
+Anything happens because they changed the here.
+
+127
+00:12:54,350 --> 00:12:57,500
+Should this see s our D algorithm?
+
+128
+00:12:57,920 --> 00:13:08,680
+So we are initializing with C s r d, and when we have a tracking failure error, we are executing again.
+
+129
+00:13:10,490 --> 00:13:15,740
+We can try now with the Muise algorithm, as we had before.
+
+130
+00:13:16,760 --> 00:13:19,460
+Let's run this code again.
+
+131
+00:13:19,880 --> 00:13:25,220
+I'll we'll select the first object we want should track the goal.
+
+132
+00:13:25,220 --> 00:13:26,870
+We should track people.
+
+133
+00:13:27,530 --> 00:13:29,180
+Let's run this code.
+
+134
+00:13:29,600 --> 00:13:36,320
+We can see the video here, the right select through with the first frame.
+
+135
+00:13:36,830 --> 00:13:41,360
+Now, let's wait until the algorithm returns.
+
+136
+00:13:41,360 --> 00:13:44,780
+A tracking failure at this part here.
+
+137
+00:13:46,670 --> 00:13:48,390
+This is the new object.
+
+138
+00:13:48,410 --> 00:13:50,760
+It was executed once.
+
+139
+00:13:51,560 --> 00:13:57,560
+Similar to the order algorithm and you can test with other algorithms.
+
+140
+00:13:58,190 --> 00:14:07,550
+We'll run this code again and we will select a bigger bounding box, less right to run again.
+
+141
+00:14:08,090 --> 00:14:17,300
+And the results will depends on this first building blocks, of course, after we have a tracking failure,
+
+142
+00:14:17,570 --> 00:14:23,150
+or we will have a big building blocks because we are using the hard cascade.
+
+143
+00:14:23,720 --> 00:14:26,780
+Here that we have this big building blocks.
+
+144
+00:14:27,470 --> 00:14:30,950
+And again, only one agent was returned.
+
+145
+00:14:31,550 --> 00:14:37,880
+Let's try again, and now we'll select this other person here.
+
+146
+00:14:38,780 --> 00:14:42,820
+Press, enter and let's see the results.
+
+147
+00:14:51,510 --> 00:14:59,640
+One, a horror was returned, he heard this same as before and after the algorithm finishes the execution.
+
+148
+00:14:59,940 --> 00:15:06,690
+This is how you can combine both algorithms when you have a tracking failure.
+
+149
+00:15:06,960 --> 00:15:10,470
+You can run the detection algorithm again.
+
+150
+00:15:10,800 --> 00:15:19,110
+As I said before this cascade here, full body is generating quite big, balding boxes.
+
+151
+00:15:19,350 --> 00:15:27,840
+It would be more interesting, and the results would be bad if we had the building blocks at the same
+
+152
+00:15:27,840 --> 00:15:36,450
+size of the objects and in the next lectures we will moving to more advanced tracking algorithms.
+
+153
+00:15:36,720 --> 00:15:37,380
+See you there!
+

@@ -1,0 +1,428 @@
+1
+00:00:00,490 --> 00:00:08,590
+Hello and welcome to this lecture, where we are going to implement a detection algorithm and right
+
+2
+00:00:08,590 --> 00:00:15,040
+after we will combine the tracking algorithm with detection algorithm.
+
+3
+00:00:15,370 --> 00:00:23,200
+And just to better understand what we are going to implement, we will run this single tracking file.
+
+4
+00:00:23,650 --> 00:00:27,580
+Let's choose here the most algorithm.
+
+5
+00:00:28,420 --> 00:00:31,000
+Let's run these codes.
+
+6
+00:00:31,720 --> 00:00:33,910
+Select the object.
+
+7
+00:00:33,910 --> 00:00:36,760
+We ones should drag press and there.
+
+8
+00:00:37,210 --> 00:00:43,870
+And you will see that after some time, the boarding box loses the objects.
+
+9
+00:00:44,320 --> 00:00:47,320
+We can run this code again.
+
+10
+00:00:48,610 --> 00:00:52,150
+Let's select these other runner here.
+
+11
+00:00:52,480 --> 00:00:55,300
+Only the top part of the body.
+
+12
+00:00:58,280 --> 00:01:04,400
+We can see that after some time, the building blocks is far from the object.
+
+13
+00:01:04,610 --> 00:01:15,050
+And when this situation happens, we can run detection algorithm to try to get the object again because
+
+14
+00:01:15,050 --> 00:01:22,340
+if you is still running the tracking algorithm, probably you want to get good results.
+
+15
+00:01:22,550 --> 00:01:31,790
+Since the algorithm is losing the object so we can combine both techniques when the tracking algorithm
+
+16
+00:01:31,790 --> 00:01:39,860
+loses the object, we will run a detection algorithm in order to get the object again.
+
+17
+00:01:40,280 --> 00:01:48,560
+And in this first lecture, we will implement a detection algorithm and then we will combine both.
+
+18
+00:01:49,230 --> 00:01:55,220
+We will create a new Python file based detection.
+
+19
+00:01:55,970 --> 00:02:06,760
+Let's import to the libraries part switcher or been Sivy, and we will create the image variable spiritual.
+
+20
+00:02:07,160 --> 00:02:13,770
+I am riads and let's create a new folder here directory.
+
+21
+00:02:14,240 --> 00:02:16,490
+I will call images.
+
+22
+00:02:17,330 --> 00:02:20,330
+I will paste the best image here.
+
+23
+00:02:20,540 --> 00:02:22,940
+You can get this image in the course.
+
+24
+00:02:22,940 --> 00:02:26,990
+Materials, people, dots, jpg.
+
+25
+00:02:27,470 --> 00:02:29,930
+We can open this much.
+
+26
+00:02:30,260 --> 00:02:38,660
+We can see a lot of people here and they go, Wow, is should that back to the full body of each one
+
+27
+00:02:38,780 --> 00:02:39,500
+of them?
+
+28
+00:02:39,800 --> 00:02:48,080
+In this example about the combination of both algorithms, we are not going to use the same video as
+
+29
+00:02:48,080 --> 00:02:48,620
+before.
+
+30
+00:02:48,800 --> 00:02:51,260
+We will use a different one.
+
+31
+00:02:51,860 --> 00:03:00,650
+Now we can just type here the name of the image before BALF image is God's people.
+
+32
+00:03:00,890 --> 00:03:01,870
+JPG.
+
+33
+00:03:02,420 --> 00:03:12,890
+I will based a new folder here, which is the Cascade folder, and we can see here some x m l files.
+
+34
+00:03:13,340 --> 00:03:23,810
+For example, Full-Body Cascades, I higher cascade from dollface, lower body and upper body.
+
+35
+00:03:24,050 --> 00:03:33,140
+These are files that were already drained in order to detect the parts of the body of people.
+
+36
+00:03:33,500 --> 00:03:41,810
+For example, only the upper bounds the part of the heads, the lower bounds, the part of the legs.
+
+37
+00:03:42,170 --> 00:03:46,850
+Only deferral now face the eyes and the full body.
+
+38
+00:03:47,300 --> 00:03:53,170
+And this is the most common technique in opacity to detect objects.
+
+39
+00:03:53,540 --> 00:04:01,670
+And these files are already trained to detect these parts of the body, and you don't need to worry
+
+40
+00:04:01,670 --> 00:04:04,340
+about how they were generated.
+
+41
+00:04:04,600 --> 00:04:13,430
+Since this is not the goal of the course, we are going to use, the full body file should detect the
+
+42
+00:04:13,430 --> 00:04:14,540
+people here.
+
+43
+00:04:14,990 --> 00:04:27,200
+Now we need to create our detector, which will be equal to see virtual cascades classifier and we just
+
+44
+00:04:27,200 --> 00:04:29,380
+need to send it here.
+
+45
+00:04:29,380 --> 00:04:37,850
+The name of the file cascades, the directory and full body dot x m l.
+
+46
+00:04:38,210 --> 00:04:44,090
+We can just run this code just to make sure no error was returns.
+
+47
+00:04:44,600 --> 00:04:55,840
+Then we can convert the image to Grayscale because when working with Cascade the classifier, this opens
+
+48
+00:04:56,190 --> 00:04:56,930
+technique.
+
+49
+00:04:57,320 --> 00:05:07,430
+It is recommended to convert this image to Grayscale so we can create another variable in which gray
+
+50
+00:05:07,760 --> 00:05:12,380
+equals C, which you see fit the color.
+
+51
+00:05:12,680 --> 00:05:24,260
+Let's send the original image and color b g are too great to see the results we can tie.
+
+52
+00:05:24,800 --> 00:05:31,190
+I am sure let's put it the name of the window people.
+
+53
+00:05:31,520 --> 00:05:40,580
+An image great Etienne's let's start waits key parameter zero.
+
+54
+00:05:40,610 --> 00:05:45,530
+It demands that the window will be waiting until we press a key.
+
+55
+00:05:46,010 --> 00:05:48,080
+Let's run these codes.
+
+56
+00:05:48,380 --> 00:05:54,530
+We can see this window here if we don't type C V to weight key.
+
+57
+00:05:54,800 --> 00:05:57,740
+We want to be able to see this great.
+
+58
+00:05:58,060 --> 00:06:03,850
+Chaos in which we can type and key and then the window will be closed.
+
+59
+00:06:04,000 --> 00:06:11,170
+Now we can use our detector to detect the full body of the people.
+
+60
+00:06:11,590 --> 00:06:20,620
+Let's create the detection variable detector and to detect objects we can call.
+
+61
+00:06:20,620 --> 00:06:30,040
+This function detects multi scale and we just need to choose sans émigré.
+
+62
+00:06:30,370 --> 00:06:35,920
+We can't bring the results, brilliant detections we can put.
+
+63
+00:06:37,250 --> 00:06:39,330
+These two lines comments.
+
+64
+00:06:39,860 --> 00:06:41,880
+Let's run this quote again.
+
+65
+00:06:42,230 --> 00:06:52,610
+See, that's some bounding boxes were returns with the position off where the full body of the people
+
+66
+00:06:52,610 --> 00:06:53,870
+were detected.
+
+67
+00:06:54,290 --> 00:07:02,690
+We can also Brandt's length detections just see how many objects were detected.
+
+68
+00:07:03,110 --> 00:07:04,880
+The result is nine.
+
+69
+00:07:05,120 --> 00:07:08,270
+Let's open the much better.
+
+70
+00:07:08,360 --> 00:07:20,000
+One two three four five six seven eight nine people here, so it seems that the algorithm is able to
+
+71
+00:07:20,000 --> 00:07:21,860
+detect all people.
+
+72
+00:07:22,040 --> 00:07:26,360
+Now we can draw the bounding box in the image.
+
+73
+00:07:26,690 --> 00:07:37,490
+Just a reminder that's the actual first values are related to the position, the x axis and the y axis
+
+74
+00:07:37,640 --> 00:07:41,060
+where the object was found in the image.
+
+75
+00:07:41,420 --> 00:07:50,570
+While the last two values are the width and the height of the body box that was detected.
+
+76
+00:07:51,140 --> 00:08:03,230
+Now we can implements a far loop for x y width and height in detections.
+
+77
+00:08:03,830 --> 00:08:12,440
+We can greens all these variables just to see the results outputs these commands.
+
+78
+00:08:13,490 --> 00:08:22,730
+Let's run the code, see that we are going through each one of the bounding boxes and just copy the
+
+79
+00:08:22,730 --> 00:08:25,970
+values to each one of the variables.
+
+80
+00:08:26,390 --> 00:08:37,760
+Now we can draw the rectangle CV two dots rectangle, the first parameter, the image see that we are
+
+81
+00:08:37,919 --> 00:08:48,410
+drawing the rectangle in the original image, in the ARG image, and we are using the grayscale image
+
+82
+00:08:48,710 --> 00:08:50,780
+just to run the algorithm.
+
+83
+00:08:51,200 --> 00:08:54,650
+The second parameter is the initial blinds.
+
+84
+00:08:55,010 --> 00:09:03,770
+The third parameter is the and points of the building blocks, and we put the same values as here.
+
+85
+00:09:04,390 --> 00:09:13,790
+The next one is the color zero, two, five, five and zero, and the last one is this size of the building
+
+86
+00:09:13,790 --> 00:09:14,330
+blocks.
+
+87
+00:09:14,660 --> 00:09:25,340
+Now we can remove the command here to see the results, and we also need to show the image, see which
+
+88
+00:09:26,000 --> 00:09:29,360
+I am sure detections.
+
+89
+00:09:30,140 --> 00:09:33,380
+And here we are going to sans the image.
+
+90
+00:09:33,560 --> 00:09:42,260
+It's important to emphasize that we are drawing the bounding box on the original image and after visualizing
+
+91
+00:09:42,260 --> 00:09:50,030
+the image, we can destroy all windows to release the memory.
+
+92
+00:09:50,540 --> 00:09:51,860
+Let's run again.
+
+93
+00:09:52,070 --> 00:09:54,020
+We can open the window.
+
+94
+00:09:54,500 --> 00:10:04,370
+We can see some points here, which is the initial point of the building blocks of each one of the people.
+
+95
+00:10:04,730 --> 00:10:14,200
+This is the X and y axis, but we need to draw the building blocks, so we just needs to add to the
+
+96
+00:10:14,230 --> 00:10:20,320
+values x plus with f y plus age.
+
+97
+00:10:20,840 --> 00:10:22,370
+Now let's run again.
+
+98
+00:10:22,790 --> 00:10:26,420
+Open the window and we can see the results.
+
+99
+00:10:26,690 --> 00:10:34,100
+The algorithm was able to draw the building blocks for each one of the people.
+
+100
+00:10:34,400 --> 00:10:37,160
+We just have some problem here.
+
+101
+00:10:37,490 --> 00:10:40,400
+That's only the lag was detected.
+
+102
+00:10:40,610 --> 00:10:49,820
+And if you want to improve the results, you can check the documentation of this function detect multiscale
+
+103
+00:10:49,820 --> 00:10:52,550
+in order to see more parameters.
+
+104
+00:10:52,850 --> 00:10:57,890
+It's not the goal of this lecture to go into these details.
+
+105
+00:10:58,280 --> 00:11:06,500
+The goal is just to show you how you can use a detection algorithm, and in the next lecture, we are
+
+106
+00:11:06,500 --> 00:11:12,770
+going to combine the detection algorithm with the tracking algorithm.
+
+107
+00:11:13,130 --> 00:11:13,820
+See you there!
+

@@ -1,0 +1,176 @@
+1
+00:00:00,210 --> 00:00:07,140
+Hello and welcome to this lecture, where we are going to room, they can shift algorithm and as you
+
+2
+00:00:07,140 --> 00:00:11,550
+can see here, this source code is already implemented.
+
+3
+00:00:11,820 --> 00:00:19,710
+We are not going to implement it step by step because it's quite similar to the mean shift algorithm.
+
+4
+00:00:20,160 --> 00:00:29,030
+We have a new implant here, impart in them by S and B and all this code is this same.
+
+5
+00:00:29,040 --> 00:00:30,780
+We are meant as before.
+
+6
+00:00:31,080 --> 00:00:36,390
+We need to get the image or the object we want should track.
+
+7
+00:00:36,780 --> 00:00:47,760
+Using this select write function, we extract only the object converts from RG B to H s v.
+
+8
+00:00:48,120 --> 00:00:52,440
+Then we need to get the histogram and normalize.
+
+9
+00:00:52,440 --> 00:00:58,260
+It's just a reminder that this algorithm is quite similar to the mean shift.
+
+10
+00:00:58,560 --> 00:01:00,840
+So we need to compare.
+
+11
+00:01:01,110 --> 00:01:09,780
+The histogram of the image are the histogram of the object, which ones should rank with the histogram
+
+12
+00:01:09,780 --> 00:01:18,630
+of each one of the frames that are coming from the webcam inside the while loop, we are accessing the
+
+13
+00:01:18,630 --> 00:01:25,260
+frames that are coming from the webcam we convert, then should the H.
+
+14
+00:01:25,260 --> 00:01:27,660
+S V call her for months.
+
+15
+00:01:27,960 --> 00:01:35,550
+Then we calculate to the probability distribution function using the call back project.
+
+16
+00:01:35,820 --> 00:01:39,210
+See here that we are sending s barometer.
+
+17
+00:01:39,630 --> 00:01:46,600
+The histogram of the object we one should track and also the current frame.
+
+18
+00:01:46,800 --> 00:01:48,810
+There is one difference here.
+
+19
+00:01:49,080 --> 00:01:52,050
+Instead of quality means shift.
+
+20
+00:01:52,170 --> 00:01:58,320
+Now we are calling cam shift function and there other parameters are the same.
+
+21
+00:01:58,410 --> 00:02:00,960
+We just have a difference here.
+
+22
+00:02:01,230 --> 00:02:10,169
+Instead of drawing the rectangle using C v 2.2 rectangle as we implemented before, we are getting the
+
+23
+00:02:10,169 --> 00:02:10,919
+points.
+
+24
+00:02:11,250 --> 00:02:20,190
+Using chalk blocks, points that are the positions of the building blocks we are converting, showing
+
+25
+00:02:20,190 --> 00:02:29,010
+bigger numbers, using them by and we are using poly lines function from open C v and we are creating
+
+26
+00:02:29,010 --> 00:02:33,900
+a new image to draw the building blocks around the object.
+
+27
+00:02:34,140 --> 00:02:40,740
+If you want to know more details about the dysfunction, you can follow this link here from the Open
+
+28
+00:02:40,740 --> 00:02:42,210
+Sea View documentation.
+
+29
+00:02:42,450 --> 00:02:44,470
+Now, let's run this code.
+
+30
+00:02:45,750 --> 00:02:47,760
+The process is the same.
+
+31
+00:02:47,910 --> 00:02:55,920
+First, we need to select the building blocks and we will draw a very small bounding box here.
+
+32
+00:02:56,280 --> 00:02:57,510
+Press Enter.
+
+33
+00:02:59,160 --> 00:03:06,340
+And we can see that this size of the bounding box is bigger than the one, we defined that first.
+
+34
+00:03:06,840 --> 00:03:09,420
+Because this algorithm is dynamic.
+
+35
+00:03:09,630 --> 00:03:17,670
+So the building blocks will increase and decrease this size, according to the positioning of the object.
+
+36
+00:03:17,730 --> 00:03:26,340
+If the object are far close to the camera, see that the size of the building blocks has increased a
+
+37
+00:03:26,340 --> 00:03:26,850
+little.
+
+38
+00:03:26,880 --> 00:03:34,950
+When the object is far from the camera and when the object is close to the camera, the bounding box
+
+39
+00:03:34,950 --> 00:03:36,660
+is a little bit smaller.
+
+40
+00:03:37,110 --> 00:03:44,610
+And this algorithm has the same problem as the other one when we move the object very quick.
+
+41
+00:03:44,970 --> 00:03:52,530
+It loses the building blocks, so you need to perform some tests with the parameters according to the
+
+42
+00:03:52,530 --> 00:03:56,100
+type of video that you are working with.
+
+43
+00:03:56,730 --> 00:04:03,630
+And in the next lecture, you are going to learn the intuition about order track key algorithm.
+
+44
+00:04:04,050 --> 00:04:04,770
+So you know.
+

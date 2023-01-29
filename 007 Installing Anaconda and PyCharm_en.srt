@@ -1,0 +1,212 @@
+1
+00:00:00,330 --> 00:00:07,710
+Hello and welcome to this lecture, where I'm going to show you how you can install Anaconda and by
+
+2
+00:00:07,710 --> 00:00:15,120
+charm on your old machine seals, all examples will be implemented using both tools.
+
+3
+00:00:15,810 --> 00:00:20,970
+You can access the Anaconda website, as you can see here.
+
+4
+00:00:21,240 --> 00:00:24,000
+Let's click this option here.
+
+5
+00:00:24,660 --> 00:00:29,760
+Then you can download it according to your operating system.
+
+6
+00:00:30,060 --> 00:00:37,320
+We can see that it's possible to download for Windows, Mac and also Linux.
+
+7
+00:00:37,800 --> 00:00:45,480
+When you click this button and the installation file will be downloaded and you must run it and follow
+
+8
+00:00:45,480 --> 00:00:46,500
+these directions.
+
+9
+00:00:46,830 --> 00:00:54,450
+I'm not going to show you this process step by step because it's basically following these structures
+
+10
+00:00:54,450 --> 00:00:55,230
+on this screen.
+
+11
+00:00:55,740 --> 00:00:57,880
+In case you don't know, Anaconda.
+
+12
+00:00:58,230 --> 00:01:06,240
+It is one of the most used tools for programming in Python, especially for working with artificial
+
+13
+00:01:06,240 --> 00:01:08,550
+intelligence and data science.
+
+14
+00:01:09,060 --> 00:01:18,240
+The advantage is that several air specific libraries are already installed, and it is also possible
+
+15
+00:01:18,240 --> 00:01:22,980
+to create environments with different versions of Python.
+
+16
+00:01:23,340 --> 00:01:32,280
+For example, one environment using Python two and another environment using Python three and one environments
+
+17
+00:01:32,280 --> 00:01:34,590
+does not influence the other.
+
+18
+00:01:35,070 --> 00:01:44,490
+Then the next step is to install by Sharp, as you can see here, which is an IEEE for working with
+
+19
+00:01:44,490 --> 00:01:47,460
+Python less click downloads.
+
+20
+00:01:47,820 --> 00:01:54,270
+Let's choose the community version, which is the free version when you click.
+
+21
+00:01:54,270 --> 00:02:01,920
+This link and installation file will be downloaded, and you must run this and follow the instructions.
+
+22
+00:02:02,310 --> 00:02:09,840
+Again, I'm not going to show you the process is a step by step because it's basically following the
+
+23
+00:02:09,840 --> 00:02:13,810
+instructions on this screen after installing it.
+
+24
+00:02:14,130 --> 00:02:19,200
+You can open by sharp great this button here.
+
+25
+00:02:19,320 --> 00:02:27,900
+New project Then you can select the location where you are going to save the project.
+
+26
+00:02:28,560 --> 00:02:33,810
+For example, in my case tracking, let's keep this option.
+
+27
+00:02:34,080 --> 00:02:40,550
+New environments using one that select Python version, for example.
+
+28
+00:02:40,560 --> 00:02:46,680
+Three point nine and then let's create this last button here.
+
+29
+00:02:46,980 --> 00:02:50,940
+It will take some minutes to create the new projects.
+
+30
+00:02:51,450 --> 00:02:53,910
+You may see this screen here.
+
+31
+00:02:54,330 --> 00:02:59,040
+In this left part, we can access all the files.
+
+32
+00:02:59,250 --> 00:03:04,320
+And in the center part is where we are going to Typekit the codes.
+
+33
+00:03:04,830 --> 00:03:12,390
+Now we need to install open library in order to have access to the tracking algorithms.
+
+34
+00:03:12,750 --> 00:03:15,280
+We can create this button here.
+
+35
+00:03:15,850 --> 00:03:26,220
+There are, and let's type PIP install open CV by press and there.
+
+36
+00:03:27,230 --> 00:03:34,400
+We can see here that it is downloading the library and also installing some dependencies.
+
+37
+00:03:34,880 --> 00:03:37,400
+Now we need to install another library.
+
+38
+00:03:37,760 --> 00:03:39,080
+Let's type again.
+
+39
+00:03:39,620 --> 00:03:46,310
+You install open civil country Python.
+
+40
+00:03:46,790 --> 00:03:52,910
+We need this country package to have access to the tracking algorithms.
+
+41
+00:03:53,450 --> 00:03:55,280
+Let's press and through again.
+
+42
+00:03:55,880 --> 00:04:01,610
+We can see that it is download and install needed packages.
+
+43
+00:04:01,970 --> 00:04:08,210
+Now we can perform a test just to make sure the installation was done successfully.
+
+44
+00:04:08,600 --> 00:04:14,510
+Let's click in the name of the project's Neil by phone fail.
+
+45
+00:04:15,050 --> 00:04:20,420
+Let's call this first fail fast open CV.
+
+46
+00:04:20,720 --> 00:04:32,340
+Let's start in part CV two, which means the library we have just installed lets type see visual thoughts.
+
+47
+00:04:33,010 --> 00:04:44,450
+Version we can Gleek run fast, open CV nowhere or was returns, so it means that the installation was
+
+48
+00:04:44,450 --> 00:04:45,950
+done successfully.
+
+49
+00:04:46,250 --> 00:04:51,410
+We can just prints the version of open CV we are using.
+
+50
+00:04:51,770 --> 00:04:53,870
+Let's run this code again.
+
+51
+00:04:54,290 --> 00:05:03,590
+See that we have version four point five point four, and in the next lecture, we are going to start
+
+52
+00:05:03,590 --> 00:05:05,420
+implementing the algorithms.
+
+53
+00:05:05,750 --> 00:05:06,440
+See you there!
+

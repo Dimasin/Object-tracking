@@ -1,0 +1,568 @@
+1
+00:00:00,460 --> 00:00:07,660
+Hello and welcome to this lecture, where we are going to implement optical flow dance algorithm.
+
+2
+00:00:08,290 --> 00:00:12,190
+We have this quote with some implementations.
+
+3
+00:00:12,520 --> 00:00:22,690
+First, we are implanting open Siri and by then we are loading it walking video in this folder, here
+
+4
+00:00:23,110 --> 00:00:26,380
+we get the first frame of the video.
+
+5
+00:00:26,950 --> 00:00:31,690
+Then we are converting the first frame to Grayscale.
+
+6
+00:00:32,140 --> 00:00:41,140
+After that, we create the age HSV matrix, which will be composed of zeros.
+
+7
+00:00:41,590 --> 00:00:44,080
+And we are sending the first frame.
+
+8
+00:00:44,410 --> 00:00:52,090
+So it means that we want to generate a matrix with this same size of the first frame.
+
+9
+00:00:52,600 --> 00:01:00,280
+Just a reminder that the optical flow algorithm uses the HSV color space.
+
+10
+00:01:01,030 --> 00:01:04,660
+Let's run this code and check these sprints.
+
+11
+00:01:05,019 --> 00:01:14,290
+The first when we are in the dimensions of the first frame of the walk in the video, take a look here
+
+12
+00:01:14,290 --> 00:01:19,120
+that we can see the dimensions and the number of channels.
+
+13
+00:01:19,270 --> 00:01:27,310
+And then we are printing the dimensions of the HSV matrix that we generated here.
+
+14
+00:01:27,520 --> 00:01:35,830
+We can see that it has this same size since we are going to use it later to print the results.
+
+15
+00:01:35,830 --> 00:01:45,880
+In the video we can see here the first frame with the original pixels of the image from zero to 200
+
+16
+00:01:45,910 --> 00:01:47,320
+and 55.
+
+17
+00:01:47,650 --> 00:01:51,160
+We can also prints HSV.
+
+18
+00:01:51,430 --> 00:01:53,740
+Let's run this code again.
+
+19
+00:01:54,070 --> 00:02:00,530
+And we can take a look that we have only zeros, which means the black color.
+
+20
+00:02:01,000 --> 00:02:04,510
+Let's put all this prints in comments.
+
+21
+00:02:05,360 --> 00:02:09,970
+Now we are going to axis HSV matrix.
+
+22
+00:02:10,370 --> 00:02:21,120
+I will put three dots here because as we can see, that are three dimensions and we need two axis position
+
+23
+00:02:21,130 --> 00:02:22,150
+number one.
+
+24
+00:02:22,480 --> 00:02:27,130
+And the value will be two hundred and fifty five.
+
+25
+00:02:27,430 --> 00:02:33,040
+As we know, the HSV color space has three values.
+
+26
+00:02:33,460 --> 00:02:44,440
+B who led the H, which is used to indicate the direction of the B cells and it is position number zero.
+
+27
+00:02:44,830 --> 00:02:54,940
+Then we have this saturation leather -- that is used to indicate the speeds of the pixels, which is
+
+28
+00:02:54,940 --> 00:03:00,830
+position number one and the value is position number two.
+
+29
+00:03:01,300 --> 00:03:10,510
+When we type this code referring to position number one, it means that we are changing the value of
+
+30
+00:03:10,510 --> 00:03:11,740
+this saturation.
+
+31
+00:03:12,250 --> 00:03:20,590
+So this saturation is initialized with the maximum value, which means the maximum and things should
+
+32
+00:03:20,590 --> 00:03:20,860
+be.
+
+33
+00:03:21,460 --> 00:03:23,530
+We can brents again.
+
+34
+00:03:24,070 --> 00:03:26,020
+HSV matrix.
+
+35
+00:03:26,530 --> 00:03:37,470
+Run this code again and we can see that we have changed only position number one position zero keeps
+
+36
+00:03:37,480 --> 00:03:39,340
+zero position.
+
+37
+00:03:39,340 --> 00:03:43,180
+Chuir also keeps with values zero.
+
+38
+00:03:43,420 --> 00:03:48,910
+We have changed only this saturation, which is position number one.
+
+39
+00:03:50,050 --> 00:03:52,930
+Now let's implement the Y.
+
+40
+00:03:52,930 --> 00:03:56,770
+You look to go through each one of the frames.
+
+41
+00:03:57,250 --> 00:03:59,740
+OK, frame equal.
+
+42
+00:04:00,190 --> 00:04:05,080
+Yep, that reads trades the next frame of the video.
+
+43
+00:04:05,470 --> 00:04:14,080
+Let's convert the current frame grayscale switcher civility color.
+
+44
+00:04:14,470 --> 00:04:25,030
+Let's send the frame that was red from the web cam switcher color BGR sugary.
+
+45
+00:04:25,480 --> 00:04:28,600
+And then let's create a new variable.
+
+46
+00:04:28,930 --> 00:04:31,150
+I will call it S Flow.
+
+47
+00:04:31,450 --> 00:04:43,690
+I will use an open C V Function Calc Optical Flow firing back as you learns in the tuition lecturer,
+
+48
+00:04:43,960 --> 00:04:53,350
+there are some ways to implement optical flow dance and there weren't that open v uses is defender back
+
+49
+00:04:53,350 --> 00:04:54,190
+Eq..
+
+50
+00:04:54,490 --> 00:04:59,640
+So we are using this implementation if you want to know more.
+
+51
+00:05:00,060 --> 00:05:07,460
+Views about the parameters that we are going to set now, you can follow these documentation lead from
+
+52
+00:05:07,460 --> 00:05:08,510
+open CV.
+
+53
+00:05:08,870 --> 00:05:19,010
+The first parameter is frame gray in its the first frame of the video, and then we need to compare
+
+54
+00:05:19,550 --> 00:05:23,780
+your frame gray, which is the current frame.
+
+55
+00:05:24,380 --> 00:05:33,560
+We can take a look at the documentation here, see that we are sending the previous frame and the next
+
+56
+00:05:33,560 --> 00:05:42,710
+frame, and it is needed because of all calculations regarding the pyramids that you learned before.
+
+57
+00:05:43,250 --> 00:05:53,300
+Then the experiment there is flow and we will set it as non and we will have a value for this parameter
+
+58
+00:05:53,720 --> 00:06:02,510
+when there is a predefined direction of the arrows and it is needed another output array.
+
+59
+00:06:02,840 --> 00:06:08,630
+And as we don't have these other array, we can set it as none.
+
+60
+00:06:09,170 --> 00:06:19,310
+The next parameter will be zero point five and it is related to the scale of the pyramids.
+
+61
+00:06:19,580 --> 00:06:29,060
+We can take a look at the documentation here, and the default value is zero point five, which means
+
+62
+00:06:29,060 --> 00:06:37,520
+a classical pyramid where each next layer is twice is smaller than the previous one.
+
+63
+00:06:37,940 --> 00:06:48,410
+Let's suppose this size of one layer is 30 pixels, and this size of the other layer will be twice as
+
+64
+00:06:48,410 --> 00:06:49,070
+smaller.
+
+65
+00:06:49,370 --> 00:06:59,510
+So this size will be equal to 10 pixels and then the next layer this size will be about three pixels.
+
+66
+00:07:00,130 --> 00:07:09,680
+The next perimeter three, which means the levels of the pyramids, for example, in this image that
+
+67
+00:07:09,680 --> 00:07:15,950
+are four levels and we are defining parameters with three levels.
+
+68
+00:07:16,440 --> 00:07:26,330
+The next parameter 15, which is related should the window size regarding the number of pixels in the
+
+69
+00:07:26,330 --> 00:07:31,730
+layers, and we will keep one thing which is the default value.
+
+70
+00:07:32,360 --> 00:07:41,060
+Then the experimenter number three, which is the number of iterations the algorithm does at each pyramid
+
+71
+00:07:41,060 --> 00:07:41,750
+level.
+
+72
+00:07:42,140 --> 00:07:48,950
+In other words, it is the number of repetitions are calculations in each level.
+
+73
+00:07:49,430 --> 00:07:59,090
+The next parameter equals five, which is related should the concept of polynomial expansion, because
+
+74
+00:07:59,090 --> 00:08:04,370
+the dance of the flow uses this mathematical equation.
+
+75
+00:08:04,700 --> 00:08:08,810
+And in other words, it is this size of the peak.
+
+76
+00:08:08,820 --> 00:08:17,750
+So neighborhoods used to find the polynomial spatial in each pixel, and you can see the recommendations
+
+77
+00:08:17,750 --> 00:08:19,070
+for this parameter.
+
+78
+00:08:19,490 --> 00:08:29,120
+Typically, while an equals five are equals seven, as you can see, we are using the default parameters.
+
+79
+00:08:29,510 --> 00:08:32,510
+The next one weren't quite sure.
+
+80
+00:08:33,140 --> 00:08:40,610
+That means the ball is sigma, which is the standard deviation, and there is this recommendation here.
+
+81
+00:08:41,030 --> 00:08:52,580
+If poorly and equals five, we can set wireless sigma one point one and if only an equal seven, then
+
+82
+00:08:52,580 --> 00:08:55,190
+we can try one point five.
+
+83
+00:08:55,400 --> 00:09:04,040
+We can just change to one point one here, and the last parameter equals zero, which means the flags
+
+84
+00:09:04,400 --> 00:09:07,670
+and we are using this first option.
+
+85
+00:09:07,670 --> 00:09:09,240
+Here it will.
+
+86
+00:09:09,240 --> 00:09:11,510
+We use the input flow.
+
+87
+00:09:11,720 --> 00:09:16,160
+The initial frame as initial flow approximation.
+
+88
+00:09:16,400 --> 00:09:23,090
+It means that we are using the first frame of the video after setting the parameters.
+
+89
+00:09:23,390 --> 00:09:32,360
+Now we need to perform some additional calculations and we will create sure new variables, the magnitude
+
+90
+00:09:32,870 --> 00:09:35,870
+and the angle which will be equal.
+
+91
+00:09:35,870 --> 00:09:40,940
+Cho Seung-Hui Cho dockyards cho polar.
+
+92
+00:09:41,180 --> 00:09:43,780
+This is an open city function.
+
+93
+00:09:44,120 --> 00:09:54,090
+Cho gets both values here to know the direction of the arrows to predict where the object is going or
+
+94
+00:09:54,200 --> 00:09:59,390
+the direction, and we will stand here as parameter flow.
+
+95
+00:09:59,870 --> 00:10:09,860
+We will put three dots here again, position zero and flow again three dots because we have a three
+
+96
+00:10:09,860 --> 00:10:12,530
+dimensional matrix position.
+
+97
+00:10:12,590 --> 00:10:14,510
+One is shards.
+
+98
+00:10:14,850 --> 00:10:23,270
+Both values represent the X and Y axis, the position of the object.
+
+99
+00:10:23,660 --> 00:10:31,160
+We can open the optical flow spires and we can take a look at this variable here.
+
+100
+00:10:31,490 --> 00:10:38,390
+New edges, which is the new position of the coroner and this code is similar.
+
+101
+00:10:38,690 --> 00:10:44,390
+Their results of this function will be in this flow variable here.
+
+102
+00:10:44,750 --> 00:10:49,520
+So in the first position, we get the magnitudes.
+
+103
+00:10:49,700 --> 00:10:57,440
+And in this second position, we get the angle, which in short, are the X and Y axis.
+
+104
+00:10:57,890 --> 00:11:07,760
+Now in this axis, our H s v matrix and now our wheel axis positions zero.
+
+105
+00:11:08,060 --> 00:11:11,060
+We already know that's a position.
+
+106
+00:11:11,060 --> 00:11:20,930
+Number one is this saturation that we initialized with the maximum value two hundred and fifty five.
+
+107
+00:11:21,320 --> 00:11:31,430
+Now we are going to axis the whole, which is used to indicate the direction of the peak cells or that
+
+108
+00:11:31,430 --> 00:11:31,970
+arrow.
+
+109
+00:11:32,240 --> 00:11:40,580
+If the arrow is pointing to the left to the right and so on, and it will be equal should the angle
+
+110
+00:11:41,390 --> 00:11:49,250
+lines one hundred and eighty divided by and B dots.
+
+111
+00:11:49,700 --> 00:11:54,050
+I this is the pie number used in calculus.
+
+112
+00:11:54,410 --> 00:11:56,810
+And let's divide by two.
+
+113
+00:11:57,260 --> 00:12:06,680
+Don't worry about all these calculations because it is an algebra equation to find the direction of
+
+114
+00:12:06,680 --> 00:12:07,430
+the arrow.
+
+115
+00:12:07,640 --> 00:12:18,440
+It deals with degrees, and now we need to axis the value, which is in position number two, which
+
+116
+00:12:18,440 --> 00:12:26,770
+is the thing city of the Pixel and we will call the function normalize.
+
+117
+00:12:27,200 --> 00:12:30,500
+Let's send here the magnitudes.
+
+118
+00:12:31,560 --> 00:12:44,100
+No, on the second barometer, the revolt, the values are from zero to 200 and 55 and civic ma'am naam
+
+119
+00:12:44,760 --> 00:12:46,350
+min max.
+
+120
+00:12:46,950 --> 00:12:49,530
+Basically, it was issue number two.
+
+121
+00:12:49,710 --> 00:12:53,040
+We are just normalizing the magnitudes.
+
+122
+00:12:53,460 --> 00:12:57,360
+Now we will create another variable frame.
+
+123
+00:12:58,290 --> 00:13:04,130
+RGV, which will be equal, should see future civility.
+
+124
+00:13:04,150 --> 00:13:13,160
+The Kuala Age as V and let's convert from H.
+
+125
+00:13:13,230 --> 00:13:27,390
+S V to BGR because we have this gallery space in the age matrix, which is used to perform the calculations
+
+126
+00:13:27,390 --> 00:13:30,190
+regarding the optical flow algorithm.
+
+127
+00:13:30,630 --> 00:13:40,410
+But in order to see the results on this screen, we need to convert again to RG B and now we can show
+
+128
+00:13:40,410 --> 00:13:42,620
+the results signature.
+
+129
+00:13:43,230 --> 00:14:00,210
+I am sure the title of the window bounce optical flow frame are good b if see which way key equals 13.
+
+130
+00:14:00,600 --> 00:14:07,680
+If we press another band, we will break the execution.
+
+131
+00:14:08,310 --> 00:14:18,270
+And finally, we need to shoot up the eight frame gray in its equals frame rate because we always need
+
+132
+00:14:18,270 --> 00:14:28,290
+to compare the previous frame with the next frame at the man's cop thought release.
+
+133
+00:14:29,440 --> 00:14:36,040
+Syria to destroy all windows, to release the memory.
+
+134
+00:14:36,430 --> 00:14:43,690
+Just an additional quote here, if not, OK, then we can break the execution.
+
+135
+00:14:44,290 --> 00:14:46,750
+Now let's run these codes.
+
+136
+00:14:46,870 --> 00:14:56,530
+We can open the window and take a look here that this is a different way to track the objects we are
+
+137
+00:14:56,530 --> 00:15:06,130
+running the walking video, which presents people walking on that streets so we can see the color spaces
+
+138
+00:15:06,130 --> 00:15:10,060
+here with information about the people.
+
+139
+00:15:11,990 --> 00:15:14,420
+We can see that we have good results.
+
+140
+00:15:14,660 --> 00:15:18,230
+We can track each one of the people in this video.
+
+141
+00:15:19,230 --> 00:15:23,850
+And that's all about the implementation of optical flow downs.
+
+142
+00:15:24,390 --> 00:15:25,560
+See you next time.
+

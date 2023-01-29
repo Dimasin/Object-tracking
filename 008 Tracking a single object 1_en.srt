@@ -1,0 +1,324 @@
+1
+00:00:00,360 --> 00:00:07,680
+Hello and welcome to this lecture, where we are going to start the implementation of tracking algorithms
+
+2
+00:00:07,890 --> 00:00:10,260
+using open civet library.
+
+3
+00:00:10,620 --> 00:00:17,520
+Just a reminder that last lecture we created this file best open CV.
+
+4
+00:00:17,820 --> 00:00:22,410
+Just to make sure that the library was successfully installed.
+
+5
+00:00:22,710 --> 00:00:33,390
+Now let's create a new file and we'll click new Python file, and the name of the file will be single
+
+6
+00:00:34,140 --> 00:00:34,800
+tracking.
+
+7
+00:00:35,130 --> 00:00:40,860
+The first goal will is to select and track only one object.
+
+8
+00:00:41,250 --> 00:00:44,830
+Let's sequence the libraries import civic.
+
+9
+00:00:44,850 --> 00:00:45,180
+Sure.
+
+10
+00:00:45,600 --> 00:00:55,110
+This is the open CV library in part, cease to have access to some functions of the operational system
+
+11
+00:00:55,380 --> 00:01:02,970
+from random import rounds and to generate random numbers.
+
+12
+00:01:03,660 --> 00:01:10,890
+Now I will create the first variable tracker type in the format of a list.
+
+13
+00:01:11,130 --> 00:01:20,130
+When we open and close brackets, we are defining a list in Python and the goal is to define here the
+
+14
+00:01:20,130 --> 00:01:23,370
+name of each one of the algorithms.
+
+15
+00:01:23,940 --> 00:01:28,770
+The first one is the most in the next one.
+
+16
+00:01:29,100 --> 00:01:32,520
+Am I al key CRF?
+
+17
+00:01:33,060 --> 00:01:39,570
+The next one, the EL the medicine flow moves.
+
+18
+00:01:40,410 --> 00:01:43,620
+And finally, see SRT.
+
+19
+00:01:43,950 --> 00:01:52,380
+This is the algorithms that we saw last lecturer's, and we are going to use this list to define the
+
+20
+00:01:52,380 --> 00:01:59,130
+algorithm that we are going to use less great than other variable tracker type.
+
+21
+00:01:59,550 --> 00:02:07,590
+This first one will change the name for tracker types, and in this other variable, we are going to
+
+22
+00:02:07,590 --> 00:02:10,199
+select one of these algorithms.
+
+23
+00:02:10,560 --> 00:02:15,630
+Let's access, for example, tracker types in position zero.
+
+24
+00:02:15,960 --> 00:02:18,960
+Let's bring this tracker type.
+
+25
+00:02:19,470 --> 00:02:23,790
+We can run this code just to perform the first test.
+
+26
+00:02:24,240 --> 00:02:34,200
+See that when we put numbers zero, we get the name, which is boosting indexes in Python starts from
+
+27
+00:02:34,200 --> 00:02:34,890
+zero.
+
+28
+00:02:35,490 --> 00:02:46,650
+Boasting is the algorithm zero and I l is the algorithm number one, GCF algorithm, number two and
+
+29
+00:02:46,650 --> 00:02:47,310
+so on.
+
+30
+00:02:47,910 --> 00:02:50,100
+Let's put here three.
+
+31
+00:02:50,610 --> 00:02:52,170
+Run this code again.
+
+32
+00:02:52,470 --> 00:02:59,700
+See, that's the result is the the position zero one two three.
+
+33
+00:02:59,940 --> 00:03:06,450
+We are going to use both variables in order to indicate the algorithm.
+
+34
+00:03:06,450 --> 00:03:09,300
+We are going to perform the tests.
+
+35
+00:03:09,810 --> 00:03:20,220
+Let's implement and if state dement's, if tracker type equals Boorstin, then we are going to create
+
+36
+00:03:20,220 --> 00:03:21,180
+the object.
+
+37
+00:03:21,560 --> 00:03:24,090
+I will create this other variable.
+
+38
+00:03:24,480 --> 00:03:27,930
+Tracker equals switcher.
+
+39
+00:03:28,590 --> 00:03:39,240
+Let's access this package legacy dot tracker boosting the underlying grid.
+
+40
+00:03:39,540 --> 00:03:45,300
+This is the way we can create each one of the algorithms we can.
+
+41
+00:03:45,300 --> 00:03:48,090
+Breen's the tracker.
+
+42
+00:03:48,600 --> 00:03:56,070
+But first, let's just change it to here to position zero, which is the boosting algorithm.
+
+43
+00:03:56,610 --> 00:03:58,260
+Let's run this code.
+
+44
+00:03:58,590 --> 00:04:09,060
+See here that we have this information tracker Boorstin, and this ladders here indicate that the object
+
+45
+00:04:09,060 --> 00:04:11,250
+was successfully created.
+
+46
+00:04:11,490 --> 00:04:16,980
+So now we have a boasting tracker in these variable here.
+
+47
+00:04:17,250 --> 00:04:26,040
+This ladder represents the address that the object is occupying in the memory of the operational system.
+
+48
+00:04:26,610 --> 00:04:33,840
+Now we need to perform order if state demands to create the order algorithms.
+
+49
+00:04:34,470 --> 00:04:44,370
+L If tracker type equals m i l, then the tracker will be equal.
+
+50
+00:04:44,370 --> 00:04:59,600
+Q Stevie Sure, legacy dots tracker m i l create l if tracker type equals Keith's.
+
+51
+00:05:01,280 --> 00:05:05,030
+Then the tracker will be quote, you see.
+
+52
+00:05:06,240 --> 00:05:20,870
+Legacy tracker key c f grade, you can't see that we are always accessing this same package now if tracker
+
+53
+00:05:20,870 --> 00:05:24,510
+type equals the next one.
+
+54
+00:05:24,740 --> 00:05:38,000
+The LV banded tracker will be equal to CV Q Legacy Tracker the LP create the next one.
+
+55
+00:05:38,870 --> 00:05:53,840
+If tracker type equals median flow, then the tracker will be equal to see fit your legacy tracker.
+
+56
+00:05:54,320 --> 00:05:56,020
+Median follow.
+
+57
+00:05:56,660 --> 00:05:57,500
+Create.
+
+58
+00:05:59,010 --> 00:06:09,450
+Al, if tracker type equals the next one is the WEWS algorithm, which is the fastest.
+
+59
+00:06:10,200 --> 00:06:19,700
+Then the tracker will be equal to spiritual legacy tracker Moos.
+
+60
+00:06:20,970 --> 00:06:21,660
+Great.
+
+61
+00:06:22,110 --> 00:06:27,300
+And finally, let's move on to the last algorithm L.
+
+62
+00:06:27,390 --> 00:06:41,910
+If dragon type equals C s r d, then track your equals c ritual legacy tracker.
+
+63
+00:06:42,120 --> 00:06:45,600
+C s r d create.
+
+64
+00:06:46,110 --> 00:06:53,760
+And just to make sure that all objects will be created, let's fast one by one.
+
+65
+00:06:54,210 --> 00:07:01,800
+The first one is the boost in the next one m i l.
+
+66
+00:07:02,130 --> 00:07:11,720
+The information here about the object means that it was successfully created the next one kiss.
+
+67
+00:07:11,740 --> 00:07:19,150
+See if we can see this error message because here we need capital ladder.
+
+68
+00:07:19,630 --> 00:07:22,950
+That's the first one here tracker.
+
+69
+00:07:23,640 --> 00:07:27,390
+And let's correct for the order algorithms.
+
+70
+00:07:28,890 --> 00:07:31,050
+Let's run this code again.
+
+71
+00:07:31,350 --> 00:07:34,980
+Now the object was successfully created.
+
+72
+00:07:35,460 --> 00:07:36,510
+The next one.
+
+73
+00:07:37,020 --> 00:07:41,070
+Number three, the L.D number four.
+
+74
+00:07:42,270 --> 00:07:46,200
+Median flow number five.
+
+75
+00:07:47,160 --> 00:07:48,930
+The Muse algorithm.
+
+76
+00:07:49,410 --> 00:08:00,480
+And finally, number six, see as our D we can see here the message indicating that the object was created.
+
+77
+00:08:00,900 --> 00:08:05,010
+This is the first step to implement object tracking.
+
+78
+00:08:05,280 --> 00:08:08,310
+We are creating different objects.
+
+79
+00:08:08,550 --> 00:08:16,320
+According to the algorithm, once you perform the tests and the next lecture, we will continue the
+
+80
+00:08:16,320 --> 00:08:17,190
+implementation.
+
+81
+00:08:17,610 --> 00:08:18,330
+See you there.
+

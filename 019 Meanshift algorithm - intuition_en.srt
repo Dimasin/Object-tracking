@@ -1,0 +1,192 @@
+1
+00:00:00,300 --> 00:00:07,680
+Hello and welcome to this lecture, where you are going to learn the basic intuition about the Meaning
+
+2
+00:00:07,680 --> 00:00:17,370
+Shift algorithm, which uses space analysis to find the maximum off adding city function.
+
+3
+00:00:17,760 --> 00:00:22,770
+They both texts here are the main concepts of the algorithm.
+
+4
+00:00:23,130 --> 00:00:27,210
+And now let's understand how it basically works.
+
+5
+00:00:27,780 --> 00:00:38,280
+It determines the weight of nearby points are big cells based on average calculation using crawlers.
+
+6
+00:00:38,700 --> 00:00:47,550
+Let's suppose that in this animation, there are four big cells one, two, three and four, and you
+
+7
+00:00:47,550 --> 00:00:50,190
+select these white peaks.
+
+8
+00:00:50,190 --> 00:00:51,810
+So here's a Two-track.
+
+9
+00:00:52,320 --> 00:00:57,640
+So the algorithm will move towards these white peaks.
+
+10
+00:00:57,650 --> 00:01:07,830
+So as you can see, the pixels are moved until they reach this area here where you once should track.
+
+11
+00:01:08,170 --> 00:01:14,710
+This is the thing, said the function when the number of peak cells is greater.
+
+12
+00:01:14,910 --> 00:01:23,610
+It is basically an approximation of the peak cells, according to the features of the initial object.
+
+13
+00:01:24,150 --> 00:01:35,130
+This other image shows another example where you can see the arrow moving towards these white bar here,
+
+14
+00:01:36,000 --> 00:01:39,210
+which might be what one should track.
+
+15
+00:01:39,540 --> 00:01:42,600
+So this is the density function.
+
+16
+00:01:43,320 --> 00:01:52,890
+There is another representation of the algorithm that are a set of points on the left side, and some
+
+17
+00:01:52,890 --> 00:01:55,560
+windows are circles here.
+
+18
+00:01:55,830 --> 00:02:00,750
+These three points, the algorithm needs to move.
+
+19
+00:02:01,050 --> 00:02:09,330
+These windows are circles should these areas here where I am pointing the mouse.
+
+20
+00:02:09,810 --> 00:02:17,280
+The algorithm will approximate this Reds peak sales trapeze image.
+
+21
+00:02:17,550 --> 00:02:26,850
+In other words, we are going to move to the area of maximal pixel density where there are more pixels
+
+22
+00:02:26,850 --> 00:02:29,730
+than in other parts of the image.
+
+23
+00:02:30,120 --> 00:02:37,110
+It will be moved should these red bars at the top where the density is higher.
+
+24
+00:02:37,650 --> 00:02:46,470
+Below we have the representation with these three bars and this is the biggest because there are more
+
+25
+00:02:46,470 --> 00:02:47,610
+pixels here.
+
+26
+00:02:48,030 --> 00:02:57,780
+Let's count, for example, one two three four five six seven pixels, so the bar is higher than the
+
+27
+00:02:57,780 --> 00:03:04,710
+others in this one one two three four five six pixels.
+
+28
+00:03:05,070 --> 00:03:09,240
+So the bar is smaller than this one here.
+
+29
+00:03:09,540 --> 00:03:15,510
+And finally, in this point here, there are only one big so.
+
+30
+00:03:15,720 --> 00:03:19,140
+So the bar is is smaller than the others.
+
+31
+00:03:19,440 --> 00:03:29,430
+So this is the density function that counts the number of pixels in each one of these windows here.
+
+32
+00:03:29,760 --> 00:03:35,910
+The size of the bars indicates the density, as you can read here.
+
+33
+00:03:36,240 --> 00:03:47,370
+The data point density The goal is to bring these points closer to these image, which is equivalent
+
+34
+00:03:47,370 --> 00:03:57,120
+should these one above and the ladders beat the f stand for probability density function, which is
+
+35
+00:03:57,120 --> 00:04:00,990
+the mathematical calculation used in mean shift.
+
+36
+00:04:01,350 --> 00:04:12,780
+We can consider this image here as the current frame of the video and this image here as the next frame,
+
+37
+00:04:13,230 --> 00:04:23,460
+a confidence map based on probabilities will be created to approximate the frames so that the algorithm
+
+38
+00:04:23,460 --> 00:04:27,690
+can identify where the target object is.
+
+39
+00:04:28,050 --> 00:04:39,270
+Larger bars here are related to greater probabilities, while smaller bars indicate less probability
+
+40
+00:04:39,360 --> 00:04:43,380
+of the object being in this position here.
+
+41
+00:04:43,650 --> 00:04:50,490
+In short, the object one should track is in this central part.
+
+42
+00:04:50,760 --> 00:04:51,990
+Where did things sit?
+
+43
+00:04:51,990 --> 00:04:55,230
+The R number of pixels cells is greater.
+
+44
+00:04:55,500 --> 00:04:59,310
+This or other animation shows how the upper.
+
+45
+00:04:59,450 --> 00:05:04,090
+Summation works that are more pixels in the center.
+
+46
+00:05:04,430 --> 00:05:09,590
+And the algorithm goes here where the object is located.
+
+47
+00:05:10,100 --> 00:05:17,650
+This is the basic intuition about missing shift and in the next lecture where we start the implementations.
+
+48
+00:05:17,990 --> 00:05:18,680
+See you there!
+

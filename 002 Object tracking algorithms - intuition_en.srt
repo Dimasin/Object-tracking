@@ -1,0 +1,244 @@
+1
+00:00:00,520 --> 00:00:07,510
+Hello and welcome to this lecture, where you are going to learn the basic intuition about tracking
+
+2
+00:00:07,510 --> 00:00:08,500
+algorithms.
+
+3
+00:00:08,860 --> 00:00:17,290
+First, you will understand that intuition and then we we implement then step by step using Python and
+
+4
+00:00:17,290 --> 00:00:18,970
+OPC Library.
+
+5
+00:00:19,150 --> 00:00:26,830
+We have this image here where the goal is to select the runner and track him should the and off the
+
+6
+00:00:26,830 --> 00:00:34,510
+track that are actually part of concepts that are used in almost all tracking algorithms.
+
+7
+00:00:35,110 --> 00:00:46,900
+The first is called motion model, which is a combination of location and speeds in previous frames.
+
+8
+00:00:47,470 --> 00:00:58,270
+So based on the location blurs speeds, it is possible to predict the next location of the object in
+
+9
+00:00:58,270 --> 00:01:00,400
+the next frame of the video.
+
+10
+00:01:00,940 --> 00:01:09,880
+We have the current frame here with the building blocks around the object, and the prediction will
+
+11
+00:01:09,880 --> 00:01:19,510
+indicate that in the next frame, the object will be in that part of the track where I am pointing the
+
+12
+00:01:19,510 --> 00:01:20,110
+mouse.
+
+13
+00:01:20,680 --> 00:01:30,190
+This second concept is the appearance model, which, as the name suggests, is responsible for storing
+
+14
+00:01:30,190 --> 00:01:32,380
+the object's appearance.
+
+15
+00:01:32,560 --> 00:01:40,510
+Or this shape should search for locations close to where the object will be in the next frame.
+
+16
+00:01:40,750 --> 00:01:49,720
+Then, nearby positions, some searches will be performed around the object, where I am pointing the
+
+17
+00:01:49,720 --> 00:01:54,250
+mouse to predict the next location and speeds.
+
+18
+00:01:54,550 --> 00:02:01,030
+Let's suppose that in the next frame, a car appears in this position.
+
+19
+00:02:01,420 --> 00:02:10,180
+The appearance model will check that's the appearance of a car is totally different from that bearings
+
+20
+00:02:10,180 --> 00:02:11,200
+of a person.
+
+21
+00:02:11,530 --> 00:02:19,390
+They have different shapes, so the algorithm will continue tracking only the person.
+
+22
+00:02:19,870 --> 00:02:24,010
+Here we have a summary of these two concepts.
+
+23
+00:02:24,520 --> 00:02:30,580
+The motion model predicts the approximate location of the object.
+
+24
+00:02:31,060 --> 00:02:40,780
+The appearance model adjusts the location to provides a more accurate location based on the appearance
+
+25
+00:02:40,780 --> 00:02:42,010
+of the object.
+
+26
+00:02:42,340 --> 00:02:47,500
+And in general, algorithms use both techniques together.
+
+27
+00:02:47,920 --> 00:02:52,300
+The motion model blurs the appearance model.
+
+28
+00:02:52,750 --> 00:03:01,120
+The purpose of a tracking algorithm is to classify a rectangular region as an object.
+
+29
+00:03:01,210 --> 00:03:10,900
+Are the background of the image, which is everything in the image that has no relation to the object
+
+30
+00:03:10,900 --> 00:03:12,400
+that we are tracking.
+
+31
+00:03:12,910 --> 00:03:23,890
+For example, in this image, several boarding boxes will be created here, here and here, and the
+
+32
+00:03:23,890 --> 00:03:29,230
+algorithm will receive an image batch as inputs.
+
+33
+00:03:29,530 --> 00:03:37,600
+This is through immunology that represents information about the big cells of the images, and it will
+
+34
+00:03:37,600 --> 00:03:42,700
+return our value in the range from zero to one.
+
+35
+00:03:43,000 --> 00:03:53,110
+That represents a probability of the area being the object or the background of the image bit closer
+
+36
+00:03:53,110 --> 00:03:53,830
+to one.
+
+37
+00:03:54,190 --> 00:03:58,960
+The more likely it is to be classified as the object.
+
+38
+00:03:59,350 --> 00:04:08,380
+On the other hand, the closer to zero, the more likely it is to be classified as the background.
+
+39
+00:04:08,950 --> 00:04:19,660
+Each one of these rectangles is an image batch that will be sent to the algorithm, and then we can
+
+40
+00:04:19,660 --> 00:04:28,780
+get the probabilities, for example, than present here 80 percent here and Tampa-St. here.
+
+41
+00:04:29,080 --> 00:04:37,960
+As the person is in this central part of the track, we have a higher probability in the middle box,
+
+42
+00:04:38,290 --> 00:04:44,080
+which is the real direction of the object and the prediction of the algorithm.
+
+43
+00:04:44,440 --> 00:04:55,060
+So in short, the algorithm we will receive as inputs the image batch of this surrounding possible positions
+
+44
+00:04:55,060 --> 00:04:59,970
+that the object could go and will generate a probability.
+
+45
+00:05:00,060 --> 00:05:08,640
+For each one of them, and the highest value will be the selected location of the object in the next
+
+46
+00:05:08,640 --> 00:05:10,140
+frame of the video.
+
+47
+00:05:10,530 --> 00:05:19,770
+Tracking algorithms can be developed using chalk machine learning techniques, online learning and offline
+
+48
+00:05:19,770 --> 00:05:20,370
+learning.
+
+49
+00:05:20,760 --> 00:05:29,160
+Most algorithms use the first approach they are trained in real time and at runtime.
+
+50
+00:05:29,640 --> 00:05:37,890
+The training starts when the algorithm is executed and all mathematical calculations are done during
+
+51
+00:05:37,920 --> 00:05:39,090
+execution.
+
+52
+00:05:39,540 --> 00:05:47,280
+On the other hands, thousands of images are needed to train and off line classifier.
+
+53
+00:05:47,700 --> 00:05:51,090
+For example, should track cats and dogs.
+
+54
+00:05:51,360 --> 00:06:00,780
+It would take thousands of images of cats and dogs so the algorithm can learn from the images before
+
+55
+00:06:00,780 --> 00:06:01,710
+tracking them.
+
+56
+00:06:02,220 --> 00:06:10,770
+Online learning is faster and training starts when you select the object you want to track in the next
+
+57
+00:06:10,770 --> 00:06:11,490
+lectures.
+
+58
+00:06:11,700 --> 00:06:15,450
+We will implement so it will be easier to understand.
+
+59
+00:06:15,720 --> 00:06:21,030
+And that's all for this basic content about object tracking algorithms.
+
+60
+00:06:21,360 --> 00:06:28,230
+And in the next lecture, you will start learning the intuition of some tracking algorithms.
+
+61
+00:06:28,560 --> 00:06:29,250
+See you there!
+

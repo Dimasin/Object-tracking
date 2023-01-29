@@ -1,0 +1,288 @@
+1
+00:00:00,150 --> 00:00:07,680
+Hello and welcome to this lecture, where we are going to continue the implementation of multiple strategy.
+
+2
+00:00:08,039 --> 00:00:15,240
+Just a reminder that last lecture, we just did some improvements on this single tracking quote.
+
+3
+00:00:15,750 --> 00:00:26,100
+Now we copied this part here where we are loading the video copy and paste it here.
+
+4
+00:00:26,400 --> 00:00:28,770
+We can put this brilliance in comments.
+
+5
+00:00:29,010 --> 00:00:35,250
+We are just loading the video and then we will define new variables.
+
+6
+00:00:35,550 --> 00:00:47,400
+The first one bit boxes and empty list and colors again, and the lists in this single tracking example,
+
+7
+00:00:47,640 --> 00:00:56,130
+we have only one building blocks and now we need to select more than one building blocks in the first
+
+8
+00:00:56,130 --> 00:00:57,720
+frame of the video.
+
+9
+00:00:58,020 --> 00:01:06,210
+So we are going to start all the bounding boxes and the corresponding colors in these new variables,
+
+10
+00:01:06,720 --> 00:01:10,410
+how we will define a look way through.
+
+11
+00:01:11,100 --> 00:01:24,210
+Let's create the big box variable true thoughts select ROI in order to select the region of interest.
+
+12
+00:01:24,900 --> 00:01:26,340
+Let's Typekit here.
+
+13
+00:01:26,760 --> 00:01:28,770
+Load the tracker.
+
+14
+00:01:29,130 --> 00:01:36,390
+It is the name of the window, and we also need to specify the first frame of the video.
+
+15
+00:01:36,600 --> 00:01:39,690
+Let's create these variables here.
+
+16
+00:01:40,440 --> 00:01:41,220
+OK?
+
+17
+00:01:41,520 --> 00:01:45,420
+And frame Hadeel thought rate.
+
+18
+00:01:45,690 --> 00:01:48,600
+We are accessing this variable here.
+
+19
+00:01:48,810 --> 00:01:54,180
+We are copying through the frame variable, the first frame of the video.
+
+20
+00:01:54,630 --> 00:02:05,280
+After selecting the building blocks, we will access the big box is variable dots are bands b box.
+
+21
+00:02:05,670 --> 00:02:10,110
+We are adding the boarding box to this list here.
+
+22
+00:02:10,380 --> 00:02:14,580
+We also need to access the colors variable.
+
+23
+00:02:14,790 --> 00:02:21,000
+And let's define the random numbers in order to have different colors.
+
+24
+00:02:21,360 --> 00:02:22,440
+Reds ends.
+
+25
+00:02:22,890 --> 00:02:34,260
+Zero two five five Common Grounds ends zero two five five All My Rands ends zero two five five.
+
+26
+00:02:34,620 --> 00:02:39,930
+We are generating a different color for each one of the boarding boxes.
+
+27
+00:02:40,200 --> 00:02:49,620
+Now we need to define the key should be pressed on the keyboards to interrupt the execution of this
+
+28
+00:02:49,620 --> 00:02:57,810
+while loop after we select all objects that one should track and we will create a new variable.
+
+29
+00:02:58,140 --> 00:03:03,300
+Key equals C ritual weight Typekit zero.
+
+30
+00:03:03,570 --> 00:03:13,290
+This parameter zero is expecting a key from the keyboards and we also need this exact decimal codes.
+
+31
+00:03:13,650 --> 00:03:20,160
+And now we can just check if key equals one one three.
+
+32
+00:03:20,670 --> 00:03:26,700
+This is the codes for ladder key, which means quid's.
+
+33
+00:03:27,030 --> 00:03:33,540
+So when we press wits, we will interrupt the execution of the while loop.
+
+34
+00:03:33,810 --> 00:03:39,510
+Then we can just break the code to be easier fast to this code.
+
+35
+00:03:39,810 --> 00:03:41,850
+Let's sprints two messages.
+
+36
+00:03:42,420 --> 00:03:50,530
+Press key should quit and start tracking.
+
+37
+00:03:50,880 --> 00:04:00,480
+And another print press and your other key should select the next object.
+
+38
+00:04:01,200 --> 00:04:03,570
+Now, let's run this code.
+
+39
+00:04:03,870 --> 00:04:08,580
+We have that same in messages so we can open this window.
+
+40
+00:04:08,850 --> 00:04:19,829
+Let's suppose we want to track this runner with select the him, and then we press Space R and through
+
+41
+00:04:20,370 --> 00:04:22,500
+to confirm the selection.
+
+42
+00:04:22,800 --> 00:04:24,720
+Let's press enter.
+
+43
+00:04:25,170 --> 00:04:35,460
+Now we can see the new messages press key to quit and start tracking and press any other key to select
+
+44
+00:04:35,460 --> 00:04:36,810
+the next object.
+
+45
+00:04:37,230 --> 00:04:43,140
+If we press key, see that there is a queue show is interrupt.
+
+46
+00:04:43,500 --> 00:04:51,120
+So it means we and third this if statement here and the while loop is stopped.
+
+47
+00:04:51,900 --> 00:04:53,100
+Let's run again.
+
+48
+00:04:53,880 --> 00:04:55,800
+We'll select the runner.
+
+49
+00:04:56,340 --> 00:04:57,720
+Press enter.
+
+50
+00:04:57,990 --> 00:04:59,970
+And now we can press and.
+
+51
+00:05:00,120 --> 00:05:07,530
+The other, a key to select the next object, you can't press any other ladder, for example, A, B,
+
+52
+00:05:07,530 --> 00:05:09,810
+C, D, B and so on.
+
+53
+00:05:10,120 --> 00:05:18,720
+How we press ladder B, we can see the message again, select the ROI and then press space or enter.
+
+54
+00:05:19,050 --> 00:05:24,000
+I will select these other runner press and third.
+
+55
+00:05:24,330 --> 00:05:26,640
+Now we can see this message again.
+
+56
+00:05:27,300 --> 00:05:33,930
+Let's suppose we want to select another object so we can press any other key.
+
+57
+00:05:34,140 --> 00:05:39,990
+For example, Ladder A, we select the order enter.
+
+58
+00:05:40,500 --> 00:05:49,890
+And when we finish selecting all the objects one should track, we can press key and then the wire loop
+
+59
+00:05:49,890 --> 00:05:53,520
+is interrupted to see the bounding boxes.
+
+60
+00:05:53,940 --> 00:06:03,780
+We can print bit boxes and we can also prints the colors off each one of them.
+
+61
+00:06:04,350 --> 00:06:06,690
+Let's run again.
+
+62
+00:06:07,050 --> 00:06:17,160
+I will select the first runner press and there I will type Leader B to select the next runner.
+
+63
+00:06:18,000 --> 00:06:22,320
+Press and their ladder B or any other key.
+
+64
+00:06:22,470 --> 00:06:24,930
+Just select other objects.
+
+65
+00:06:25,530 --> 00:06:28,080
+I will select this one here.
+
+66
+00:06:28,440 --> 00:06:29,610
+Press Enter.
+
+67
+00:06:30,030 --> 00:06:35,820
+Then I will press Ladder Q and then we can see the results.
+
+68
+00:06:36,060 --> 00:06:43,950
+Three bounding boxes with three corresponding our g b colors.
+
+69
+00:06:44,370 --> 00:06:51,150
+And this is the codes needed to select each one of the objects one should track.
+
+70
+00:06:51,630 --> 00:06:57,090
+We need three bounding boxes and three different colours.
+
+71
+00:06:57,330 --> 00:07:01,230
+And in the next lecture, we will finish the implementation.
+
+72
+00:07:01,560 --> 00:07:02,240
+See you there!
+
