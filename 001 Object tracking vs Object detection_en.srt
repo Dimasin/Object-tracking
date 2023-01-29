@@ -1,0 +1,276 @@
+1
+00:00:00,330 --> 00:00:08,250
+Hello and welcome to this lecture, where you are going to learn the differences between object tracking
+
+2
+00:00:08,430 --> 00:00:10,380
+and object detection.
+
+3
+00:00:10,740 --> 00:00:18,600
+Sometimes both terms are used as if they were the same, but there is a very important difference,
+
+4
+00:00:18,930 --> 00:00:24,330
+mainly regarding how the implementation of the algorithms was made.
+
+5
+00:00:24,480 --> 00:00:32,340
+In general, tracking algorithms are much faster than detection algorithms because it should track and
+
+6
+00:00:32,340 --> 00:00:33,090
+object.
+
+7
+00:00:33,390 --> 00:00:41,380
+The algorithm already knows what it looks like in order to track it in the next frames of the video.
+
+8
+00:00:41,400 --> 00:00:50,760
+For example, let's suppose that the goal is to track the runner to the and off the track in this frame
+
+9
+00:00:50,760 --> 00:00:51,390
+here.
+
+10
+00:00:51,660 --> 00:01:00,870
+We already have basic information about the object, and when you are in this position here where I
+
+11
+00:01:00,870 --> 00:01:08,310
+am pointing the mouse, we can use this information about the features of the object.
+
+12
+00:01:08,580 --> 00:01:17,940
+And also the algorithms can detect a kind of patterns that indicates the direction and speed of the
+
+13
+00:01:17,940 --> 00:01:18,630
+object.
+
+14
+00:01:19,230 --> 00:01:24,540
+The runner is following the track from left to right.
+
+15
+00:01:24,870 --> 00:01:32,490
+So the algorithm already knows that in the next frame of the video, the person will be here.
+
+16
+00:01:33,210 --> 00:01:40,830
+In short, this information is used to predict the location of the object in the next frame.
+
+17
+00:01:41,190 --> 00:01:50,010
+For this reason, tracking algorithms are faster because they use existing data, whereas a detection
+
+18
+00:01:50,010 --> 00:01:57,960
+algorithm would have to be executed from scratch frame by frame without reusing data.
+
+19
+00:01:58,230 --> 00:02:01,260
+It would take a longer time to execute.
+
+20
+00:02:01,470 --> 00:02:08,850
+On the other hand, tracking algorithms can have a little difficulty in tracking objects that change
+
+21
+00:02:08,850 --> 00:02:10,500
+position drastically.
+
+22
+00:02:10,620 --> 00:02:20,040
+For example, if in the next frame, the person appears below here instead of following the straight
+
+23
+00:02:20,040 --> 00:02:20,550
+line.
+
+24
+00:02:20,790 --> 00:02:26,490
+In this situation, it will be difficult for the algorithm to follow the object.
+
+25
+00:02:26,580 --> 00:02:37,830
+If there is a video composed of 100 frames, a detection algorithm will run 100 times once for each
+
+26
+00:02:37,830 --> 00:02:38,400
+frame.
+
+27
+00:02:38,730 --> 00:02:46,740
+On the other hand, are tracking algorithm will detect the object only in the first frame, and then
+
+28
+00:02:46,740 --> 00:02:51,540
+it will use that information until the end of the video.
+
+29
+00:02:51,840 --> 00:02:57,990
+When you start working with some algorithms, it is common to have some problems.
+
+30
+00:02:58,320 --> 00:03:08,130
+For example, in this image here, see, that's the bounding box moves away from the object, and it
+
+31
+00:03:08,130 --> 00:03:11,370
+can happen when the speed is very high.
+
+32
+00:03:11,610 --> 00:03:17,820
+And the algorithm loses contact with the object in this other image here.
+
+33
+00:03:18,090 --> 00:03:25,860
+See, that's the lag of the runner does not appear very well due to the speeds.
+
+34
+00:03:26,310 --> 00:03:34,650
+Therefore, the algorithm can also have difficulties in tracking the objects, and the bounding box
+
+35
+00:03:34,650 --> 00:03:36,630
+was placed higher.
+
+36
+00:03:36,840 --> 00:03:41,710
+To solve this type of problem, you can try different algorithms.
+
+37
+00:03:42,060 --> 00:03:45,510
+Some of them are suitable for faster videos.
+
+38
+00:03:45,750 --> 00:03:54,180
+Later in this class, you will learn a lot of algorithms and we will be able to perform some tests related
+
+39
+00:03:54,180 --> 00:03:55,140
+to this issue.
+
+40
+00:03:55,320 --> 00:04:00,780
+Another solution to this problem is to use a detection algorithm again.
+
+41
+00:04:01,050 --> 00:04:01,350
+Sure.
+
+42
+00:04:01,350 --> 00:04:03,480
+Is that the tracking algorithm?
+
+43
+00:04:03,690 --> 00:04:11,830
+For example, when this bounding box here loses the object, we run the detection algorithm again,
+
+44
+00:04:11,830 --> 00:04:12,920
+chalkboards.
+
+45
+00:04:12,930 --> 00:04:19,560
+The building blocks in this position here again so that the tracking starts again.
+
+46
+00:04:19,920 --> 00:04:24,120
+Later, we will implement tracking less detection.
+
+47
+00:04:24,690 --> 00:04:32,070
+Finally, a tracking algorithm can adapt to small variations in the images in the videos.
+
+48
+00:04:32,430 --> 00:04:41,880
+For example, in these cases where the person boards here are her hands in front of the face, a face
+
+49
+00:04:41,880 --> 00:04:47,930
+recognition algorithm would probably not recognize the faces.
+
+50
+00:04:48,400 --> 00:04:48,770
+Why?
+
+51
+00:04:48,780 --> 00:04:53,220
+What tracking algorithm would still be executing correctly?
+
+52
+00:04:53,550 --> 00:04:59,250
+It happens because a tracking algorithm considers the location and.
+
+53
+00:04:59,670 --> 00:05:02,980
+You rinse off the object in the previous frame.
+
+54
+00:05:03,450 --> 00:05:13,530
+In the previous frame, the algorithm identifies that the dispersant here did not have his hands in
+
+55
+00:05:13,530 --> 00:05:15,210
+front of his face.
+
+56
+00:05:15,360 --> 00:05:23,370
+And when the person puts the hands in front of the face, the algorithm will continue tracking.
+
+57
+00:05:23,670 --> 00:05:33,210
+In other words, the algorithm already has the information for the right part of the face here, which
+
+58
+00:05:33,210 --> 00:05:36,330
+was obtained from the previous frame.
+
+59
+00:05:36,630 --> 00:05:44,160
+This animation shows the differences between tracking and detection, as you can read here.
+
+60
+00:05:44,520 --> 00:05:48,000
+Tracking preserves the object's identity.
+
+61
+00:05:48,330 --> 00:05:55,620
+Once the algorithm starts tracking, the object is treated as a single entity.
+
+62
+00:05:55,830 --> 00:06:01,200
+For example, look at this orange point where I'm pointing the mouse.
+
+63
+00:06:01,680 --> 00:06:06,450
+It has this same color from the beginning to the ends of the trace.
+
+64
+00:06:06,810 --> 00:06:12,780
+It's the same object and it indicates where the object is going.
+
+65
+00:06:13,050 --> 00:06:18,930
+On the other hand, the detection only analyze each frame of the video.
+
+66
+00:06:19,410 --> 00:06:23,790
+It's not possible to follow the path of the object.
+
+67
+00:06:24,180 --> 00:06:25,920
+That's all for this lecture.
+
+68
+00:06:26,190 --> 00:06:33,420
+And then the next one, you will start learning the basic intuition about some tracking algorithms.
+
+69
+00:06:33,750 --> 00:06:34,470
+See you there!
+
